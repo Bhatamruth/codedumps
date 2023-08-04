@@ -1,0 +1,324 @@
+ConcurrentLinkedQueueDemo
+
+
+package javasample.concurrentlinkedlist;
+
+//Java Program Demonstrate accessing
+//elements of ConcurrentLinkedQueue
+
+import java.util.*;
+import java.util.concurrent.*;
+
+public class AccessingElementsExample {
+
+	public static void main(String[] args) throws IllegalStateException
+	{
+		// Create an instance of ConcurrentLinkedQueue
+		ConcurrentLinkedQueue<Integer> Q = new ConcurrentLinkedQueue<>();
+
+		// Add numbers to end of Queue
+		Q.add(7855642);
+		Q.add(35658786);
+		Q.add(5278367);
+		Q.add(74381793);
+
+		// print queue
+		System.out.println("Queue: " + Q);
+
+		// print head
+		System.out.println("Queue's head: " + Q.element());
+
+		// print head
+		System.out.println("Queue's head: " + Q.peek());
+	}
+}
+
+
+package javasample.concurrentlinkedlist;
+
+//Java program to demonstrate ConcurrentLinkedQueue
+
+import java.util.concurrent.*;
+
+class ConcurrentLinkedQueueDemo {
+
+	public static void main(String[] args)
+	{
+		// Create a ConcurrentLinkedQueue
+		// using ConcurrentLinkedQueue() constructor
+		ConcurrentLinkedQueue<Integer>
+			clq = new ConcurrentLinkedQueue<Integer>();
+
+		clq.add(12);
+		clq.add(70);
+		clq.add(1009);
+		clq.add(475);
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("ConcurrentLinkedQueue: "
+						+ clq);
+
+		// Create a ConcurrentLinkedQueue
+		// using ConcurrentLinkedQueue(Collection c)
+		// constructor
+		ConcurrentLinkedQueue<Integer>
+			clq1 = new ConcurrentLinkedQueue<Integer>(clq);
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("ConcurrentLinkedQueue1: "
+						+ clq1);
+	}
+}
+
+
+package javasample.concurrentlinkedlist;
+//Java code to illustrate
+//methods of ConcurrentLinkedQueue
+
+import java.util.concurrent.*;
+
+class ConcurrentLinkedQueueDemo1 {
+
+	public static void main(String[] args)
+	{
+
+		// Create a ConcurrentLinkedQueue
+		// using ConcurrentLinkedQueue()
+		// constructor
+		ConcurrentLinkedQueue<Integer>
+			clq = new ConcurrentLinkedQueue<Integer>();
+
+		clq.add(12);
+		clq.add(70);
+		clq.add(1009);
+		clq.add(475);
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("ConcurrentLinkedQueue: "
+						+ clq);
+
+		// Displaying the first element
+		// using peek() method
+		System.out.println("First Element is: "
+						+ clq.peek());
+
+		// Remove and display the first element
+		// using poll() method
+		System.out.println("Head Element is: "
+						+ clq.poll());
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("ConcurrentLinkedQueue: "
+						+ clq);
+
+		// Get the size using size() method
+		System.out.println("Size: "
+						+ clq.size());
+	}
+}
+
+
+package javasample.concurrentlinkedlist;
+
+//Java code to illustrate
+//methods of ConcurrentLinkedQueue
+
+import java.util.concurrent.*;
+
+class ConcurrentLinkedQueueDemo2 {
+
+	public static void main(String[] args)
+	{
+
+		// Create a ConcurrentLinkedQueue
+		// using ConcurrentLinkedQueue()
+		// constructor
+		ConcurrentLinkedQueue<Integer>
+			clq = new ConcurrentLinkedQueue<Integer>();
+
+		clq.add(12);
+		clq.add(70);
+		clq.add(1009);
+		clq.add(475);
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("ConcurrentLinkedQueue: "
+						+ clq);
+
+		// Displaying the first element
+		// using peek() method
+		System.out.println("First Element is: "
+						+ clq.peek());
+
+		// Remove and display the first element
+		// using poll() method
+		System.out.println("Head Element is: "
+						+ clq.poll());
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("ConcurrentLinkedQueue: "
+						+ clq);
+
+		// Get the size using size() method
+		System.out.println("Size: "
+						+ clq.size());
+	}
+}
+
+
+package javasample.concurrentlinkedlist;
+import java.util.concurrent.*;
+import java.util.*;
+
+public class ConcurrentLinkedQueueDemo3 {
+
+	// Java Program Demonstrate adding
+	// elements to ConcurrentLinkedQueue
+
+
+
+
+		public static void main(String[] args)
+		{
+
+			// Create an instance of ConcurrentLinkedQueue
+			ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<String>();
+
+			// Add String to queue using add method
+			queue.add("Kolkata");
+			queue.add("Patna");
+			queue.add("Delhi");
+			queue.add("Jammu");
+
+			// Displaying the existing ConcurrentLinkedQueue
+			System.out.println("ConcurrentLinkedQueue: " + queue);
+
+			// create a ArrayList of Strings
+			ArrayList<String> arraylist = new ArrayList<String>();
+
+			// add String to ArrayList
+			arraylist.add("Sanjeet");
+			arraylist.add("Rabi");
+			arraylist.add("Debasis");
+			arraylist.add("Raunak");
+			arraylist.add("Mahesh");
+
+			// Displaying the existing Collection
+			System.out.println("Collection to be added: " + arraylist);
+
+			// apply addAll() method and passed
+			// the arraylist as parameter
+			boolean response = queue.addAll(arraylist);
+
+			// Displaying the existing ConcurrentLinkedQueue
+			System.out.println("Collection added: " + response);
+
+			// Displaying the existing ConcurrentLinkedQueue
+			System.out.println("ConcurrentLinkedQueue: " + queue);
+		}
+	}
+
+
+package javasample.concurrentlinkedlist;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+public class Prepbytes {
+
+    public static void main(String[] args) {
+
+        /*
+         * Create an empty ConcurrentLinkedQueue
+         */
+        ConcurrentLinkedQueue<Integer> queue = new ConcurrentLinkedQueue<Integer>();
+
+        // Add values to this queue
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+        queue.add(4);
+        queue.add(9);
+        queue.add(11);
+
+    // Create a object array from the queue
+        Object[] arr = (Object[]) queue.toArray();
+       
+    // Print elements of the queue
+        for(Object o : arr) {
+            System.out.println(o);
+        }
+   }
+}
+
+
+package javasample.concurrentlinkedlist;
+
+//Java Program Demonstrate removing
+//elements from ConcurrentLinkedQueue
+
+import java.util.concurrent.*;
+
+public class RemovingElementsExample {
+
+	public static void main(String[] args)
+	{
+
+		// Create an instance of ConcurrentLinkedQueue
+		ConcurrentLinkedQueue<Integer> queue = new ConcurrentLinkedQueue<Integer>();
+
+		// Add Numbers to queue using add(e) method
+		queue.add(4353);
+		queue.add(7824);
+		queue.add(78249);
+		queue.add(8724);
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("ConcurrentLinkedQueue: " + queue);
+
+		// apply remove() for Number 78249
+		boolean response = queue.remove(78249);
+
+		// print results
+		System.out.println("Removing Number 78249 successful: " + response);
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("Updated ConcurrentLinkedQueue: " + queue);
+	}
+}
+
+
+package javasample.concurrentlinkedlist;
+
+//Java Program Demonstrate Iterating
+//over ConcurrentLinkedQueue
+
+import java.util.concurrent.*;
+import java.util.*;
+
+public class TraversingExample {
+
+	public static void main(String[] args)
+	{
+		// Create an instance of ConcurrentLinkedQueue
+		ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<String>();
+
+		// Add String to queue using add(e) method
+		queue.add("Aman");
+		queue.add("Amar");
+		queue.add("Sanjeet");
+		queue.add("Rabi");
+
+		// Displaying the existing ConcurrentLinkedQueue
+		System.out.println("ConcurrentLinkedQueue : " + queue);
+
+		// Call iterator() method
+		Iterator iterator = queue.iterator();
+
+		// Print elements of iterator
+		System.out.println("\nThe String Values of iterator are:");
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+	}
+}
+
+
