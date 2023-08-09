@@ -1,0 +1,262 @@
+package javasample.hashmap.examples;
+import java.util.HashMap;
+
+
+public class hashmap1 {
+
+	    public static void main(String[] args) 
+	    {
+	        //1. Creating HashMap with default initial capacity and load factor
+	         
+	        HashMap<String, Integer> map1 = new HashMap<String, Integer>();
+	         
+	        //2. Creating HashMap with 30 as initial capacity 
+	         
+	        HashMap<String, Integer> map2 = new HashMap<String, Integer>(30);
+	         
+	        //3. Creating HashMap with 30 as initial capacity and 0.5 as load factor
+	         
+	        HashMap<String, Integer> map3 = new HashMap<String, Integer>(30, 0.5f);
+	         
+	        //4. Creating HashMap by copying another HashMap
+	         
+	        HashMap<String, Integer> map4 = new HashMap<String, Integer>(map1);
+	    }   
+	}
+
+package javasample.hashmap.examples;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+  
+public class hashmap10 {
+
+   
+	    public static void main(String[] args) 
+	    {
+	        //Creating the HashMap 
+	         
+	        HashMap<String, String> map = new HashMap<String, String>();
+	         
+	        //Adding key-value pairs to HashMap
+	         
+	        map.put("ONE", "AAA");
+	         
+	         
+	        map.put("THREE", "CCC");
+	         
+	        map.put("FOUR", "DDD");
+	         
+	        map.put("FIVE", "EEE");
+	         
+	        //Retrieving the Set consists of all key-value pairs in map
+	        map.put("TWO", "BBB");
+	         
+	        Set<Entry<String, String>> keyValueSet = map.entrySet();
+	         
+	        for (Entry<String, String> entry : keyValueSet) 
+	        {
+	            System.out.println(entry.getKey()+" : "+entry.getValue());
+	        }
+	    }   
+	
+}
+
+
+package javasample.hashmap.examples;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+public class hashmap2 {
+
+
+   public static void main(String[] args) 
+    {
+        //Creating HashMap with default initial capacity and load factor
+         
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+         
+        //Inserting key-value pairs to map using put() method
+         
+        map.put("ONE", 1);
+         
+        map.put("TWO", 2);
+         
+        map.put("THREE", 3);
+         
+        map.put("FOUR", 4);
+         
+        map.put("FIVE", 5);
+         
+        //Printing key-value pairs 
+         
+        Set<Entry<String, Integer>> entrySet = map.entrySet();
+         
+        for (Entry<String, Integer> entry : entrySet) 
+        {
+            System.out.println(entry.getKey()+" : "+entry.getValue());
+        }
+         
+        System.out.println("-------------------------");
+         
+        //Creating another HashMap
+         
+        HashMap<String, Integer> anotherMap = new HashMap<String, Integer>();
+         
+        //Inserting key-value pairs to anotherMap using put() method
+         
+        anotherMap.put("SIX", 6);
+         
+        anotherMap.put("SEVEN", 7);
+         
+        //Inserting key-value pairs of map to anotherMap using putAll() method
+         
+        anotherMap.putAll(map);
+         
+        //Printing key-value pairs of anotherMap
+         
+        entrySet = anotherMap.entrySet();
+         
+        for (Entry<String, Integer> entry : entrySet) 
+        {
+            System.out.println(entry.getKey()+" : "+entry.getValue());
+        }
+    }   
+}
+
+package javasample.hashmap.examples;
+import java.util.HashMap;
+
+
+public class hashmap4 {
+
+	    public static void main(String[] args) 
+	    {
+	        //Creating HashMap with default initial capacity and load factor
+	         
+	        HashMap<String, Integer> map = new HashMap<String, Integer>();
+	         
+	        //Adding key-value pairs to HashMap
+	         
+	        map.put("ONE", 1);
+	         
+	        map.put("TWO", 2);
+	         
+	        map.put("THREE", 3);
+	         
+	        map.put("FOUR", 4);
+	         
+	        //Retrieving a value associated with key 'TWO'
+	         
+	        int value = map.get("TWO");
+	         
+	        System.out.println(value);       //Output : 2
+	    }   
+	
+}
+package javasample.hashmap.examples;
+import java.util.HashMap;
+
+
+
+public class hashmap5 {
+    
+	    public static void main(String[] args) 
+	    {
+	        //Creating the HashMap
+	         
+	        HashMap<Integer, Double> map = new HashMap<Integer, Double>();
+	         
+	        //Adding key-value pairs to HashMap
+	         
+	        map.put(1, 1.1);
+	         
+	        map.put(2, 2.2);
+	         
+	        map.put(3, 3.3);
+	         
+	        map.put(4, 4.4);
+	         
+	        //Checking whether key '3' exist in map
+	         
+	        System.out.println(map.containsKey(3));      //Output : true
+	         
+	        //Checking whether value '3.3' exist in map
+	         
+	        System.out.println(map.containsValue(3.3));   //Output : true
+	    }   
+	
+}
+
+
+package javasample.hashmap.examples;
+import java.util.HashMap;
+
+
+public class hashmap6 {
+
+
+
+    public static void main(String[] args) 
+    {
+        //Creating the HashMap 
+         
+        HashMap<Integer, Double> map = new HashMap<Integer, Double>();
+         
+        //Adding key-value pairs to HashMap
+         
+        map.put(111, 111.111);
+         
+        map.put(222, 222.222);
+         
+        map.put(333, 333.333);
+         
+        map.put(444, 444.444);
+         
+        map.put(555, 555.555);
+         
+        //Retrieving the number of key-value pairs present in map
+         
+        System.out.println(map.size());      //Output : 5
+    }   
+}
+
+package javasample.hashmap.examples;
+import java.util.HashMap;
+
+public class hashmap7 {
+
+
+    
+    public static void main(String[] args) 
+    {
+        //Creating the HashMap
+         
+        HashMap<Integer, Double> map = new HashMap<Integer, Double>();
+         
+        //Adding key-value pairs to HashMap
+         
+        map.put(111, 111.111);
+         
+        map.put(222, 222.222);
+         
+        map.put(333, 333.333);
+         
+        map.put(444, 444.444);
+         
+        map.put(555, 555.555);
+         
+        //Retrieving the number of key-value pairs
+         
+        System.out.println(map.size());      //Output : 5
+         
+        //Clearing the map
+         
+        map.clear();
+         
+        //Checking the number of key-value pairs after clearing the map
+         
+        System.out.println(map.size());      //Output : 0
+    }   
+}
+
