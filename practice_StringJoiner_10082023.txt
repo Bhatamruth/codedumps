@@ -1,0 +1,312 @@
+package javasample.java8.stringjoiner_examples;
+//Java program to demonstrate
+//add() method of StringJoiner
+
+import java.util.StringJoiner;
+
+public class StringJoiner_add
+ {
+	public static void main(String[] args)
+	{
+
+		// Creating StringJoiner with delimiter " "
+		StringJoiner str = new StringJoiner(" ");
+
+		// Adding elements in the StringJoiner
+		str.add("Geeks");
+		str.add("for");
+		str.add("Geeks");
+
+		// Print the StringJoiner
+		System.out.println(str.toString());
+	}
+}
+
+
+package javasample.java8.stringjoiner_examples;
+
+
+//Java program to demonstrate
+//length() method of StringJoiner
+
+import java.util.StringJoiner;
+
+public class StringJoiner_length{
+	public static void main(String[] args)
+	{
+
+		// Creating StringJoiner with delimiter " "
+		StringJoiner str = new StringJoiner(" ");
+
+		// Adding elements in the StringJoiner
+		str.add("Geeks");
+		str.add("for");
+		str.add("Geeks");
+
+		// Print the StringJoiner
+		System.out.println("StringJoiner: "
+						+ str.toString());
+
+		// Printing the length of str
+		// using length() method
+		System.out.println(str.length());
+	}
+}
+package javasample.java8.stringjoiner_examples;
+
+
+//Java program to demonstrate
+//length() method of StringJoiner
+
+import java.util.StringJoiner;
+
+public class StringJoiner_length{
+	public static void main(String[] args)
+	{
+
+		// Creating StringJoiner with delimiter " "
+		StringJoiner str = new StringJoiner(" ");
+
+		// Adding elements in the StringJoiner
+		str.add("Geeks");
+		str.add("for");
+		str.add("Geeks");
+
+		// Print the StringJoiner
+		System.out.println("StringJoiner: "
+						+ str.toString());
+
+		// Printing the length of str
+		// using length() method
+		System.out.println(str.length());
+	}
+}
+
+
+package javasample.java8.stringjoiner_examples;
+
+
+//Java program to demonstrate
+//merge() method of StringJoiner
+
+import java.util.StringJoiner;
+
+public class StringJoiner_merge {
+	public static void main(String[] args)
+	{
+
+		// Creating StringJoiner with delimiter " "
+		StringJoiner str1 = new StringJoiner(" ");
+
+		// Adding elements in the StringJoiner
+		str1.add("Geeks");
+		str1.add("for");
+		str1.add("Geeks");
+
+		// Print the StringJoiner
+		System.out.println("StringJoiner 1: "
+						+ str1.toString());
+
+		// Creating the second StringJoiner
+		StringJoiner str2 = new StringJoiner(" ");
+
+		str2.add("A");
+		str2.add("Computer");
+		str2.add("Portal");
+
+		// Print the second StringJoiner
+		System.out.println("StringJoiner 2: "
+						+ str2.toString());
+
+		// Merging the StringJoiner using merge()
+		StringJoiner str = str1.merge(str2);
+
+		// Printing the merged StringJoiner
+		System.out.println("Merged StringJoiner : "
+						+ str);
+	}
+}
+
+
+package javasample.java8.stringjoiner_examples;
+
+// Java program to demonstrate
+// merge() method of StringJoiner
+
+import java.util.StringJoiner;
+
+public class StringJoiner_merge2 {
+	public static void main(String[] args)
+	{
+
+		// Creating StringJoiner with delimiter ", "
+		StringJoiner str1 = new StringJoiner(", ");
+
+		// Adding elements in the StringJoiner
+		str1.add("Geeks");
+		str1.add("for");
+		str1.add("Geeks");
+
+		// Print the StringJoiner
+		System.out.println("StringJoiner 1: "
+						+ str1.toString());
+
+		// Creating the second StringJoiner
+		StringJoiner str2 = new StringJoiner(", ");
+
+		str2.add("A");
+		str2.add("Computer");
+		str2.add("Portal");
+
+		// Print the StringJoiner
+		System.out.println("StringJoiner 2: "
+						+ str2.toString());
+
+		// Merging the StringJoiner using merge()
+		StringJoiner str = str1.merge(str2);
+
+		// Printing the merged StringJoiner
+		System.out.println("Merged StringJoiner : "
+						+ str);
+	}
+}
+
+
+package javasample.java8.stringjoiner_examples;
+
+
+//Java program to demonstrate
+//toString() method of StringJoiner
+
+import java.util.StringJoiner;
+
+public class StringJoiner_toString{
+	public static void main(String[] args)
+	{
+
+		// Creating StringJoiner with delimiter " "
+		StringJoiner str = new StringJoiner(" ");
+
+		// Adding elements in the StringJoiner
+		str.add("Geeks");
+		str.add("for");
+		str.add("Geeks");
+
+		// Print the StringJoiner
+		// using toString() method
+		System.out.println("StringJoiner: "
+						+ str.toString());
+	}
+}
+
+
+package javasample.java8.stringjoiner_examples;
+
+
+//Java program to demonstrate
+//toString() method of StringJoiner
+
+import java.util.StringJoiner;
+
+public class StringJoiner_toString2 {
+	public static void main(String[] args)
+	{
+
+		// Creating StringJoiner with delimiter ""
+		StringJoiner str = new StringJoiner(", ");
+
+		// Adding elements in the StringJoiner
+		str.add("Geeks");
+		str.add("for");
+		str.add("Geeks");
+		str.add("A");
+		str.add("Computer");
+		str.add("Portal");
+
+		// Print the StringJoiner
+		// using toString() method
+		System.out.println("StringJoiner: "
+						+ str.toString());
+	}
+}
+
+
+package javasample.java8.stringjoiner_examples;
+//Java program to Demonstrate Methods
+//of StringJoiner class
+
+//Importing required classes
+import java.util.ArrayList;
+import java.util.StringJoiner;
+
+//Main class
+
+public class StringJoiner1 {
+
+
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+		// Creating an empty ArrayList of string type
+		ArrayList<String> al = new ArrayList<>();
+
+		// Adding elements to above List
+		al.add("Ram");
+		al.add("Shyam");
+		al.add("Alice");
+		al.add("Bob");
+
+		// Creating object of class inside main()
+		StringJoiner sj1 = new StringJoiner(",");
+
+		// Using setEmptyValue() method
+		sj1.setEmptyValue("sj1 is empty");
+		System.out.println(sj1);
+
+		// Using add() method
+		sj1.add(al.get(0)).add(al.get(1));
+		System.out.println(sj1);
+
+		// Using length() method
+		System.out.println("Length of sj1 : "
+						+ sj1.length());
+
+		StringJoiner sj2 = new StringJoiner(":");
+		sj2.add(al.get(2)).add(al.get(3));
+
+		// Using merge() method
+		sj1.merge(sj2);
+
+		// Using toString() method
+		System.out.println(sj1.toString());
+
+		System.out.println("Length of new sj1 : "
+						+ sj1.length());
+	}
+}
+
+
+This exercise is to test your understanding of Java Strings. A sample String declaration:
+
+String myString = "Hello World!"
+The elements of a String are called characters. The number of characters in a String is called the length, and it can be retrieved with the String.length() method.
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+String A=sc.next();
+String B=sc.next();
+System.out.println(A.length()+B.length());
+System.out.println(A.compareTo(B)>0?"Yes":"No");
+System.out.println(A.substring(0, 1).toUpperCase()+A.substring(1, A.length())+" "+B.substring(0, 1).toUpperCase()+B.substring(1, B.length()));
+        
+    }
+}
+
+
