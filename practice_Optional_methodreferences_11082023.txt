@@ -1,0 +1,137 @@
+import java.util.Optional;  
+public class OptionalExample {  
+    public static void main(String[] args) {  
+        String[] str = new String[10];  
+        Optional<String> checkNull = Optional.ofNullable(str[5]);  
+        if(checkNull.isPresent()){  // check for value is present or not  
+            String lowercaseString = str[5].toLowerCase();  
+            System.out.print(lowercaseString);  
+        }else  
+            System.out.println("string value is not present");  
+    }  
+}  
+
+import java.util.Optional;  
+public class OptionalExample {  
+    public static void main(String[] args) {  
+        String[] str = new String[10];        
+        str[5] = "JAVA OPTIONAL CLASS EXAMPLE";// Setting value for 5th index  
+        Optional<String> checkNull = Optional.ofNullable(str[5]);  
+        if(checkNull.isPresent()){  // It Checks, value is present or not  
+            String lowercaseString = str[5].toLowerCase();  
+            System.out.print(lowercaseString);  
+        }else  
+            System.out.println("String value is not present");  
+    }  
+}  
+
+import java.util.Optional;  
+public class OptionalExample {  
+    public static void main(String[] args) {  
+        String[] str = new String[10];        
+        str[5] = "JAVA OPTIONAL CLASS EXAMPLE";  // Setting value for 5th index  
+        Optional<String> checkNull = Optional.ofNullable(str[5]);  
+        checkNull.ifPresent(System.out::println);   // printing value by using method reference  
+        System.out.println(checkNull.get());    // printing value by using get method  
+        System.out.println(str[5].toLowerCase());     
+    }  
+} 
+
+import java.util.Optional;  
+public class OptionalExample {  
+    public static void main(String[] args) {  
+        String[] str = new String[10];        
+        str[5] = "JAVA OPTIONAL CLASS EXAMPLE";  // Setting value for 5th index  
+        // It returns an empty instance of Optional class   
+        Optional<String> empty = Optional.empty();  
+        System.out.println(empty);  
+        // It returns a non-empty Optional  
+        Optional<String> value = Optional.of(str[5]);  
+        // If value is present, it returns an Optional otherwise returns an empty Optional  
+        System.out.println("Filtered value: "+value.filter((s)->s.equals("Abc")));  
+        System.out.println("Filtered value: "+value.filter((s)->s.equals("JAVA OPTIONAL CLASS EXAMPLE")));  
+        // It returns value of an Optional. if value is not present, it throws an NoSuchElementException    
+        System.out.println("Getting value: "+value.get());  
+        // It returns hashCode of the value  
+        System.out.println("Getting hashCode: "+value.hashCode());  
+        // It returns true if value is present, otherwise false  
+        System.out.println("Is value present: "+value.isPresent());  
+        // It returns non-empty Optional if value is present, otherwise returns an empty Optional  
+        System.out.println("Nullable Optional: "+Optional.ofNullable(str[5]));  
+        // It returns value if available, otherwise returns specified value,  
+        System.out.println("orElse: "+value.orElse("Value is not present"));  
+        System.out.println("orElse: "+empty.orElse("Value is not present"));  
+        value.ifPresent(System.out::println);   // printing value by using method reference   
+    }  
+}  
+
+
+method reference
+
+
+interface Sayable{  
+    void say();  
+}  
+public class MethodReference {  
+    public static void saySomething(){  
+        System.out.println("Hello, this is static method.");  
+    }  
+    public static void main(String[] args) {  
+        // Referring static method  
+        Sayable sayable = MethodReference::saySomething;  
+        // Calling interface method  
+        sayable.say();  
+    }  
+}  
+
+public class MethodReference2 {  
+    public static void ThreadStatus(){  
+        System.out.println("Thread is running...");  
+    }  
+    public static void main(String[] args) {  
+        Thread t2=new Thread(MethodReference2::ThreadStatus);  
+        t2.start();       
+    }  
+}  
+
+
+import java.util.function.BiFunction;  
+class Arithmetic{  
+public static int add(int a, int b){  
+return a+b;  
+}  
+}  
+public class MethodReference3 {  
+public static void main(String[] args) {  
+BiFunction<Integer, Integer, Integer>adder = Arithmetic::add;  
+int result = adder.apply(10, 20);  
+System.out.println(result);  
+}  
+}  
+
+import java.util.function.BiFunction;  
+class Arithmetic{  
+public static int add(int a, int b){  
+return a+b;  
+}  
+public static float add(int a, float b){  
+return a+b;  
+}  
+public static float add(float a, float b){  
+return a+b;  
+}  
+}  
+public class MethodReference4 {  
+public static void main(String[] args) {  
+BiFunction<Integer, Integer, Integer>adder1 = Arithmetic::add;  
+BiFunction<Integer, Float, Float>adder2 = Arithmetic::add;  
+BiFunction<Float, Float, Float>adder3 = Arithmetic::add;  
+int result1 = adder1.apply(10, 20);  
+float result2 = adder2.apply(10, 20.0f);  
+float result3 = adder3.apply(10.0f, 20.0f);  
+System.out.println(result1);  
+System.out.println(result2);  
+System.out.println(result3);  
+}  
+}  
+
