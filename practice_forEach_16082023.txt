@@ -1,0 +1,201 @@
+package javasample.forEach;
+import java.util.*;
+public class forEach1 {
+
+    public static void main(String args[]) {
+
+       List<String> alphabets = new ArrayList<>(
+                                 Arrays.asList("aa", "bbb", "cac", "dog"));
+       
+       // looping over all elements using Iterable.forEach() method
+       alphabets.forEach(s -> System.out.println(s));
+       
+       // You can even replace lambda expression with method reference
+       // because we are passing the lambda parameter as it is to the
+       // method
+       alphabets.forEach(System.out::println);
+       
+       // you can even do something with lambda parameter e.g. adding a comma
+       alphabets.forEach(s -> System.out.print(s + ","));
+       
+       
+       // There is one more forEach() method on Stream class, which operates
+       // on stream and allows you to use various stream methods e.g. filter()
+       // map() etc
+       
+       alphabets.stream().forEach(System.out::println);
+       
+       // let's now only print elmements which startswith "a"
+       alphabets.stream()
+               .filter(s -> s.startsWith("a"))
+               .forEach(System.out::println);
+       
+       // let's filter out only which has length greater than 2
+       alphabets.stream()
+               .filter(s -> s.length() > 2)
+               .forEach(System.out::println);
+
+       
+       // now, let's print length of each string using map()
+       alphabets.stream()
+               .mapToInt(s -> s.length())
+               .forEach(System.out::println);
+       
+       // how about calculating sum of length of all string
+       alphabets.stream()
+               .mapToInt(s -> s.length())
+               .sum();
+
+    }
+
+}
+
+
+
+package javasample.forEach;
+
+
+import java.util.List;
+import java.util.ArrayList;
+public class forEach3 {
+   public static void main(String[] args) {
+      List<String> fruits = new ArrayList<String>();
+      fruits.add("Apple");
+      fruits.add("Orange");
+      fruits.add("Banana");
+      fruits.add("Pear"); 
+      fruits.add("Mango");
+      //lambda expression in forEach Method 
+      fruits.forEach(str->System.out.println(str));
+   }
+}
+
+
+package javasample.forEach;
+import java.util.List;
+import java.util.ArrayList;
+public class forEach4 {
+   public static void main(String[] args) {
+      List<String> names = new ArrayList<String>();
+      names.add("Maggie"); 
+      names.add("Michonne");
+      names.add("Rick");
+      names.add("Merle");
+      names.add("Governor"); 
+      //forEach - the output would be in any order
+      System.out.println("Print using forEach");
+      names.stream() 
+     .filter(f->f.startsWith("M"))
+     .parallel() 
+     .forEach(n->System.out.println(n)); 
+
+     /* forEachOrdered - the output would always be in this order: 
+      * Maggie, Michonne, Merle 
+      */ 
+     System.out.println("Print using forEachOrdered"); 
+     names.stream()  
+     .filter(f->f.startsWith("M"))  
+     .parallel() 
+     .forEachOrdered(n->System.out.println(n));
+   }
+}
+
+package javasample.forEach;
+import java.util.*;
+
+public class ForEachParallelStreamDemo {
+	  
+    public static void main(String[] args) {
+      
+        Map<Integer, String> userMap = new LinkedHashMap<Integer, String>();
+        userMap.put(6, "Peter");
+        userMap.put(2, "Gerhard");
+        userMap.put(4, "Catherine");
+        userMap.put(1, "Philip");
+        
+        System.out.println(userMap);
+        System.out.println("----- no prallel, order as provided stream -----");  
+        userMap.keySet()
+            .stream()
+            .forEach(key -> System.out.println("ID: "+key+" User: "+ userMap.get(key)));  
+        
+        System.out.println("----- prallel, order no guarantee -----");  
+        userMap.keySet()
+            .parallelStream()
+            .forEach(key -> System.out.println("ID: "+key+" User: "+ userMap.get(key))); 
+        
+        System.out.println("----- prallel, order guarantee if uses forEachOrdered -----");  
+        userMap.keySet()
+            .parallelStream()
+            .forEachOrdered(key -> System.out.println("ID: "+key+" User: "+ userMap.get(key))); 
+    }
+}
+
+
+
+package javasample.forEach;
+
+
+import java.util.Arrays;
+import java.util.function.DoubleConsumer;
+import java.util.function.IntConsumer;
+import java.util.function.LongConsumer;
+
+public class JavaForEachConsSpec {
+
+    public static void main(String[] args) {
+
+        int[] inums = { 3, 5, 6, 7, 5 };
+        IntConsumer icons = i -> System.out.print(i + " ");
+        Arrays.stream(inums).forEach(icons);
+        
+        System.out.println();
+
+        long[] lnums = { 13L, 3L, 6L, 1L, 8L };
+        LongConsumer lcons = l -> System.out.print(l + " ");
+        Arrays.stream(lnums).forEach(lcons);
+        
+        System.out.println();
+
+        double[] dnums = { 3.4d, 9d, 6.8d, 10.3d, 2.3d };
+        DoubleConsumer dcons = d -> System.out.print(d + " ");
+        Arrays.stream(dnums).forEach(dcons);
+        
+        System.out.println();
+    }
+}
+
+
+package javasample.forEach;
+
+
+import java.util.Arrays;
+import java.util.function.DoubleConsumer;
+import java.util.function.IntConsumer;
+import java.util.function.LongConsumer;
+
+public class JavaForEachConsSpec {
+
+    public static void main(String[] args) {
+
+        int[] inums = { 3, 5, 6, 7, 5 };
+        IntConsumer icons = i -> System.out.print(i + " ");
+        Arrays.stream(inums).forEach(icons);
+        
+        System.out.println();
+
+        long[] lnums = { 13L, 3L, 6L, 1L, 8L };
+        LongConsumer lcons = l -> System.out.print(l + " ");
+        Arrays.stream(lnums).forEach(lcons);
+        
+        System.out.println();
+
+        double[] dnums = { 3.4d, 9d, 6.8d, 10.3d, 2.3d };
+        DoubleConsumer dcons = d -> System.out.print(d + " ");
+        Arrays.stream(dnums).forEach(dcons);
+        
+        System.out.println();
+    }
+}
+
+
