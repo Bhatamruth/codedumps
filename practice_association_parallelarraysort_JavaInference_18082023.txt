@@ -1,0 +1,467 @@
+// Java Program to illustrate the
+// Concept of Association
+
+// Importing required classes
+import java.io.*;
+import java.util.*;
+
+// Class 1
+// Bank class
+class Bank {
+
+	// Attributes of bank
+	private String name;
+
+	private Set<Employee> employees;
+	// Constructor of this class
+	Bank(String name)
+	{
+		// this keyword refers to current instance itself
+		this.name = name;
+	}
+
+	// Method of Bank class
+	public String getBankName()
+	{
+		// Returning name of bank
+		return this.name;
+	}
+
+	public void setEmployees(Set<Employee> employees)
+	{
+		this.employees = employees;
+	}
+	public Set<Employee>
+	getEmployees(Set<Employee> employees)
+	{
+		return this.employees;
+	}
+}
+
+// Class 2
+// Employee class
+class Employee {
+	// Attributes of employee
+	private String name;
+	// Employee name
+	Employee(String name)
+	{
+		// This keyword refers to current instance itself
+		this.name = name;
+	}
+
+	// Method of Employee class
+	public String getEmployeeName()
+	{
+		// returning the name of employee
+		return this.name;
+	}
+}
+
+// Class 3
+// Association between both the
+// classes in main method
+class GFG {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+
+		// Creating objects of bank and Employee class
+		Bank bank = new Bank("ICICI");
+		Employee emp = new Employee("Ridhi");
+
+		Set<Employee> employees = new HashSet<>();
+		employees.add(emp);
+
+		bank.setEmployees(employees);
+
+		System.out.println(emp.getEmployeeName()
+						+ " belongs to bank "
+						+ bank.getBankName());
+	}
+}
+
+
+
+package javasample.Association_Aggregation_Composition_practice;
+
+import java.util.*;   
+class Mobile {    
+   private String mobile_no;  
+   
+   public String getMobileNo() {  
+       return mobile_no;  
+   }  
+   public void setMobileNo(String mobile_no) {  
+       this.mobile_no = mobile_no;  
+   }  
+}  
+class Person {       
+   private String name;  
+   List<Mobile> numbers;  
+   public String getName() {  
+       return name;  
+   }  
+   public void setName(String name) {  
+       this.name = name;  
+   }  
+   public List<Mobile> getNumbers() {  
+       return numbers;  
+   }  
+   public void setNumbers(List<Mobile> numbers) {  
+       this.numbers = numbers;  
+   }  
+}  
+public class AssociationExample {  
+     public static void main(String[] args) {  
+           Person person = new Person();  
+           person.setName("Shubham Rastogi");  
+            
+          Mobile number1 = new Mobile();  
+           number1.setMobileNo("8868923136");  
+           Mobile number2 = new Mobile();  
+           number2.setMobileNo("8630023310");  
+     
+           List<Mobile> numberList = new ArrayList<Mobile>();  
+           numberList.add(number1);  
+           numberList.add(number2);  
+           person.setNumbers(numberList);  
+           System.out.println(person.getNumbers()+" are mobile numbers of the person "+  
+           person.getName());  
+       }  
+       
+}  
+
+
+
+package javasample.Association_Aggregation_Composition_practice;
+
+
+//Java program to illustrate
+//the concept of Composition
+
+//Importing required classes
+import java.io.*;
+import java.util.*;
+
+//Class 1
+//Book
+class Book {
+
+	// Attributes of book
+	public String title;
+	public String author;
+
+	// Constructor of Book class
+	Book(String title, String author)
+	{
+
+		// This keyword refers to current instance itself
+		this.title = title;
+		this.author = author;
+	}
+}
+
+//Class 2
+class Library {
+
+	// Reference to refer to list of books
+	private final List<Book> books;
+
+	// Library class contains list of books
+	Library(List<Book> books)
+	{
+
+		// Referring to same book as
+		// this keyword refers to same instance itself
+		this.books = books;
+	}
+
+	// Method
+	// To get total number of books in library
+	public List<Book> getTotalBooksInLibrary()
+	{
+
+		return books;
+	}
+}
+
+//Class 3
+//Main class
+class Composition1 {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+
+		// Creating objects of Book class inside main()
+		// method Custom inputs
+		Book b1
+			= new Book("EffectiveJ Java", "Joshua Bloch");
+		Book b2
+			= new Book("Thinking in Java", "Bruce Eckel");
+		Book b3 = new Book("Java: The Complete Reference",
+						"Herbert Schildt");
+
+		// Creating the list which contains number of books
+		List<Book> books = new ArrayList<Book>();
+
+		// Adding books
+		// using add() method
+		books.add(b1);
+		books.add(b2);
+		books.add(b3);
+
+		Library library = new Library(books);
+
+		// Calling method to get total books in library
+		// and storing it in list of user0defined type -
+		// Books
+		List<Book> bks = library.getTotalBooksInLibrary();
+
+		// Iterating over books using for each loop
+		for (Book bk : bks) {
+
+			// Printing the title and author name of book on
+			// console
+			System.out.println("Title : " + bk.title
+							+ " and "
+							+ " Author : " + bk.author);
+		}
+	}
+}
+
+
+package javasample.Association_Aggregation_Composition_practice;
+
+
+//Java program to illustrate
+//the concept of Composition
+
+//Importing required classes
+import java.io.*;
+import java.util.*;
+
+//Class 1
+//Book
+class Book {
+
+	// Attributes of book
+	public String title;
+	public String author;
+
+	// Constructor of Book class
+	Book(String title, String author)
+	{
+
+		// This keyword refers to current instance itself
+		this.title = title;
+		this.author = author;
+	}
+}
+
+//Class 2
+class Library {
+
+	// Reference to refer to list of books
+	private final List<Book> books;
+
+	// Library class contains list of books
+	Library(List<Book> books)
+	{
+
+		// Referring to same book as
+		// this keyword refers to same instance itself
+		this.books = books;
+	}
+
+	// Method
+	// To get total number of books in library
+	public List<Book> getTotalBooksInLibrary()
+	{
+
+		return books;
+	}
+}
+
+//Class 3
+//Main class
+class Composition1 {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+
+		// Creating objects of Book class inside main()
+		// method Custom inputs
+		Book b1
+			= new Book("EffectiveJ Java", "Joshua Bloch");
+		Book b2
+			= new Book("Thinking in Java", "Bruce Eckel");
+		Book b3 = new Book("Java: The Complete Reference",
+						"Herbert Schildt");
+
+		// Creating the list which contains number of books
+		List<Book> books = new ArrayList<Book>();
+
+		// Adding books
+		// using add() method
+		books.add(b1);
+		books.add(b2);
+		books.add(b3);
+
+		Library library = new Library(books);
+
+		// Calling method to get total books in library
+		// and storing it in list of user0defined type -
+		// Books
+		List<Book> bks = library.getTotalBooksInLibrary();
+
+		// Iterating over books using for each loop
+		for (Book bk : bks) {
+
+			// Printing the title and author name of book on
+			// console
+			System.out.println("Title : " + bk.title
+							+ " and "
+							+ " Author : " + bk.author);
+		}
+	}
+}
+
+
+
+package javasample.ParallelArraySorting;
+
+import java.util.Arrays; 
+public class ParallelArraySorting {  
+    public static void main(String[] args) {  
+        // Creating an integer array   
+        int[] arr = {5,8,1,0,6,9};  
+        // Iterating array elements  
+        for (int i : arr) {  
+            System.out.print(i+" ");  
+        }  
+        // Sorting array elements parallel  
+        Arrays.parallelSort(arr);  
+        System.out.println("\nArray elements after sorting");  
+        // Iterating array elements  
+        for (int i : arr) {  
+            System.out.print(i+" ");  
+        }  
+    }  
+}
+
+
+
+package javasample.ParallelArraySorting;
+
+
+import java.util.Arrays;  
+public class ParallelArraySorting1 {  
+    public static void main(String[] args) {  
+        // Creating an integer array   
+        int[] arr = {5,8,1,0,6,9,50,-3};  
+        // Iterating array elements  
+        for (int i : arr) {  
+            System.out.print(i+" ");  
+        }  
+        // Sorting array elements parallel and passing start, end index  
+        Arrays.parallelSort(arr,0,4);  
+        System.out.println("\nArray elements after sorting");  
+        // Iterating array elements  
+        for (int i : arr) {  
+            System.out.print(i+" ");  
+        }  
+    }  
+}  
+
+-------------------------------------------------------------------------------------------
+package javasample.JavaInference;
+
+
+class GenericClass<X> {  
+    X name;  
+  public void setName(X name){  
+      this.name = name;  
+    }  
+  public X getName(){  
+      return name;  
+    }  
+  public String genericMethod(GenericClass<String> x){  
+      x.setName("John");  
+      return x.name;  
+    }  
+}  
+
+public class JavaInference {  
+  public static void main(String[] args) {  
+      GenericClass<String> genericClass = new GenericClass<String>();  
+      genericClass.setName("Peter");  
+      System.out.println(genericClass.getName());  
+        
+      GenericClass<String> genericClass2 = new GenericClass<>();  
+      genericClass2.setName("peter");  
+      System.out.println(genericClass2.getName());  
+    
+      // New improved type inference  
+      System.out.println(genericClass2.genericMethod(new GenericClass<>()));  
+  }  
+}  
+
+------------------------------------------------------------------------------------------------------
+package javasample.JavaInference;
+
+
+import java.util.ArrayList;  
+import java.util.List;  
+public class JavaInference1 {  
+    public static void showList(List<Integer>list){  
+        if(!list.isEmpty()){  
+            list.forEach(System.out::println);  
+        }else System.out.println("list is empty");  
+    }  
+    public static void main(String[] args) {  
+        // An old approach(prior to Java 7) to create a list  
+        List<Integer> list1 = new ArrayList<Integer>();  
+        list1.add(11);  
+        showList(list1);  
+        // Java 7    
+        List<Integer> list2 = new ArrayList<>(); // You can left it blank, compiler can infer type  
+        list2.add(12);  
+        showList(list2);  
+        // Compiler infers type of ArrayList, in Java 8  
+        showList(new ArrayList<>());  
+    }  
+} 
+-----------------------------------------------------------------
+
+
+Java Base64 Example: Basic Encoding and Decoding
+import java.util.Base64;  
+publicclass Base64BasicEncryptionExample {  
+    publicstaticvoid main(String[] args) {  
+        // Getting encoder  
+        Base64.Encoder encoder = Base64.getEncoder();  
+        // Creating byte array  
+        bytebyteArr[] = {1,2};  
+        // encoding byte array  
+        bytebyteArr2[] = encoder.encode(byteArr);  
+        System.out.println("Encoded byte array: "+byteArr2);  
+        bytebyteArr3[] = newbyte[5];                // Make sure it has enough size to store copied bytes  
+        intx = encoder.encode(byteArr,byteArr3);    // Returns number of bytes written  
+        System.out.println("Encoded byte array written to another array: "+byteArr3);  
+        System.out.println("Number of bytes written: "+x);  
+      
+        // Encoding string  
+        String str = encoder.encodeToString("JavaTpoint".getBytes());  
+        System.out.println("Encoded string: "+str);  
+        // Getting decoder  
+        Base64.Decoder decoder = Base64.getDecoder();  
+        // Decoding string  
+        String dStr = new String(decoder.decode(str));  
+        System.out.println("Decoded string: "+dStr);  
+    }  
+}  
+------------------------------------------------------------------
