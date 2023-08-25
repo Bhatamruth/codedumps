@@ -1,0 +1,254 @@
+package javasample.defaultmethodpractice;
+
+//A simple Java program to demonstrate multiple
+//inheritance through default methods.
+interface TestInterface2
+{
+	// default method
+	default void show()
+	{
+		System.out.println("Default TestInterface1");
+	}
+}
+
+interface TestInterface3
+{
+	// Default method
+	default void show()
+	{
+		System.out.println("Default TestInterface2");
+	}
+}
+
+//Implementation class code
+class demo3 implements TestInterface2, TestInterface3
+{
+	// Overriding default show method
+	public void show()
+	{
+		// use super keyword to call the show
+		// method of TestInterface1 interface
+		TestInterface2.super.show();
+
+		// use super keyword to call the show
+		// method of TestInterface2 interface
+		TestInterface3.super.show();
+	}
+
+	public static void main(String args[])
+	{
+		demo3 d = new demo3();
+		d.show();
+	}
+}
+
+
+-------------------------------------------------------------------------------
+package javasample.defaultmethodpractice;
+
+
+//A simple Java program to demo2nstrate static
+//methods in java
+interface TestInterface1
+{
+	// abstract method
+	public void square (int a);
+
+	// static method
+	static void show()
+	{
+		System.out.println("Static Method Executed");
+	}
+}
+
+class demo2 implements TestInterface1
+{
+	// Implementation of square abstract method
+	public void square (int a)
+	{
+		System.out.println(a*a);
+	}
+
+	public static void main(String args[])
+	{
+		demo2 d = new demo2();
+		d.square(4);
+
+		// Static method executed
+		TestInterface1.show();
+	}
+}
+------------------------------------------------------------------------------
+package javasample.defaultmethodpractice;
+
+//A simple Java program to demonstrate multiple
+//inheritance through default methods.
+interface TestInterface2
+{
+	// default method
+	default void show()
+	{
+		System.out.println("Default TestInterface1");
+	}
+}
+
+interface TestInterface3
+{
+	// Default method
+	default void show()
+	{
+		System.out.println("Default TestInterface2");
+	}
+}
+
+//Implementation class code
+class demo3 implements TestInterface2, TestInterface3
+{
+	// Overriding default show method
+	public void show()
+	{
+		// use super keyword to call the show
+		// method of TestInterface1 interface
+		TestInterface2.super.show();
+
+		// use super keyword to call the show
+		// method of TestInterface2 interface
+		TestInterface3.super.show();
+	}
+
+	public static void main(String args[])
+	{
+		demo3 d = new demo3();
+		d.show();
+	}
+}
+---------------------------------------------------------------------------------------------
+
+lambda comparator
+package javasample.lambda_expression;
+import java.util.ArrayList;  
+import java.util.List;  
+import java.util.stream.Stream;   
+class Product{  
+    int id;  
+    String name;  
+    float price;  
+    public Product(int id, String name, float price) {  
+        super();  
+        this.id = id;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
+public class lambda_comparator{  
+    public static void main(String[] args) {  
+        List<Product> list=new ArrayList<Product>();  
+        list.add(new Product(1,"Samsung A5",17000f));  
+        list.add(new Product(3,"Iphone 6S",65000f));  
+        list.add(new Product(2,"Sony Xperia",25000f));  
+        list.add(new Product(4,"Nokia Lumia",15000f));  
+        list.add(new Product(5,"Redmi4 ",26000f));  
+        list.add(new Product(6,"Lenevo Vibe",19000f));  
+          
+        // using lambda to filter data  
+        Stream<Product> filtered_data = list.stream().filter(p -> p.price > 20000);  
+          
+        // using lambda to iterate through collection  
+        filtered_data.forEach(  
+                product -> System.out.println(product.name+": "+product.price)  
+        );  
+    }  
+}  
+-------------------------------------------------------------------------------
+package javasample.lambda_expression;
+
+
+import java.util.ArrayList;  
+import java.util.Collections;  
+import java.util.List;  
+class Person{  
+    int age;  
+    String name;  
+   
+    public Person(int age, String name) {  
+        super();  
+        this.age = age;  
+        this.name = name;  
+      
+    }  
+}  
+public class lambda_comparator1{  
+    public static void main(String[] args) {  
+    
+        List<Person> list = new ArrayList<Person>();  
+          
+        //Adding person details to list  
+        list.add(new Person(21,"Himanshu"));  
+        list.add(new Person(13,"Ram"));  
+        list.add(new Person(2,"Dikshita"));  
+          
+        System.out.println("Sorting on the basis of the name of the person...");  
+  
+        // implementing lambda expression 
+        
+        Collections.sort(list,(p1,p2)->{  
+        return p1.name.compareTo(p2.name);  
+        });  
+        
+        // printing sorted list
+        
+        for(Person p:list){  
+            System.out.println( p.name+" "+p.age);  
+        }  
+  
+    }  
+}  
+
+-------------------------------------------------------------------------------------------------
+static variable and lambda
+
+package javasample.lambda_expression;
+
+
+
+
+import java.util.ArrayList;  
+import java.util.Collections;  
+import java.util.List;  
+class Person1{  
+    int age;  
+    String name;  
+   
+    public Person1(int age, String name) {  
+        super();  
+        this.age = age;  
+        this.name = name;  
+      
+    }  
+}  
+public class lambda_staticvariable{  
+    public static void main(String[] args) {  
+    
+        List<Person1> list = new ArrayList<Person1>();  
+          
+        //Adding person details to list  
+        list.add(new Person1(21,"Himanshu"));  
+        list.add(new Person1(13,"Ram"));  
+        list.add(new Person1(2,"Dikshita"));  
+          
+        System.out.println("Sorting on the basis of the name of the person...");  
+  
+        // implementing lambda expression 
+        
+        Collections.sort(list,(p1,p2)->{  
+        return p1.name.compareTo(p2.name);  
+        });  
+        
+        // printing sorted list
+        
+        for(Person1 p:list){  
+            System.out.println( p.name+" "+p.age);  
+        }  
+  
+    }  
+}  
