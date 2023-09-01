@@ -1,0 +1,429 @@
+package javasample.lambda_enumpractice;
+
+
+
+
+interface Statement {
+
+public String greet();
+
+}
+
+public class lambda1 {
+
+public static void main(String[] args) {
+
+Statement s = () -> {
+
+return "Hello World. Welcome to Simplilearn.";
+
+};
+
+System.out.println(s.greet());
+
+}
+
+}package javasample.lambda_enumpractice;
+
+
+
+
+interface Statement {
+
+public String greet();
+
+}
+
+public class lambda1 {
+
+public static void main(String[] args) {
+
+Statement s = () -> {
+
+return "Hello World. Welcome to Simplilearn.";
+
+};
+
+System.out.println(s.greet());
+
+}
+
+}
+----------------------------------------------------------------------
+package javasample.lambda_enumpractice;
+
+
+import java.util.function.*;
+
+public class lambda2 {
+
+public static void main(String args[]) {
+
+Validator validator = new Validator();
+
+String city = "New York";
+
+boolean isValid = validator.isDataValid(city, (String info) -> {
+
+String regx = "^[a-zA-Z0-9]*$";
+
+return info.matches(regx);
+
+});
+
+System.out.println(" The value returned from lambda is: " + isValid);
+
+}
+
+private static class Validator {
+
+public boolean isDataValid(String data, Predicate<String> predicate) {
+
+return predicate.test(data);
+
+}
+
+}
+
+}
+------------------------------------------------------------------------------------------
+package javasample.lambda_enumpractice;
+
+
+interface Product {
+
+float Mul(float x, float y);
+
+}
+
+public class lambda3 {
+
+public static void main(String[] args) {
+
+Product Mul1 = (x, y) -> (x * y);
+
+System.out.println(Mul1.Mul(2, 5));
+
+Product Mul2 = (float x, float y) -> (x * y);
+
+System.out.println(Mul2.Mul(100, 200));
+
+}
+
+}
+----------------------------------------------------------------------------------------
+package javasample.lambda_enumpractice;
+
+
+
+interface Sayable{  
+    public String say(String name);  
+}  
+  
+public class lambda4_Single_Parameter{  
+    public static void main(String[] args) {  
+      
+        // Lambda expression with single parameter.  
+        Sayable s1=(name)->{  
+            return "Hello, "+name;  
+        };  
+        System.out.println(s1.say("Sonoo"));  
+          
+        // You can omit function parentheses    
+        Sayable s2= name ->{  
+            return "Hello, "+name;  
+        };  
+        System.out.println(s2.say("Sonoo"));  
+    }  
+}  
+--------------------------------------------------------_________________________________________
+package javasample.lambda_enumpractice;
+
+
+ 
+  
+interface Addable{  
+    int add(int a,int b);  
+}  
+  
+public class lambda5_Multiple_Parameters{  
+    public static void main(String[] args) {  
+          
+        // Multiple parameters in lambda expression  
+        Addable ad1=(a,b)->(a+b);  
+        System.out.println(ad1.add(10,20));  
+          
+        // Multiple parameters with data type in lambda expression  
+        Addable ad2=(int a,int b)->(a+b);  
+        System.out.println(ad2.add(100,200));  
+    }  
+}  
+____________________________________________________________________________________
+package javasample.lambda_enumpractice;
+
+
+import java.util.ArrayList;  
+import java.util.Collections;  
+import java.util.List;  
+class P{  
+    int id;  
+    String name;  
+    float price;  
+    public P(int id, String name, float price) {  
+        super();  
+        this.id = id;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
+public class LambdaExpressionExample10{  
+    public static void main(String[] args) {  
+        List<P> list=new ArrayList<P>();  
+          
+        //Adding Products  
+        list.add(new P(1,"HP Laptop",25000f));  
+        list.add(new P(3,"Keyboard",300f));  
+        list.add(new P(2,"Dell Mouse",150f));  
+          
+        System.out.println("Sorting on the basis of name...");  
+  
+        // implementing lambda expression  
+        Collections.sort(list,(p1,p2)->{  
+        return p1.name.compareTo(p2.name);  
+        });  
+        for(P p:list){  
+            System.out.println(p.id+" "+p.name+" "+p.price);  
+        }  
+  
+    }  
+}  
+__________________________________________________________________________________
+package javasample.lambda_enumpractice;
+
+
+public class LambdaExpressionExample9{  
+    public static void main(String[] args) {  
+      
+        //Thread Example without lambda  
+        Runnable r1=new Runnable(){  
+            public void run(){  
+                System.out.println("Thread1 is running...");  
+            }  
+        };  
+        Thread t1=new Thread(r1);  
+        t1.start();  
+        //Thread Example with lambda  
+        Runnable r2=()->{  
+                System.out.println("Thread2 is running...");  
+        };  
+        Thread t2=new Thread(r2);  
+        t2.start();  
+    }  
+}  
+________________________________________________________________________________________
+package javasample.lambda_enumpractice;
+
+
+//A simple enum example where enum is declared
+//outside any class (Note enum keyword instead of
+//class keyword)
+
+enum Color {
+	RED,
+	GREEN,
+	BLUE;
+}
+
+public class Test {
+	// Driver method
+	public static void main(String[] args)
+	{
+		Color c1 = Color.RED;
+		System.out.println(c1);
+	}
+}
+
+_______________________________________________________________________________________________
+package javasample.lambda_enumpractice;
+
+
+//enum declaration inside a class.
+
+public class Test1 {
+	enum Color {
+		RED,
+		GREEN,
+		BLUE;
+	}
+
+	// Driver method
+	public static void main(String[] args)
+	{
+		Color c1 = Color.RED;
+		System.out.println(c1);
+	}
+}
+
+____________________________________________________________________________________
+package javasample.lambda_enumpractice;
+
+
+//A Java program to demonstrate working on enum
+//in switch case (Filename Test. Java)
+
+import java.util.Scanner;
+
+//An Enum class
+enum Day {
+	SUNDAY,
+	MONDAY,
+	TUESDAY,
+	WEDNESDAY,
+	THURSDAY,
+	FRIDAY,
+	SATURDAY;
+}
+
+//Driver class that contains an object of "day" and
+//main().
+public class test2 {
+	Day day;
+
+	// Constructor
+	public test2(Day day) { this.day = day; }
+
+	// Prints a line about Day using switch
+	public void dayIsLike()
+	{
+		switch (day) {
+		case MONDAY:
+			System.out.println("Mondays are bad.");
+			break;
+		case FRIDAY:
+			System.out.println("Fridays are better.");
+			break;
+		case SATURDAY:
+		case SUNDAY:
+			System.out.println("Weekends are best.");
+			break;
+		default:
+			System.out.println("Midweek days are so-so.");
+			break;
+		}
+	}
+
+	// Driver method
+	public static void main(String[] args)
+	{
+		String str = "MONDAY";
+		test2 t1 = new test2(Day.valueOf(str));
+		t1.dayIsLike();
+	}
+}
+___________________________________________________________
+package javasample.lambda_enumpractice;
+
+
+//Java Program to implement
+//Enum in a Switch Statement
+import java.io.*;
+
+//Driver Class
+class test3 {
+	// Enum Declared
+	enum Color {
+		RED,
+		GREEN,
+		BLUE,
+		Yellow;
+	}
+
+	// Main Function
+	public static void main(String[] args)
+	{
+		Color var_1=Color.Yellow;
+	
+		// Switch case with Enum
+		switch(var_1){
+		case RED:
+			System.out.println("Red color observed");
+			break;
+		case GREEN:
+			System.out.println("Green color observed");
+			break;
+		case BLUE:
+			System.out.println("Blue color observed");
+		default:
+			System.out.println("Other color observed");
+		}
+	}
+}
+__________________________________________________________________________________
+package javasample.lambda_enumpractice;
+
+//Java program to demonstrate that enums can have
+//constructor and concrete methods.
+
+//An enum (Note enum keyword inplace of class keyword)
+enum Color1 {
+	RED,
+	GREEN,
+	BLUE;
+
+	// enum constructor called separately for each
+	// constant
+	private Color1()
+	{
+		System.out.println("Constructor called for : "
+						+ this.toString());
+	}
+
+	public void colorInfo()
+	{
+		System.out.println("Universal Color");
+	}
+}
+
+public class test4 {
+	// Driver method
+	public static void main(String[] args)
+	{
+		Color1 c1 = Color1.RED;
+		System.out.println(c1);
+		c1.colorInfo();
+	}
+}
+____________________________________________________________
+package javasample.lambda_enumpractice;
+
+
+//Java program to demonstrate difference
+//between Possessive and Greedy Quantifiers
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+class Greedy_Possessive_Quantifiers
+{
+	public static void main(String[] args)
+	{
+		// Create a pattern with Greedy quantifier
+		Pattern pg = Pattern.compile("g+g");
+
+		// Create same pattern with possessive quantifier
+		Pattern pp = Pattern.compile("g++g");		
+
+		System.out.println("Using Greedy Quantifier");
+		Matcher mg = pg.matcher("ggg");
+		while (mg.find())
+			System.out.println("Pattern found from " + mg.start() +
+							" to " + (mg.end()-1));
+
+		System.out.println("\nUsing Possessive Quantifier");
+		Matcher mp = pp.matcher("ggg");
+		while (mp.find())
+			System.out.println("Pattern found from " + mp.start() +
+							" to " + (mp.end()-1));
+
+	}
+}
