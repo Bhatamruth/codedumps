@@ -1,0 +1,96 @@
+package com.weather.DataService;
+
+
+import com.weather.DataService.DTO.CurrentLocationInfo;
+import com.weather.DataService.DTO.WeatherDTO;
+import com.weather.DataService.exception.LocationDataFetchException;
+import com.weather.DataService.exception.WeatherDataFetchException;
+import com.weather.DataService.service.DataService;
+import com.weather.DataService.util.Helper;
+import okhttp3.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import static org.mockito.Mockito.*;
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class DataServiceTest {
+
+    @Mock
+    private OkHttpClient httpClient;
+
+    @Mock
+    private Helper helper;
+
+    @InjectMocks
+    private DataService dataService;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testGetCurrentLocationData_Success() throws IOException, LocationDataFetchException, WeatherDataFetchException {
+        // Mocking the OkHttpClient response
+        ResponseBody mockResponseBody = ResponseBody.create(MediaType.parse("application/json"), "{\"city\":\"Jaipur\",\"region_name\":\"Rajasthan\"}");
+        Response mockResponse = new Response.Builder()
+                .request(new Request.Builder().url("http://localhost:8080/api/current-location").build())
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message("OK")
+                .body(mockResponseBody)
+                .build();
+
+        when(httpClient.newCall(any(Request.class)).execute()).thenReturn(mockResponse);
+        when(helper.kelvinToCelsius(anyDouble())).thenReturn(25.0); // Mock temperature conversion
+
+        WeatherDTO weatherDTO = dataService.getCurrentLocationData();
+
+        assertEquals("Jaipur", weatherDTO.getCity());
+        assertEquals("Rajasthan", weatherDTO.getState());
+        assertEquals(25.0, weatherDTO.getTemp());
+    }
+
+    @Test
+    public void testGetCurrentLocationData_LocationDataFetchException() throws IOException {
+        // Mocking an unsuccessful OkHttpClient response
+        Response mockResponse = new Response.Builder()
+                .request(new Request.Builder().url("http://localhost:8080/api/current-location").build())
+                .protocol(Protocol.HTTP_1_1)
+                .code(500)
+                .message("Internal Server Error")
+                .body(ResponseBody.create(MediaType.parse("text/plain"), "Server Error"))
+                .build();
+
+        when(httpClient.newCall(any(Request.class)).execute()).thenReturn(mockResponse);
+
+        assertThrows(LocationDataFetchException.class, () -> dataService.getCurrentLocationData());
+    }
+
+    @Test
+    public void testGetCurrentLocationData_WeatherDataFetchException() throws IOException, LocationDataFetchException {
+        // Mocking a successful LocationInfo response but an unsuccessful WeatherData response
+        ResponseBody mockResponseBody = ResponseBody.create(MediaType.parse("application/json"), "{\"city\":\"Jaipur\",\"region_name\":\"Rajasthan\"}");
+        Response mockLocationResponse = new Response.Builder()
+                .request(new Request.Builder().url("http://localhost:8080/api/current-location").build())
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message("OK")
+                .body(mockResponseBody)
+                .build();
+
+        when(httpClient.newCall(any(Request.class)).execute()).thenReturn(mockLocationResponse);
+        when(helper.kelvinToCelsius(anyDouble())).thenReturn(25.0); // Mock temperature conversion
+
+        // Mocking an unsuccessful OkHttpClient response for weather data
+        when(httpClient.newCall(any(Request.class)).execute()).thenThrow(new IOException());
+
+        assertThrows(WeatherDataFetchException.class, () -> dataService.getCurrentLocationData());
+    }
+}
