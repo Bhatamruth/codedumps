@@ -1,0 +1,638 @@
+//string codes
+package java_advanced_challenges_strings;
+//Input a string of alphabets. Find out the number of occurrence of all alphabets in that string. Find out the alphabet with maximum occurrence.
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class string_7  {
+    public static void main(String[] args) {
+        String input = "Hello, World!";
+        Map<Character, Integer> frequencyMap = countAlphabetOccurrences(input);
+        printAlphabetOccurrences(frequencyMap);
+        char maxOccurringAlphabet = findMaxOccurringAlphabet(frequencyMap);
+        System.out.println("Alphabet with maximum occurrence: " + maxOccurringAlphabet);
+    }
+
+    public static Map<Character, Integer> countAlphabetOccurrences(String str) {
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+
+        // Convert the input string to lowercase for case-insensitive counting
+        str = str.toLowerCase();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isLetter(ch)) {
+                frequencyMap.put(ch, frequencyMap.getOrDefault(ch, 0) + 1);
+            }
+        }
+
+        return frequencyMap;
+    }
+
+    public static void printAlphabetOccurrences(Map<Character, Integer> frequencyMap) {
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println("Alphabet: " + entry.getKey() + ", Occurrences: " + entry.getValue());
+        }
+    }
+
+    public static char findMaxOccurringAlphabet(Map<Character, Integer> frequencyMap) {
+        char maxAlphabet = ' ';
+        int maxOccurrences = 0;
+
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() > maxOccurrences) {
+                maxAlphabet = entry.getKey();
+                maxOccurrences = entry.getValue();
+            }
+        }
+
+        return maxAlphabet;
+    }
+}
+
+
+//
+package java_advanced_challenges_strings;
+//1) How to find the maximum occurring character in a given String? (solution)
+//Write an efficient Java/C/Python program to return the maximum occurring character in the input string, e.g., if the input string is "Java" then the function should return 'a'.
+
+public class string_codes {
+    public static char findMaxOccurringChar(String str) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException("Input string must not be empty or null.");
+        }
+
+        int[] charCount = new int[256]; // Assuming ASCII characters
+
+        for (char c : str.toCharArray()) {
+            charCount[c]++;
+        }
+
+        char maxChar = str.charAt(0);
+        int maxCount = charCount[maxChar];
+
+        for (int i = 1; i < str.length(); i++) {
+            if (charCount[str.charAt(i)] > maxCount) {
+                maxChar = str.charAt(i);
+                maxCount = charCount[maxChar];
+            }
+        }
+
+        return maxChar;
+    }
+
+    public static void main(String[] args) {
+        String input = "Java";
+        char maxChar = findMaxOccurringChar(input);
+        System.out.println("The maximum occurring character is: " + maxChar); // Output: 'a'
+    }
+}
+//
+package java_advanced_challenges_strings;
+
+//2) How to remove all duplicates from a given string? (solution)
+//Write a program to remove all the duplicate characters from a given input String, like, if the given String is "Java" then the output should be "Java". The second or further occurrence of duplicates should be removed.
+
+
+public class string_codes2 {
+    public static char findMaxOccurringChar(String str) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException("Input string must not be empty or null.");
+        }
+
+        int[] charCount = new int[256]; // Assuming ASCII characters
+
+        for (char c : str.toCharArray()) {
+            charCount[c]++;
+        }
+
+        char maxChar = str.charAt(0);
+        int maxCount = charCount[maxChar];
+
+        for (int i = 1; i < str.length(); i++) {
+            if (charCount[str.charAt(i)] > maxCount) {
+                maxChar = str.charAt(i);
+                maxCount = charCount[maxChar];
+            }
+        }
+
+        return maxChar;
+    }
+
+    public static void main(String[] args) {
+        String input = "Java";
+        char maxChar = findMaxOccurringChar(input);
+        System.out.println("The maximum occurring character is: " + maxChar); // Output: 'a'
+    }
+}
+//
+package java_advanced_challenges_strings;
+//5) How to check if two strings are rotations of each other? (solution)
+//Write an efficient program to test if two given String is a rotation of each other or not, e.g. if the given String is "XYZ" and "ZXY" then your function should return true, but if the input is "XYZ" and "YXZ" then return false.
+public class string_codes3 {
+	    public static boolean areRotations(String str1, String str2) {
+	        if (str1 == null || str2 == null || str1.length() != str2.length()) {
+	            return false;
+	        }
+
+	        String concatenatedStr = str1 + str1;
+
+	        return concatenatedStr.contains(str2);
+	    }
+
+	    public static void main(String[] args) {
+	        String str1 = "XYZ";
+	        String str2 = "ZXY";
+	        System.out.println("Are \"" + str1 + "\" and \"" + str2 + "\" rotations of each other? " + areRotations(str1, str2)); // Output: true
+
+	        String str3 = "XYZ";
+	        String str4 = "YXZ";
+	        System.out.println("Are \"" + str3 + "\" and \"" + str4 + "\" rotations of each other? " + areRotations(str3, str4)); // Output: false
+	    }
+	}
+
+
+//
+package java_advanced_challenges_strings;
+//6) How to reverse a given String? (solution)
+//Write a program to reverse a String in C/Java/Python or choice of your programming language. You can write either the recursive or iterative solution. For example, if a given input is "abcd," then your function should return "dcba".
+public class string_codes4 {
+	    public static String reverse(String str) {
+	        if (str == null) {
+	            return null;
+	        }
+
+	        char[] charArray = str.toCharArray();
+	        int left = 0;
+	        int right = charArray.length - 1;
+
+	        while (left < right) {
+	            char temp = charArray[left];
+	            charArray[left] = charArray[right];
+	            charArray[right] = temp;
+	            left++;
+	            right--;
+	        }
+
+	        return new String(charArray);
+	    }
+
+	    public static void main(String[] args) {
+	        String input = "abcd";
+	        String reversed = reverse(input);
+	        System.out.println("Original String: " + input);
+	        System.out.println("Reversed String: " + reversed); // Output: "dcba"
+	    }
+	}
+
+
+//
+package java_advanced_challenges_strings;
+
+public class string_codes5 {
+    public static void printPermutations(String str) {
+        printPermutationsHelper("", str);
+    }
+
+    private static void printPermutationsHelper(String prefix, String remaining) {
+        int n = remaining.length();
+        if (n == 0) {
+            System.out.println(prefix);
+        } else {
+            for (int i = 0; i < n; i++) {
+                printPermutationsHelper(prefix + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1, n));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String input = "123";
+        System.out.println("Permutations of \"" + input + "\":");
+        printPermutations(input);
+    }
+}
+//
+package java_advanced_challenges_strings;
+
+//Write a program to find the number of vowels, consonents, digits and white space characters in a string.
+public class string_codes6 {
+    public static void main(String[] args) {
+        String input = "Hello World 123";
+        countCharacters(input);
+    }
+
+    public static void countCharacters(String str) {
+        int vowels = 0;
+        int consonants = 0;
+        int digits = 0;
+        int spaces = 0;
+
+        // Convert the input string to lowercase for case-insensitive counting
+        str = str.toLowerCase();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isLetter(ch)) {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            } else if (Character.isDigit(ch)) {
+                digits++;
+            } else if (Character.isWhitespace(ch)) {
+                spaces++;
+            }
+        }
+
+        System.out.println("Number of vowels: " + vowels);
+        System.out.println("Number of consonants: " + consonants);
+        System.out.println("Number of digits: " + digits);
+        System.out.println("Number of white spaces: " + spaces);
+    }
+}
+//
+package java_advanced_challenges_strings;
+//Write a program to check if the two strings entered by user are anagrams or not. Two words are said to be anagrams if the letters of one word can be rearranged to form the other word. For example, jaxa and ajax are anagrams of each other.
+import java.util.HashMap;
+import java.util.Map;
+
+public class string8
+{
+    public static void main(String[] args) {
+        String input = "Hello, World!";
+        Map<Character, Integer> frequencyMap = countAlphabetOccurrences(input);
+        printAlphabetOccurrences(frequencyMap);
+        char maxOccurringAlphabet = findMaxOccurringAlphabet(frequencyMap);
+        System.out.println("Alphabet with maximum occurrence: " + maxOccurringAlphabet);
+    }
+
+    public static Map<Character, Integer> countAlphabetOccurrences(String str) {
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+
+        // Convert the input string to lowercase for case-insensitive counting
+        str = str.toLowerCase();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isLetter(ch)) {
+                frequencyMap.put(ch, frequencyMap.getOrDefault(ch, 0) + 1);
+            }
+        }
+
+        return frequencyMap;
+    }
+
+    public static void printAlphabetOccurrences(Map<Character, Integer> frequencyMap) {
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println("Alphabet: " + entry.getKey() + ", Occurrences: " + entry.getValue());
+        }
+    }
+
+    public static char findMaxOccurringAlphabet(Map<Character, Integer> frequencyMap) {
+        char maxAlphabet = ' ';
+        int maxOccurrences = 0;
+
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() > maxOccurrences) {
+                maxAlphabet = entry.getKey();
+                maxOccurrences = entry.getValue();
+            }
+        }
+
+        return maxAlphabet;
+    }
+}
+//
+package java_advanced_challenges_strings;
+//Write a program to reverse individual words in a string, where each word may be delimited by a dot, comma, space or tab, like www.google.com should become www.elgoog.moc.
+public class string9  {
+    public static void main(String[] args) {
+        String input = "www.google.com";
+        String reversed = reverseWords(input);
+        System.out.println("Original String: " + input);
+        System.out.println("Reversed String: " + reversed); // Output: "www.elgoog.moc"
+    }
+
+    public static String reverseWords(String str) {
+        StringBuilder result = new StringBuilder();
+        StringBuilder word = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if (ch == '.' || ch == ',' || Character.isWhitespace(ch)) {
+                result.append(reverseWord(word));
+                result.append(ch);
+                word.setLength(0); // Clear the word StringBuilder
+            } else {
+                word.append(ch);
+            }
+        }
+
+        // Reverse the last word (if any)
+        result.append(reverseWord(word));
+
+        return result.toString();
+    }
+
+    public static String reverseWord(StringBuilder word) {
+        return word.reverse().toString();
+    }
+}
+//////////////////----------------------------------------------------------------------------------------------
+//regex
+package java_advanced_challenges_regexp;
+
+import java.util.regex.*;
+import java.util.*;
+
+public class DateExtractor {
+    public static void main(String[] args) {
+        String text = "Meeting scheduled for 20/09/2023 and 25/12/2023.";
+        List<String> dates = extractDates(text);
+        System.out.println("Extracted Dates: " + dates);
+    }
+
+    public static List<String> extractDates(String text) {
+        List<String> dates = new ArrayList<>();
+        String regex = "\\b\\d{2}/\\d{2}/\\d{4}\\b";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+
+        while (matcher.find()) {
+            dates.add(matcher.group());
+        }
+        return dates;
+    }
+}
+//
+package java_advanced_challenges_regexp;
+
+import java.util.regex.*;
+
+public class EmailValidator {
+    public static void main(String[] args) {
+        String email = "user@example.com";
+        boolean isValid = isValidEmail(email);
+        System.out.println("Is Valid Email: " + isValid);
+    }
+
+    public static boolean isValidEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+}
+
+//
+package java_advanced_challenges_regexp;
+
+import java.util.regex.*;
+
+public class EmailValidator {
+    public static void main(String[] args) {
+        String email = "user@example.com";
+        boolean isValid = isValidEmail(email);
+        System.out.println("Is Valid Email: " + isValid);
+    }
+
+    public static boolean isValidEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+}
+
+//
+package java_advanced_challenges_regexp;
+
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class regex {
+
+
+
+	public static void main(String[] args) {
+		// using pattern with flags
+		Pattern pattern = Pattern.compile("ab", Pattern.CASE_INSENSITIVE);
+		Matcher matcher = pattern.matcher("ABcabdAb");
+		// using Matcher find(), group(), start() and end() methods
+		while (matcher.find()) {
+			System.out.println("Found the text \"" + matcher.group()
+					+ "\" starting at " + matcher.start()
+					+ " index and ending at index " + matcher.end());
+		}
+
+		// using Pattern split() method
+		pattern = Pattern.compile("\\W");
+		String[] words = pattern.split("one@two#three:four$five");
+		for (String s : words) {
+			System.out.println("Split using Pattern.split(): " + s);
+		}
+
+		// using Matcher.replaceFirst() and replaceAll() methods
+		pattern = Pattern.compile("1*2");
+		matcher = pattern.matcher("11234512678");
+		System.out.println("Using replaceAll: " + matcher.replaceAll("_"));
+		System.out.println("Using replaceFirst: " + matcher.replaceFirst("_"));
+	}
+
+} 
+//
+package java_advanced_challenges_regexp;
+
+import java.util.regex.*;
+import java.util.*;
+
+public class URLExtractor {
+    public static void main(String[] args) {
+        String text = "Visit my website at https://www.example.com. Also, check http://openai.com";
+        List<String> urls = extractUrls(text);
+        System.out.println("Extracted URLs: " + urls);
+    }
+
+    public static List<String> extractUrls(String text) {
+        List<String> urls = new ArrayList<>();
+        String regex = "https?://\\S+";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+
+        while (matcher.find()) {
+            urls.add(matcher.group());
+        }
+        return urls;
+    }
+}
+///////////////////////////------------------------/////////////////////////////////////////////////////////////
+//lambda
+package java_advanced_challenges_lambda;
+import java.util.function.Function;
+
+///Write a Java program to implement a lambda expression to convert an integer to their corresponding binary representation.
+public class lambda1 {
+  public static void main(String[] args) {
+    int n = 33;
+    System.out.println("Number: " + n);
+
+    Function < Integer, String > convertToBinary = num -> Integer.toBinaryString(num);
+    String binaryRepresentation = convertToBinary.apply(n);
+    System.out.println("Binary representation: " + binaryRepresentation);
+    n = 747;
+    System.out.println("\nNumber: " + n);
+    convertToBinary = num -> Integer.toBinaryString(num);
+    binaryRepresentation = convertToBinary.apply(n);
+    System.out.println("Binary representation: " + binaryRepresentation);
+  }
+}
+//
+package java_advanced_challenges_lambda;
+
+import java.util.stream.LongStream;
+//Write a Java program to implement a lambda expression to find the largest prime factor of a given number.
+
+
+public class lambda2 
+{
+  public static void main(String[] args) {
+    int n = 176;
+    System.out.println("Number: " + n);
+
+    long largestPrimeFactor = findLargestPrimeFactor(n);
+    System.out.println("Largest prime factor: " + largestPrimeFactor);
+    n = 36;
+    System.out.println("\nNumber: " + n);
+
+    largestPrimeFactor = findLargestPrimeFactor(n);
+    System.out.println("Largest prime factor: " + largestPrimeFactor);
+  }
+
+  public static long findLargestPrimeFactor(long n) {
+    for (long i = (long) Math.sqrt(n); i >= 2; i--) {
+      if (n % i == 0 && isPrime(i)) {
+        return i;
+      }
+    }
+    return n;
+  }
+
+  public static boolean isPrime(long number) {
+    return LongStream.rangeClosed(2, (long) Math.sqrt(number))
+      .allMatch(n -> number % n != 0);
+  }
+}
+//
+package java_advanced_challenges_lambda;
+import java.util.Arrays;
+import java.util.List;
+//Write a Java program to implement a lambda expression to find the average length of strings in a list.
+
+public class lambda3 {
+
+
+
+  public static void main(String[] args) {
+    List <String> colors = Arrays.asList("Red", "Black", "White", "Orange", "Blue");
+    System.out.println("List of colors: " + colors);
+
+    double averageLength = calculateAverageLength(colors);
+    System.out.println("Average length of colors(strings): " + averageLength);
+  }
+
+  public static double calculateAverageLength(List < String > strings) {
+    return strings.stream()
+      .mapToInt(String::length) // Convert each string to its length
+      .average() // Calculate the average
+      .orElse(0); // If the list is empty, return 0 as the default value
+  }
+}
+//
+package java_advanced_challenges_lambda;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class lambda4 {
+
+
+
+  public static void main(String[] args) {
+    // Create a list of objects
+    List < Student > student_list = new ArrayList < > ();
+    student_list.add(new Student("Adriana Jamie", 15, "X"));
+    student_list.add(new Student("Felix Uisdean", 15, "X"));
+    student_list.add(new Student("Conceicao Palmira", 14, "X"));
+    student_list.add(new Student("Jair Camila", 14, "X"));
+    student_list.add(new Student("Micaela Rosana", 15, "X"));
+
+    // Student details
+    System.out.println("Student details:");
+    for (Student Student: student_list) {
+      System.out.println(Student.getName() + " - " + Student.getAge() + " - " + Student.getSClass());
+    }
+
+    // Sort the list based on age using lambda expression
+    student_list.sort(Comparator.comparing(Student::getName));
+
+    // Print the sorted list
+    System.out.println("\nSorted list based on Student Name:");
+    for (Student Student: student_list) {
+      System.out.println(Student.getName() + " - " + Student.getAge() + " - " + Student.getSClass());
+    }
+  }
+}
+
+class Student {
+  private String name, SClass;
+  private int age;
+  public Student(String name, int age, String SClass) {
+    this.name = name;
+    this.age = age;
+    this.SClass = SClass;
+  }
+  public String getName() {
+    return name;
+  }
+  public int getAge() {
+    return age;
+  }
+  public String getSClass() {
+    return SClass;
+  }
+}
+//
+package java_advanced_challenges_lambda;
+//Java program to check if a number is a perfect square using lambda expression
+import java.util.function.Predicate;
+
+public class lambda5 {
+  public static void main(String[] args) {
+    // Define the perfect square check lambda expression
+    Predicate < Integer > isPerfectSquare = n -> {
+      int sqrt = (int) Math.sqrt(n);
+      return sqrt * sqrt == n;
+    };
+
+    // Test the lambda expression with some numbers
+    int N = 36;
+    boolean result1 = isPerfectSquare.test(N);
+    System.out.println(N + " is a perfect square? " + result1);
+
+    N = 26;
+    boolean result2 = isPerfectSquare.test(N);
+    System.out.println(N + " is a perfect square? " + result2);
+
+    N = 10000;
+    boolean result3 = isPerfectSquare.test(N);
+    System.out.println(N + " is a perfect square? " + result3);
+  }
+}
+//////////////////////////////////////////////--------------------------------------------////////////////////////////////////////////////
