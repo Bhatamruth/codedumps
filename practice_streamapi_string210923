@@ -1,0 +1,250 @@
+package java_advanced_challenges_streamapi;
+
+
+import java.util.*;  
+class Product{  
+    int id;  
+    String name;  
+    float price;  
+    public Product(int id, String name, float price) {  
+        this.id = id;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
+public class JavaStreamExample {  
+    public static void main(String[] args) {  
+        List<Product> productsList = new ArrayList<Product>();  
+        //Adding Products  
+        productsList.add(new Product(1,"HP Laptop",25000f));  
+        productsList.add(new Product(2,"Dell Laptop",30000f));  
+        productsList.add(new Product(3,"Lenevo Laptop",28000f));  
+        productsList.add(new Product(4,"Sony Laptop",28000f));  
+        productsList.add(new Product(5,"Apple Laptop",90000f));  
+        List<Float> productPriceList = new ArrayList<Float>();  
+        for(Product product: productsList){  
+              
+            // filtering data of list  
+            if(product.price<30000){  
+                productPriceList.add(product.price);    // adding price to a productPriceList  
+            }  
+        }  
+        System.out.println(productPriceList);   // displaying data  
+    }  
+}  
+///////////////////////////////////
+package java_advanced_challenges_streamapi;
+
+import java.util.*;  
+class Product3{  
+    int id;  
+    String name;  
+    float price;  
+    public Product3(int id, String name, float price) {  
+        this.id = id;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
+public class  streamapi_reduce 
+ {  
+    public static void main(String[] args) {  
+        List<Product3> productsList = new ArrayList<Product3>();  
+        //Adding Products  
+        productsList.add(new Product3(1,"HP Laptop",25000f));  
+        productsList.add(new Product3(2,"Dell Laptop",30000f));  
+        productsList.add(new Product3(3,"Lenevo Laptop",28000f));  
+        productsList.add(new Product3(4,"Sony Laptop",28000f));  
+        productsList.add(new Product3(5,"Apple Laptop",90000f));  
+        // This is more compact approach for filtering data  
+        Float totalPrice = productsList.stream()  
+                    .map(product->product.price)  
+                    .reduce(0.0f,(sum, price)->sum+price);   // accumulating price  
+        System.out.println(totalPrice);  
+        // More precise code   
+        float totalPrice2 = productsList.stream()  
+                .map(product->product.price)  
+                .reduce(0.0f,Float::sum);   // accumulating price, by referring method of Float class  
+        System.out.println(totalPrice2);  
+          package java_advanced_challenges_streamapi;
+
+import java.util.*;  
+import java.util.stream.Collectors;  
+class Product1{  
+    int id;  
+    String name;  
+    float price;  
+    public Product1(int id, String name, float price) {  
+        this.id = id;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
+public class streamapi2
+ {  
+    public static void main(String[] args) {  
+        List<Product1> productsList = new ArrayList<Product1>();  
+        //Adding Products  
+        productsList.add(new Product1(1,"HP Laptop",25000f));  
+        productsList.add(new Product1(2,"Dell Laptop",30000f));  
+        productsList.add(new Product1(3,"Lenevo Laptop",28000f));  
+        productsList.add(new Product1(4,"Sony Laptop",28000f));  
+        productsList.add(new Product1(5,"Apple Laptop",90000f));  
+        List<Float> productPriceList2 =productsList.stream()  
+                                     .filter(p -> p.price > 30000)// filtering data  
+                                     .map(p->p.price)        // fetching price  
+                                     .collect(Collectors.toList()); // collecting as list  
+        System.out.println(productPriceList2);  
+    }  
+}  
+//////////////////////////////////////////////////////
+package java_advanced_challenges_streamapi;
+
+import java.util.*;  
+class Product2{  
+    int id;  
+    String name;  
+    float price;  
+    public Product2(int id, String name, float price) {  
+        this.id = id;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
+public class  streamapi3{  
+    public static void main(String[] args) {  
+        List<Product2> productsList = new ArrayList<Product2>();  
+        //Adding Products  
+        productsList.add(new Product2(1,"HP Laptop",25000f));  
+        productsList.add(new Product2(2,"Dell Laptop",30000f));  
+        productsList.add(new Product2(3,"Lenevo Laptop",28000f));  
+        productsList.add(new Product2(4,"Sony Laptop",28000f));  
+        productsList.add(new Product2(5,"Apple Laptop",90000f));  
+        // This is more compact approach for filtering data  
+        productsList.stream()  
+                             .filter(product -> product.price == 30000)  
+                             .forEach(product -> System.out.println(product.name));    
+    }  
+}  
+////////////////////////////////////////////////////////
+package java_advanced_challenges_strings;
+
+public class string_codes5 {
+    public static void printPermutations(String str) {
+        printPermutationsHelper("", str);
+    }
+
+    private static void printPermutationsHelper(String prefix, String remaining) {
+        int n = remaining.length();
+        if (n == 0) {
+            System.out.println(prefix);
+        } else {
+            for (int i = 0; i < n; i++) {
+                printPermutationsHelper(prefix + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1, n));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String input = "123";
+        System.out.println("Permutations of \"" + input + "\":");
+        printPermutations(input);
+    }
+}
+/////////////////////////////////////////////////////////
+package java_advanced_challenges_strings;
+
+//Write a program to find the number of vowels, consonents, digits and white space characters in a string.
+public class string_codes6 {
+    public static void main(String[] args) {
+        String input = "Hello World 123";
+        countCharacters(input);
+    }
+
+    public static void countCharacters(String str) {
+        int vowels = 0;
+        int consonants = 0;
+        int digits = 0;
+        int spaces = 0;
+
+        // Convert the input string to lowercase for case-insensitive counting
+        str = str.toLowerCase();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isLetter(ch)) {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            } else if (Character.isDigit(ch)) {
+                digits++;
+            } else if (Character.isWhitespace(ch)) {
+                spaces++;
+            }
+        }
+
+        System.out.println("Number of vowels: " + vowels);
+        System.out.println("Number of consonants: " + consonants);
+        System.out.println("Number of digits: " + digits);
+        System.out.println("Number of white spaces: " + spaces);
+    }
+}
+
+////////////////////////////////////////////
+package java_advanced_challenges_strings;
+//Write a program to check if the two strings entered by user are anagrams or not. Two words are said to be anagrams if the letters of one word can be rearranged to form the other word. For example, jaxa and ajax are anagrams of each other.
+import java.util.HashMap;
+import java.util.Map;
+
+public class string8
+{
+    public static void main(String[] args) {
+        String input = "Hello, World!";
+        Map<Character, Integer> frequencyMap = countAlphabetOccurrences(input);
+        printAlphabetOccurrences(frequencyMap);
+        char maxOccurringAlphabet = findMaxOccurringAlphabet(frequencyMap);
+        System.out.println("Alphabet with maximum occurrence: " + maxOccurringAlphabet);
+    }
+
+    public static Map<Character, Integer> countAlphabetOccurrences(String str) {
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+
+        // Convert the input string to lowercase for case-insensitive counting
+        str = str.toLowerCase();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isLetter(ch)) {
+                frequencyMap.put(ch, frequencyMap.getOrDefault(ch, 0) + 1);
+            }
+        }
+
+        return frequencyMap;
+    }
+
+    public static void printAlphabetOccurrences(Map<Character, Integer> frequencyMap) {
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println("Alphabet: " + entry.getKey() + ", Occurrences: " + entry.getValue());
+        }
+    }
+
+    public static char findMaxOccurringAlphabet(Map<Character, Integer> frequencyMap) {
+        char maxAlphabet = ' ';
+        int maxOccurrences = 0;
+
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() > maxOccurrences) {
+                maxAlphabet = entry.getKey();
+                maxOccurrences = entry.getValue();
+            }
+        }
+
+        return maxAlphabet;
+    }
+}
+
+    }  
+}  
+//////////////////////////////////////
