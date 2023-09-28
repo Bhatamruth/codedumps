@@ -1,0 +1,10 @@
+package javasample.interviewQuestions;
+/// Java 8 program to iterate a Stream using the forEach method?
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        List<String> str = Arrays.asList("Hello","Interview","Questions","Answers");
+        str.stream().forEach(System.out::println);
+    }
+}
