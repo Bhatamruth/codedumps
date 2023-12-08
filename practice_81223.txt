@@ -1,0 +1,1009 @@
+write complete code
+Collections - Custom Sorting:
+
+Implement a custom comparator to sort a list of objects based on multiple attributes.
+Collections - Custom Collection:
+
+Create a custom collection class that implements the List interface and overrides key methods like add, remove, and get.
+Streams - Filtering and Mapping:
+
+Use Java streams to filter a list of objects based on a condition and then map the result to a different type.
+Streams - Grouping and Counting:
+
+Given a list of objects, use streams to group them by a certain attribute and count the occurrences of each group.
+Default Methods - Interface Extension:
+
+Create an interface with a default method. Implement this interface in a class and override the default method.
+Default Methods - Diamond Problem:
+
+Demonstrate how Java 8 solves the diamond problem using default methods, and explain potential issues.
+Lambda Expressions - Functional Interfaces:
+
+Implement a custom functional interface and use it with a lambda expression to perform a specific operation.
+Lambda Expressions - Comparator:
+
+Rewrite a comparator using lambda expressions to compare objects based on a specific criterion.
+Concurrent Collections - ConcurrentHashMap:
+
+Implement a program that uses ConcurrentHashMap to safely update and retrieve values from multiple threads.
+Concurrent Collections - BlockingQueue:
+
+Use a BlockingQueue to implement a simple producer-consumer problem with multiple producer and consumer threads.
+Optional Class - Error Handling:
+
+Rewrite a piece of code that may return null to use the Optional class for better error handling.
+Functional Programming - Higher-Order Functions:
+
+Write a higher-order function that takes a function as an argument and returns a modified version of that function.
+Functional Programming - Immutable Objects:
+
+Create an immutable class in Java, explaining the benefits of immutability.
+Reflection - Class Inspection:
+
+Use reflection to inspect the fields and methods of a given class at runtime.
+Reflection - Dynamic Invocation:
+
+Demonstrate the dynamic invocation of a method using reflection.
+Java NIO - File Operations:
+
+Implement a program using Java NIO to copy the contents of one file to another.
+
+Design Patterns - Observer Pattern:
+
+Implement the Observer pattern in Java, allowing multiple observers to subscribe to and receive updates from a subject.
+Design Patterns - Strategy Pattern:
+
+Implement the Strategy pattern to allow a class to alter its behavior when its internal state changes
+
+
+package javaAdvanced2;
+
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
+class Producer implements Runnable {
+    private final BlockingQueue<Integer> blockingQueue;
+
+    public Producer(BlockingQueue<Integer> blockingQueue) {
+        this.blockingQueue = blockingQueue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            for (int i = 1; i <= 5; i++) {
+                // Simulating the production of an item
+                int item = i;
+                System.out.println("Producer produced: " + item);
+
+                // Adding the item to the blocking queue
+                blockingQueue.put(item);
+
+                // Introducing a delay to simulate variable production time
+                Thread.sleep(500);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+}
+
+class Consumer implements Runnable {
+    private final BlockingQueue<Integer> blockingQueue;
+
+    public Consumer(BlockingQueue<Integer> blockingQueue) {
+        this.blockingQueue = blockingQueue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                // Removing an item from the blocking queue
+                int item = blockingQueue.take();
+                System.out.println("Consumer consumed: " + item);
+
+                // Introducing a delay to simulate variable consumption time
+                Thread.sleep(800);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+}
+
+public class BlockingQueueExample {
+
+    public static void main(String[] args) {
+        // Creating a BlockingQueue with a fixed capacity of 3
+        BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(3);
+
+        // Creating multiple producer and consumer threads
+        Thread producer1 = new Thread(new Producer(blockingQueue));
+        Thread producer2 = new Thread(new Producer(blockingQueue));
+        Thread consumer1 = new Thread(new Consumer(blockingQueue));
+        Thread consumer2 = new Thread(new Consumer(blockingQueue));
+
+        // Starting the threads
+        producer1.start();
+        producer2.start();
+        consumer1.start();
+        consumer2.start();
+    }
+}
+
+
+
+
+
+package javaAdvanced2;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Comparator_person {
+    private String name;
+    private int age;
+
+    public Comparator_person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Comparator_person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+
+public class ComparatorExample {
+
+    public static void main(String[] args) {
+        List<Comparator_person> persons = new ArrayList<>();
+        persons.add(new Comparator_person("John", 25));
+        persons.add(new Comparator_person("Alice", 30));
+        persons.add(new Comparator_person("Bob", 22));
+        persons.add(new Comparator_person("Charlie", 35));
+
+        // Traditional Comparator
+        Comparator<Comparator_person> ageComparator = new Comparator<Comparator_person>() {
+            @Override
+            public int compare(Comparator_person person1, Comparator_person person2) {
+                return Integer.compare(person1.getAge(), person2.getAge());
+            }
+        };
+
+        // Sorting using the traditional Comparator
+        Collections.sort(persons, ageComparator);
+        System.out.println("Sorted by age (traditional Comparator): " + persons);
+
+        // Comparator using lambda expression
+        Comparator<Comparator_person> ageComparatorLambda = (person1, person2) ->
+                Integer.compare(person1.getAge(), person2.getAge());
+
+        // Sorting using the Comparator with lambda expression
+        persons.sort(ageComparatorLambda);
+        System.out.println("Sorted by age (Comparator with lambda): " + persons);
+    }
+}
+package javaAdvanced2;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrentHashMapExample {
+
+    public static void main(String[] args) {
+        // Creating a ConcurrentHashMap
+        ConcurrentHashMap<String, Integer> concurrentMap = new ConcurrentHashMap<>();
+
+        // Number of threads to run concurrently
+        int numThreads = 5;
+
+        // Creating and starting multiple threads
+        for (int i = 1; i <= numThreads; i++) {
+            String key = "Thread-" + i;
+
+            Thread thread = new Thread(() -> {
+                // Updating the ConcurrentHashMap
+                for (int j = 1; j <= 3; j++) {
+                    // Incrementing the value associated with the key
+                    concurrentMap.merge(key, 1, Integer::sum);
+
+                    // Introducing a delay to simulate concurrent updates
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                // Retrieving and printing the value associated with the key
+                System.out.println(key + ": " + concurrentMap.get(key));
+            });
+
+            thread.start();
+        }
+    }
+}
+
+package javaAdvanced2;
+
+import java.util.AbstractList;
+
+public class CustomList<E> extends AbstractList<E> {
+
+    private Object[] elements;
+    private int size;
+    private static final int DEFAULT_CAPACITY = 10;
+
+    public CustomList() {
+        this.elements = new Object[DEFAULT_CAPACITY];
+    }
+
+    @Override
+    public boolean add(E element) {
+        ensureCapacity();
+        elements[size++] = element;
+        return true;
+    }
+
+    @Override
+    public E get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        return (E) elements[index];
+    }
+
+    @Override
+    public E remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        E removedElement = (E) elements[index];
+        System.arraycopy(elements, index + 1, elements, index, size - index - 1);
+        elements[--size] = null; // Set the last element to null
+        return removedElement;
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    private void ensureCapacity() {
+        if (size == elements.length) {
+            int newCapacity = elements.length * 2;
+            elements = java.util.Arrays.copyOf(elements, newCapacity);
+        }
+    }
+
+    // Additional methods can be added as needed
+
+    public static void main(String[] args) {
+        CustomList<String> customList = new CustomList<>();
+        customList.add("Element 1");
+        customList.add("Element 2");
+        customList.add("Element 3");
+
+        System.out.println("Custom List: " + customList);
+
+        System.out.println("Element at index 1: " + customList.get(1));
+
+        System.out.println("Removing element at index 1: " + customList.remove(1));
+        System.out.println("Custom List after removal: " + customList);
+    }
+}
+package javaAdvanced2;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Person {
+    private String name;
+    private int age;
+    private double salary;
+
+    public Person(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                '}';
+    }
+}
+
+public class CustomSortingExample {
+    public static void main(String[] args) {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("John", 30, 50000.0));
+        people.add(new Person("Alice", 25, 60000.0));
+        people.add(new Person("Bob", 35, 55000.0));
+
+        // Custom comparator based on multiple attributes
+        Comparator<Person> customComparator = Comparator
+                .comparing(Person::getName)
+                .thenComparingInt(Person::getAge)
+                .thenComparingDouble(Person::getSalary);
+
+        // Sorting the list using the custom comparator
+        Collections.sort(people, customComparator);
+
+        // Displaying the sorted list
+        for (Person person : people) {
+            System.out.println(person);
+        }
+    }
+}
+package javaAdvanced2;
+
+//Common interface with a default method
+interface A {
+ default void display() {
+     System.out.println("Inside Interface A");
+ }
+}
+
+//Two interfaces extending A
+interface B extends A {
+ // No implementation here
+}
+
+interface C extends A {
+ // No implementation here
+}
+
+//Class implementing both B and C
+class MyClasses implements B, C {
+ // No need to override the default method, as it's not ambiguous
+}
+
+public class DiamondProblemExample {
+ public static void main(String[] args) {
+     // Create an instance of MyClass
+     MyClasses myClass = new MyClasses();
+
+     // Call the default method from interface A
+     myClass.display(); // Output: Inside Interface A
+ }
+}
+
+package javaAdvanced2;
+
+import java.lang.reflect.Method;
+
+class MyClassess {
+    public void sayHello(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+
+    private void privateMethod() {
+        System.out.println("This is a private method.");
+    }
+}
+
+public class DynamicInvocationExample {
+
+    public static void main(String[] args) {
+        try {
+            // Creating an instance of MyClass
+            MyClassess myObject = new MyClassess();
+
+            // Getting the Class object for MyClass
+            Class<?> myClass = myObject.getClass();
+
+            // Dynamic invocation of a public method (sayHello)
+            Method publicMethod = myClass.getMethod("sayHello", String.class);
+            publicMethod.invoke(myObject, "John");
+
+            // Dynamic invocation of a private method (privateMethod)
+            Method privateMethod = myClass.getDeclaredMethod("privateMethod");
+            
+            // To invoke a private method, we need to set its accessibility to true
+            privateMethod.setAccessible(true);
+            privateMethod.invoke(myObject);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+package javaAdvanced2;
+
+public class ExampleWithoutOptional {
+
+    public static String findNameById(int id) {
+        // Simulating a scenario where the name is not found
+        if (id == 1) {
+            return "John";
+        } else {
+            return null; // Simulating the absence of a name
+        }
+    }
+
+    public static void main(String[] args) {
+        int userId = 1;
+        String userName = findNameById(userId);
+
+        if (userName != null) {
+            System.out.println("User name: " + userName);
+        } else {
+            System.out.println("User not found");
+        }
+    }
+}
+package javaAdvanced2;
+
+import java.io.IOException;
+import java.nio.file.*;
+
+public class FileCopyExample {
+
+    public static void main(String[] args) {
+        // Specify source and target file paths
+        Path sourcePath = Paths.get("source.txt");
+        Path targetPath = Paths.get("target.txt");
+
+        try {
+            // Perform file copy using NIO
+            copyFileUsingNIO(sourcePath, targetPath);
+
+            System.out.println("File copy successful.");
+
+        } catch (IOException e) {
+            System.err.println("Error during file copy: " + e.getMessage());
+        }
+    }
+
+    private static void copyFileUsingNIO(Path sourcePath, Path targetPath) throws IOException {
+        // StandardOpenOption.REPLACE_EXISTING ensures that if the target file exists, it will be replaced
+        Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+    }
+}
+
+package javaAdvanced2;
+
+import java.util.function.Function;
+import java.util.function.ToIntFunction;
+
+public class HigherOrderFunctionExample {
+
+    // Higher-order function that takes a function and returns a modified version of that function
+    public static <T, R> Function<T, R> modifyFunction(Function<T, R> originalFunction, ToIntFunction<R> modifier) {
+        // This higher-order function returns a new function that applies the modifier to the result of the original function
+        return input -> {
+            int result = modifier.applyAsInt(originalFunction.apply(input));
+            return originalFunction.apply(input);
+        };
+    }
+
+    public static void main(String[] args) {
+        // Example usage:
+        // Creating a function that squares the input
+        Function<Integer, Integer> squareFunction = x -> x * x;
+
+        // Using the higher-order function to create a new function that doubles the result of the square function
+        Function<Integer, Integer> modifiedFunction = modifyFunction(squareFunction, x -> x * 2);
+
+        // Testing the modified function
+        int input = 5;
+        int result = modifiedFunction.apply(input);
+
+        System.out.println("Original function result: " + squareFunction.apply(input));
+        System.out.println("Modified function result: " + result);
+    }
+}
+package javaAdvanced2;
+
+public final class ImmutablePerson {
+    private final String name;
+    private final int age;
+
+    public ImmutablePerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+package javaAdvanced2;
+//Interface with a default method
+interface MyInterface {
+ // Abstract method
+ void myAbstractMethod();
+
+ // Default method
+ default void myDefaultMethod() {
+     System.out.println("Default implementation of myDefaultMethod in the interface");
+ }
+}
+
+//Class implementing the interface
+class MyClass implements MyInterface {
+ @Override
+ public void myAbstractMethod() {
+     System.out.println("Implementation of myAbstractMethod in the class");
+ }
+
+ // Optionally, you can override the default method
+ @Override
+ public void myDefaultMethod() {
+     System.out.println("Overridden implementation of myDefaultMethod in the class");
+ }
+}
+
+public class InterfaceDefaultMethodExample {
+ public static void main(String[] args) {
+     // Create an instance of the implementing class
+     MyClass myClass = new MyClass();
+
+     // Call the abstract method
+     myClass.myAbstractMethod();
+
+     // Call the default method (can be overridden)
+     myClass.myDefaultMethod();
+ }
+}
+package javaAdvanced2;
+
+//Custom functional interface for a binary operation on integers
+@FunctionalInterface
+interface MathOperation {
+ int operate(int a, int b);
+}
+
+public class LambdaExample {
+
+ public static void main(String[] args) {
+     // Using lambda expression to perform addition
+     MathOperation addition = (a, b) -> a + b;
+
+     // Example values
+     int operand1 = 5;
+     int operand2 = 3;
+
+     // Perform the operation using the lambda expression
+     int result = addition.operate(operand1, operand2);
+
+     // Display the result
+     System.out.println("Result of addition: " + result);
+ }
+}
+package javaAdvanced2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Subject
+class Subject {
+    private List<Observer> observers = new ArrayList<>();
+    private int state;
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+        notifyObservers();
+    }
+
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    private void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
+}
+
+// Observer
+interface Observer {
+    void update();
+}
+
+// Concrete Observer
+class ConcreteObserver implements Observer {
+    private Subject subject;
+
+    public ConcreteObserver(Subject subject) {
+        this.subject = subject;
+        subject.addObserver(this);
+    }
+
+    @Override
+    public void update() {
+        System.out.println("Observer updated. New state: " + subject.getState());
+    }
+}
+
+// Example usage
+public class ObserverPatternExample {
+
+    public static void main(String[] args) {
+        Subject subject = new Subject();
+
+        ConcreteObserver observer1 = new ConcreteObserver(subject);
+        ConcreteObserver observer2 = new ConcreteObserver(subject);
+
+        // Changing the state will notify all observers
+        subject.setState(42);
+    }
+}
+package javaAdvanced2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Subject
+class Subject {
+    private List<Observer> observers = new ArrayList<>();
+    private int state;
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+        notifyObservers();
+    }
+
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    private void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
+}
+
+// Observer
+interface Observer {
+    void update();
+}
+
+// Concrete Observer
+class ConcreteObserver implements Observer {
+    private Subject subject;
+
+    public ConcreteObserver(Subject subject) {
+        this.subject = subject;
+        subject.addObserver(this);
+    }
+
+    @Override
+    public void update() {
+        System.out.println("Observer updated. New state: " + subject.getState());
+    }
+}
+
+// Example usage
+public class ObserverPatternExample {
+
+    public static void main(String[] args) {
+        Subject subject = new Subject();
+
+        ConcreteObserver observer1 = new ConcreteObserver(subject);
+        ConcreteObserver observer2 = new ConcreteObserver(subject);
+
+        // Changing the state will notify all observers
+        subject.setState(42);
+    }
+}
+package javaAdvanced2;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+class SampleClass {
+    private String privateField;
+    public int publicField;
+
+    public SampleClass() {
+        // Constructor
+    }
+
+    private void privateMethod() {
+        System.out.println("Private method called");
+    }
+
+    public void publicMethod() {
+        System.out.println("Public method called");
+    }
+}
+
+public class ReflectionExample {
+
+    public static void main(String[] args) {
+        // Inspecting fields and methods of the SampleClass
+        inspectClass(SampleClass.class);
+    }
+
+    private static void inspectClass(Class<?> clazz) {
+        System.out.println("Inspecting class: " + clazz.getName());
+
+        // Inspecting fields
+        Field[] fields = clazz.getDeclaredFields();
+        System.out.println("Fields:");
+        for (Field field : fields) {
+            System.out.println(" - " + field.getName() + " (" + field.getType().getSimpleName() + ")");
+        }
+
+        // Inspecting methods
+        Method[] methods = clazz.getDeclaredMethods();
+        System.out.println("Methods:");
+        for (Method method : methods) {
+            System.out.println(" - " + method.getName() + " (" + method.getReturnType().getSimpleName() + ")");
+        }
+    }
+}
+package javaAdvanced2;
+
+//Strategy
+interface PaymentStrategy {
+ void pay(int amount);
+}
+
+//Concrete Strategies
+class CreditCardPayment implements PaymentStrategy {
+ private String cardNumber;
+
+ public CreditCardPayment(String cardNumber) {
+     this.cardNumber = cardNumber;
+ }
+
+ @Override
+ public void pay(int amount) {
+     System.out.println("Paid " + amount + " using credit card " + cardNumber);
+ }
+}
+
+class PayPalPayment implements PaymentStrategy {
+ private String email;
+
+ public PayPalPayment(String email) {
+     this.email = email;
+ }
+
+ @Override
+ public void pay(int amount) {
+     System.out.println("Paid " + amount + " using PayPal account " + email);
+ }
+}
+
+//Context
+class ShoppingCart {
+ private PaymentStrategy paymentStrategy;
+
+ public void setPaymentStrategy(PaymentStrategy paymentStrategy) {
+     this.paymentStrategy = paymentStrategy;
+ }
+
+ public void checkout(int amount) {
+     paymentStrategy.pay(amount);
+ }
+}
+
+//Example usage
+public class StrategyPatternExample {
+
+ public static void main(String[] args) {
+     ShoppingCart cart = new ShoppingCart();
+
+     // Choosing Credit Card payment strategy
+     cart.setPaymentStrategy(new CreditCardPayment("1234-5678-9012-3456"));
+     cart.checkout(100);
+
+     // Changing to PayPal payment strategy
+     cart.setPaymentStrategy(new PayPalPayment("user@example.com"));
+     cart.checkout(50);
+ }
+}
+package javaAdvanced2;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+class GroupPersons {
+    private String name;
+    private int age;
+
+    public GroupPersons(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupPersons{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+
+public class StreamFilterAndMapExample {
+
+    public static void main(String[] args) {
+        List<GroupPersons> groupPersonsList = Arrays.asList(
+                new GroupPersons("John", 25),
+                new GroupPersons("Alice", 30),
+                new GroupPersons("Bob", 22),
+                new GroupPersons("Charlie", 35)
+        );
+
+        // Using streams to filter and map
+        List<String> namesOfPeopleOlderThan30 = groupPersonsList.stream()
+                .filter(person -> person.getAge() > 30)
+                .map(GroupPersons::getName)
+                .collect(Collectors.toList());
+
+        // Print the result
+        System.out.println("People older than 30: " + namesOfPeopleOlderThan30);
+    }
+}
+package javaAdvanced2;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+class Persons {
+    private String name;
+    private int age;
+
+    public Persons(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Persons{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+
+public class StreamGroupingAndCountingExample {
+
+    public static void main(String[] args) {
+        List<Persons> personsList = Arrays.asList(
+                new Persons("John", 25),
+                new Persons("Alice", 30),
+                new Persons("Bob", 22),
+                new Persons("Charlie", 35),
+                new Persons("Eva", 30),
+                new Persons("David", 25)
+        );
+
+        // Using streams to group by age and count occurrences
+        Map<Integer, Long> ageGroupCountMap = personsList.stream()
+                .collect(Collectors.groupingBy(Persons::getAge, Collectors.counting()));
+
+        // Print the result
+        System.out.println("Age group count map: " + ageGroupCountMap);
+    }
+}
+package javaAdvanced2;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+class Persons {
+    private String name;
+    private int age;
+
+    public Persons(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Persons{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+
+public class StreamGroupingAndCountingExample {
+
+    public static void main(String[] args) {
+        List<Persons> personsList = Arrays.asList(
+                new Persons("John", 25),
+                new Persons("Alice", 30),
+                new Persons("Bob", 22),
+                new Persons("Charlie", 35),
+                new Persons("Eva", 30),
+                new Persons("David", 25)
+        );
+
+        // Using streams to group by age and count occurrences
+        Map<Integer, Long> ageGroupCountMap = personsList.stream()
+                .collect(Collectors.groupingBy(Persons::getAge, Collectors.counting()));
+
+        // Print the result
+        System.out.println("Age group count map: " + ageGroupCountMap);
+    }
+}
