@@ -1,0 +1,1527 @@
+solved in online compiler
+
+1.Given a list of integers, find out all the even numbers that exist in the list using Stream functions?
+import java.util.*;
+import java.util.stream.*;
+
+public class EvenNumber{
+    public static void main(String args[]) {
+      List<Integer> list = Arrays.asList(10,15,8,49,25,98,32);
+            list.stream()
+                .filter(n -> n%2 == 0)
+                .forEach(System.out::println);
+        }
+    }
+
+2. Given a list of integers, find out all the numbers starting with 1 using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+
+public class NumberStartingWithOne{
+    public static void main(String args[]) {
+            List<Integer> myList = Arrays.asList(10,15,8,49,25,98,32);
+            myList.stream()
+                  .map(s -> s + "") // Convert integer to String
+                  .filter(s -> s.startsWith("1"))
+                  .forEach(System.out::println);
+    }
+}
+
+
+3. How to find duplicate elements in a given integers list in java using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+
+public class DuplicateElements {
+  public static void main(String args[]) {
+          List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+          Set<Integer> set = new HashSet();
+          myList.stream()
+                .filter(n -> !set.add(n))
+                .forEach(System.out::println);
+  }
+}
+
+Output:
+98, 15
+4. Given the list of integers, find the first element of the list using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+
+public class FindFirstElement{
+  public static void main(String args[]) {
+          List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+          myList.stream()
+                .findFirst()
+                .ifPresent(System.out::println);
+  }
+}
+
+Output:
+10
+5. Given a list of integers, find the total number of elements present in the list using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+
+public class FindTheTotalNumberOfElements{
+  public static void main(String args[]) {
+          List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+          long count =  myList.stream()
+                              .count();
+          System.out.println(count);                    
+  }
+}
+
+Output:
+9
+6. Given a list of integers, find the maximum value element present in it using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+
+public class FindMaxElement{
+  public static void main(String args[]) {
+          List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+          int max =  myList.stream()
+                           .max(Integer::compare)
+                           .get();
+          System.out.println(max);                    
+  }
+}
+
+Output:
+98
+7. Given a String, find the first non-repeated character in it using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.Function;
+
+public class FirstNonRepeated{
+  public static void main(String args[]) {
+    String input = "Java articles are Awesome";
+    
+    Character result = input.chars() // Stream of String       
+            .mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s))) // First convert to Character object and then to lowercase         
+            .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) //Store the chars in map with count 
+            .entrySet()
+            .stream()
+            .filter(entry -> entry.getValue() == 1L)
+            .map(entry -> entry.getKey())
+            .findFirst()
+            .get();
+    System.out.println(result);                    
+    }
+}
+
+Output:
+j
+8. Given a String, find the first repeated character in it using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.Function;
+
+public class FirstRepeated{
+  public static void main(String args[]) {
+          String input = "Java Articles are Awesome";
+
+          Character result = input.chars() // Stream of String       
+                                  .mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s))) // First convert to Character object and then to lowercase         
+                                  .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) //Store the chars in map with count 
+                                  .entrySet()
+                                  .stream()
+                                  .filter(entry -> entry.getValue() > 1L)
+                                  .map(entry -> entry.getKey())
+                                  .findFirst()
+                                  .get();
+          System.out.println(result);                    
+  }
+}
+
+
+Output:
+a
+9. Given a list of integers, sort all the values present in it using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.Function;
+
+public class SortValues{
+  public static void main(String args[]) {
+          List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+
+           myList.stream()
+                 .sorted()
+                 .forEach(System.out::println);
+  }
+}
+
+Output:
+ 8
+10
+15
+15
+25
+32
+49
+98
+98
+10. Given a list of integers, sort all the values present in it in descending order using Stream functions?
+
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.Function;
+
+public class SortDescending{
+  public static void main(String args[]) {
+          List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+
+           myList.stream()
+                 .sorted(Collections.reverseOrder())
+                 .forEach(System.out::println);
+  }
+}
+
+Output:
+98
+98
+49
+32
+25
+15
+15
+10
+8
+11. Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+public boolean containsDuplicate(int[] nums) {
+    List<Integer> list = Arrays.stream(nums)
+                               .boxed()
+                               .collect(Collectors.toList());
+    Set<Integer> set = new HashSet<>(list);
+     if(set.size() == list.size()) {
+       return false;
+   } 
+      return true;
+  }
+
+Input: nums = [1,2,3,1]
+Output: true
+
+Input: nums = [1,2,3,4]
+Output: false
+12. How will you get the current date and time using Java 8 Date and Time API?
+
+class Java8 {
+    public static void main(String[] args) {
+        System.out.println("Current Local Date: " + java.time.LocalDate.now());
+        //Used LocalDate API to get the date
+        System.out.println("Current Local Time: " + java.time.LocalTime.now());
+        //Used LocalTime API to get the time
+        System.out.println("Current Local Date and Time: " + java.time.LocalDateTime.now());
+        //Used LocalDateTime API to get both date and time
+    }
+}
+13. Write a Java 8 program to concatenate two Streams?
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+ 
+public class Java8 {
+    public static void main(String[] args) {
+ 
+        List<String> list1 = Arrays.asList("Java", "8");
+        List<String> list2 = Arrays.asList("explained", "through", "programs");
+ 
+        Stream<String> concatStream = Stream.concat(list1.stream(), list2.stream());
+         
+        // Concatenated the list1 and list2 by converting them into Stream
+ 
+        concatStream.forEach(str -&gt; System.out.print(str + " "));
+         
+        // Printed the Concatenated Stream
+         
+    }
+}
+14. Java 8 program to perform cube on list elements and filter numbers greater than 50.
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+       List<Integer> integerList = Arrays.asList(4,5,6,7,1,2,3);
+       integerList.stream()
+                  .map(i -> i*i*i)
+                  .filter(i -> i>50)
+                  .forEach(System.out::println);
+    }
+}  
+
+Output:
+64
+125
+216
+343
+15. Write a Java 8 program to sort an array and then convert the sorted array into Stream?
+
+import java.util.Arrays;
+ 
+public class Java8 {
+ 
+    public static void main(String[] args) {
+        int arr[] = { 99, 55, 203, 99, 4, 91 };
+        Arrays.parallelSort(arr);
+        // Sorted the Array using parallelSort()
+         
+        Arrays.stream(arr).forEach(n > System.out.print(n + " "));
+        /* Converted it into Stream and then
+           printed using forEach */
+    }
+}
+16. How to use map to convert object into Uppercase in Java 8?
+
+public class Java8 {
+ 
+    public static void main(String[] args) {
+        List<String> nameLst = names.stream()
+                                    .map(String::toUpperCase)
+                                    .collect(Collectors.toList());
+        System.out.println(nameLst);
+    }
+}
+
+output:
+AA, BB, CC, DD
+17. How to convert a List of objects into a Map by considering duplicated keys and store them in sorted order?
+
+public class TestNotes {
+
+    public static void main(String[] args) {
+
+    List<Notes> noteLst = new ArrayList<>();
+    noteLst.add(new Notes(1, "note1", 11));
+    noteLst.add(new Notes(2, "note2", 22));
+    noteLst.add(new Notes(3, "note3", 33));
+    noteLst.add(new Notes(4, "note4", 44));
+    noteLst.add(new Notes(5, "note5", 55));
+
+    noteLst.add(new Notes(6, "note4", 66));
+
+
+    Map<String, Long> notesRecords = noteLst.stream()
+                                            .sorted(Comparator
+                                            .comparingLong(Notes::getTagId)
+                                            .reversed()) // sorting is based on TagId 55,44,33,22,11
+                                            .collect(Collectors.toMap
+                                            (Notes::getTagName, Notes::getTagId,
+                                            (oldValue, newValue) -> oldValue,LinkedHashMap::new));
+// consider old value 44 for dupilcate key
+// it keeps order
+        System.out.println("Notes : " + notesRecords);
+    }
+}
+18. How to count each element/word from the String ArrayList in Java8?
+
+public class TestNotes {
+
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("AA", "BB", "AA", "CC");
+        Map<String,Long> namesCount = names
+                                .stream()
+                                .collect(
+                                 Collectors.groupingBy(
+                                   Function.identity()
+                                 , Collectors.counting()
+                                 ));
+        System.out.println(namesCount);
+  }
+}
+
+Output:
+{CC=1, BB=1, AA=2}
+19. How to find only duplicate elements with its count from the String ArrayList in Java8?
+
+public class TestNotes {
+
+    public static void main(String[] args) 
+      List<String> names = Arrays.asList("AA", "BB", "AA", "CC");
+      Map<String,Long> namesCount = names
+                                   .stream()
+                       .filter(x->Collections.frequency(names, x)>1)
+                       .collect(Collectors.groupingBy
+                       (Function.identity(), Collectors.counting()));
+      System.out.println(namesCount);
+  }
+}
+
+Output:
+{AA=2}
+20. How to check if list is empty in Java 8 using Optional, if not null iterate through the list and print the object?
+
+Optional.ofNullable(noteLst)
+            .orElseGet(Collections::emptyList) // creates empty immutable list: [] in case noteLst is null
+            .stream().filter(Objects::nonNull) //loop throgh each object and consider non null objects
+            .map(note -> Notes::getTagName) // method reference, consider only tag name
+            .forEach(System.out::println); // it will print tag names
+21. Write a Program to find the Maximum element in an array?
+
+public static int findMaxElement(int[] arr) {
+  return Arrays.stream(arr).max().getAsInt();
+}
+
+Input: 12,19,20,88,00,9
+output: 88
+22. Write a program to print the count of each character in a String?
+
+public static void findCountOfChars(String s) {
+Map<String, Long> map = Arrays.stream(s.split(""))
+                              .map(String::toLowerCase)
+                              .collect(Collectors
+                              .groupingBy(str -> str, 
+                                LinkedHashMap::new, Collectors.counting()));
+}
+
+Input: String s = "string data to count each character";
+Output: {s=1, t=5, r=3, i=1, n=2, g=1,  =5, d=1, a=5, o=2, c=4, u=1, e=2, h=2}
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
+
+1) Given a list of integers, separate odd and even numbers?
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> listOfIntegers = Arrays.asList(71, 18, 42, 21, 67, 32, 95, 14, 56, 87);
+         
+        Map<Boolean, List<Integer>> oddEvenNumbersMap = 
+                listOfIntegers.stream().collect(Collectors.partitioningBy(i -> i % 2 == 0));
+         
+        Set<Entry<Boolean, List<Integer>>> entrySet = oddEvenNumbersMap.entrySet();
+         
+        for (Entry<Boolean, List<Integer>> entry : entrySet) 
+        {
+            System.out.println("--------------");
+             
+            if (entry.getKey())
+            {
+                System.out.println("Even Numbers");
+            }
+            else
+            {
+                System.out.println("Odd Numbers");
+            }
+             
+            System.out.println("--------------");
+             
+            List<Integer> list = entry.getValue();
+             
+            for (int i : list)
+            {
+                System.out.println(i);
+            }
+        }
+    }
+}
+Output :
+
+————–
+Odd Numbers
+————–
+71
+21
+67
+95
+87
+————–
+Even Numbers
+————–
+18
+42
+32
+14
+56
+
+
+2) How do you remove duplicate elements from a list using Java 8 streams?
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<String> listOfStrings = Arrays.asList("Java", "Python", "C#", "Java", "Kotlin", "Python");
+         
+        List<String> uniqueStrngs = listOfStrings.stream().distinct().collect(Collectors.toList());
+         
+        System.out.println(uniqueStrngs);
+    }
+}
+Output :
+
+
+[Java, Python, C#, Kotlin]
+
+3) How do you find frequency of each character in a string using Java 8 streams?
+
+
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        String inputString = "Java Concept Of The Day";
+         
+        Map<Character, Long> charCountMap = 
+                    inputString.chars()
+                                .mapToObj(c -> (char) c)
+                                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+         
+        System.out.println(charCountMap);
+    }
+}
+Output :
+
+{ =4, a=3, c=1, C=1, D=1, e=2, f=1, h=1, J=1, n=1, O=1, o=1, p=1, T=1, t=1, v=1, y=1}
+
+4) How do you find frequency of each element in an array or a list?
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<String> stationeryList = Arrays.asList("Pen", "Eraser", "Note Book", "Pen", "Pencil", "Stapler", "Note Book", "Pencil");
+         
+        Map<String, Long> stationeryCountMap = 
+                stationeryList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+         
+        System.out.println(stationeryCountMap);
+    }
+}
+Output :
+
+{Pen=2, Stapler=1, Pencil=2, Note Book=2, Eraser=1}
+
+5) How do you sort the given list of decimals in reverse order?
+
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<Double> decimalList = Arrays.asList(12.45, 23.58, 17.13, 42.89, 33.78, 71.85, 56.98, 21.12);
+         
+        decimalList.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+    }
+}
+Output :
+
+71.85
+56.98
+42.89
+33.78
+23.58
+21.12
+17.13
+12.45
+
+
+6) Given a list of strings, join the strings with ‘[‘ as prefix, ‘]’ as suffix and ‘,’ as delimiter?
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<String> listOfStrings = Arrays.asList("Facebook", "Twitter", "YouTube", "WhatsApp", "LinkedIn");
+         
+        String joinedString = listOfStrings.stream().collect(Collectors.joining(", ", "[", "]"));
+         
+        System.out.println(joinedString);
+    }
+}
+Output :
+
+[Facebook, Twitter, YouTube, WhatsApp, LinkedIn]
+
+7) From the given list of integers, print the numbers which are multiples of 5?
+
+
+import java.util.Arrays;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> listOfIntegers = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
+         
+        listOfIntegers.stream().filter(i -> i % 5 == 0).forEach(System.out::println);
+    }
+}
+Output :
+
+45
+15
+75
+
+8) Given a list of integers, find maximum and minimum of those numbers?
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> listOfIntegers = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
+         
+        int max = listOfIntegers.stream().max(Comparator.naturalOrder()).get();
+         
+        System.out.println("Maximum Element : "+max);
+         
+        int min = listOfIntegers.stream().min(Comparator.naturalOrder()).get();
+         
+        System.out.println("Minimum Element : "+min);
+    }
+}
+Output :
+
+Maximum Element : 89
+Minimum Element : 12
+
+9) How do you merge two unsorted arrays into single sorted array using Java 8 streams?
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        int[] a = new int[] {4, 2, 7, 1};
+         
+        int[] b = new int[] {8, 3, 9, 5};
+         
+        int[] c = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().toArray();
+         
+        System.out.println(Arrays.toString(c));
+    }
+}
+Output :
+
+[1, 2, 3, 4, 5, 7, 8, 9]
+
+10) How do you merge two unsorted arrays into single sorted array without duplicates?
+
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        int[] a = new int[] {4, 2, 5, 1};
+         
+        int[] b = new int[] {8, 1, 9, 5};
+         
+        int[] c = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().distinct().toArray();
+         
+        System.out.println(Arrays.toString(c));
+    }
+}
+Output :
+
+[1, 2, 4, 5, 8, 9]
+
+11) How do you get three maximum numbers and three minimum numbers from the given list of integers?
+
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> listOfIntegers = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
+         
+        //3 minimum Numbers
+         
+        System.out.println("-----------------");
+         
+        System.out.println("Minimum 3 Numbers");
+         
+        System.out.println("-----------------");
+         
+        listOfIntegers.stream().sorted().limit(3).forEach(System.out::println);
+         
+        //3 Maximum Numbers
+         
+        System.out.println("-----------------");
+         
+        System.out.println("Maximum 3 Numbers");
+         
+        System.out.println("-----------------");
+         
+listOfIntegers.stream().sorted(Comparator.reverseOrder()).limit(3).forEach(System.out::println);
+    }
+}
+Output :
+
+—————–
+Minimum 3 Numbers
+—————–
+12
+15
+24
+—————–
+Maximum 3 Numbers
+—————–
+89
+75
+56
+12) Java 8 program to check if two strings are anagrams or not?
+
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        String s1 = "RaceCar";
+        String s2 = "CarRace";
+         
+        s1 = Stream.of(s1.split("")).map(String::toUpperCase).sorted().collect(Collectors.joining());
+         
+        s2 = Stream.of(s2.split("")).map(String::toUpperCase).sorted().collect(Collectors.joining());
+         
+        if (s1.equals(s2)) 
+        {
+            System.out.println("Two strings are anagrams");
+        }
+        else
+        {
+            System.out.println("Two strings are not anagrams");
+        }
+    }
+}
+Output :
+
+Two strings are anagrams
+
+13) Find sum of all digits of a number in Java 8?
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        int i = 15623;
+         
+        Integer sumOfDigits = Stream.of(String.valueOf(i).split("")).collect(Collectors.summingInt(Integer::parseInt));
+         
+        System.out.println(sumOfDigits);
+    }
+}
+Output :
+
+17
+
+14) Find second largest number in an integer array?
+
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> listOfIntegers = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
+         
+        Integer secondLargestNumber = listOfIntegers.stream().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+         
+        System.out.println(secondLargestNumber);
+    }
+}
+Output :
+
+75
+
+15) Given a list of strings, sort them according to increasing order of their length?
+
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<String> listOfStrings = Arrays.asList("Java", "Python", "C#", "HTML", "Kotlin", "C++", "COBOL", "C");
+         
+        listOfStrings.stream().sorted(Comparator.comparing(String::length)).forEach(System.out::println);
+    }
+}
+Output :
+
+C
+C#
+C++
+Java
+HTML
+COBOL
+Python
+Kotlin
+
+16) Given an integer array, find sum and average of all elements?
+
+
+import java.util.Arrays;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        int[] a = new int[] {45, 12, 56, 15, 24, 75, 31, 89};
+         
+        int sum = Arrays.stream(a).sum();
+         
+        System.out.println("Sum = "+sum);
+         
+        double average = Arrays.stream(a).average().getAsDouble();
+         
+        System.out.println("Average = "+average);
+    }
+}
+Output :
+
+Sum = 347
+Average = 43.375
+
+17) How do you find common elements between two arrays?
+
+
+import java.util.Arrays;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> list1 = Arrays.asList(71, 21, 34, 89, 56, 28);
+         
+        List<Integer> list2 = Arrays.asList(12, 56, 17, 21, 94, 34);
+         
+        list1.stream().filter(list2::contains).forEach(System.out::println);
+    }
+}
+Output :
+
+21
+34
+56
+
+18) Reverse each word of a string using Java 8 streams?
+
+  
+import java.util.Arrays;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        String str = "Java Concept Of The Day";
+         
+        String reversedStr = Arrays.stream(str.split(" "))
+                                    .map(word -> new StringBuffer(word).reverse())
+                                    .collect(Collectors.joining(" "));
+         
+        System.out.println(reversedStr);
+    }
+}
+Output :
+
+avaJ tpecnoC fO ehT yaD
+
+19) How do you find sum of first 10 natural numbers?
+
+ 
+import java.util.stream.IntStream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        int sum = IntStream.range(1, 11).sum();
+         
+        System.out.println(sum);
+    }
+}
+Output :
+
+55
+
+20) Reverse an integer array
+
+ 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        int[] array = new int[] {5, 1, 7, 3, 9, 6};
+         
+        int[] reversedArray = IntStream.rangeClosed(1, array.length).map(i -> array[array.length - i]).toArray();
+         
+        System.out.println(Arrays.toString(reversedArray));
+    }
+}
+Output :
+
+[6, 9, 3, 7, 1, 5]
+
+21) Print first 10 even numbers
+
+ 
+import java.util.stream.IntStream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        IntStream.rangeClosed(1, 10).map(i -> i * 2).forEach(System.out::println);
+    }
+}
+Output :
+
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+
+22) How do you find the most repeated element in an array?
+
+ 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<String> listOfStrings = Arrays.asList("Pen", "Eraser", "Note Book", "Pen", "Pencil", "Pen", "Note Book", "Pencil");
+         
+        Map<String, Long> elementCountMap = listOfStrings.stream()
+                                                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+         
+        Entry<String, Long> mostFrequentElement = elementCountMap.entrySet().stream().max(Map.Entry.comparingByValue()).get();
+         
+        System.out.println("Most Frequent Element : "+mostFrequentElement.getKey());
+         
+        System.out.println("Count : "+mostFrequentElement.getValue());
+    }
+}
+Output :
+
+Most Frequent Element : Pen
+Count : 3
+
+23) Palindrome program using Java 8 streams
+
+ 
+import java.util.stream.IntStream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        String str = "ROTATOR";
+         
+        boolean isItPalindrome = IntStream.range(0, str.length()/2).
+                noneMatch(i -> str.charAt(i) != str.charAt(str.length() - i -1));
+          
+        if (isItPalindrome)
+        {
+            System.out.println(str+" is a palindrome");
+        }
+        else
+        {
+            System.out.println(str+" is not a palindrome");
+        }
+    }
+}
+Output :
+
+ROTATOR is a palindrome
+
+24) Given a list of strings, find out those strings which start with a number?
+ 
+import java.util.Arrays;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<String> listOfStrings = Arrays.asList("One", "2wo", "3hree", "Four", "5ive", "Six");
+         
+        listOfStrings.stream().filter(str -> Character.isDigit(str.charAt(0))).forEach(System.out::println);
+    }
+}
+Output :
+
+2wo
+3hree
+5ive
+
+25) How do you extract duplicate elements from an array?
+
+ 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> listOfIntegers = Arrays.asList(111, 222, 333, 111, 555, 333, 777, 222);
+         
+        Set<Integer> uniqueElements = new HashSet<>();
+         
+        Set<Integer> duplicateElements = listOfIntegers.stream().filter(i -> ! uniqueElements.add(i)).collect(Collectors.toSet());
+         
+        System.out.println(duplicateElements);
+    }
+}
+Output :
+
+[333, 222, 111]
+
+26) Print duplicate characters in a string?
+
+ 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        String inputString = "Java Concept Of The Day".replaceAll("\\s+", "").toLowerCase();
+         
+        Set<String> uniqueChars = new HashSet<>();
+         
+        Set<String> duplicateChars = 
+                Arrays.stream(inputString.split(""))
+                        .filter(ch -> ! uniqueChars.add(ch))
+                        .collect(Collectors.toSet());
+         
+        System.out.println(duplicateChars);
+    }
+}
+Output :
+
+[a, c, t, e, o]
+
+27) Find first repeated character in a string?
+
+ 
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        String inputString = "Java Concept Of The Day".replaceAll("\\s+", "").toLowerCase();
+         
+        Map<String, Long> charCountMap = 
+                            Arrays.stream(inputString.split(""))
+                                    .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
+         
+        String firstRepeatedChar = charCountMap.entrySet()
+                                                .stream()
+                                                .filter(entry -> entry.getValue() > 1)
+                                                .map(entry -> entry.getKey())
+                                                .findFirst()
+                                                .get();
+         
+        System.out.println(firstRepeatedChar);
+    }
+}
+Output :
+
+a
+
+28) Find first non-repeated character in a string?
+
+ 
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        String inputString = "Java Concept Of The Day".replaceAll("\\s+", "").toLowerCase();
+         
+        Map<String, Long> charCountMap = 
+                            Arrays.stream(inputString.split(""))
+                                    .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
+         
+        String firstNonRepeatedChar = charCountMap.entrySet()
+                                                .stream()
+                                                .filter(entry -> entry.getValue() == 1)
+                                                .map(entry -> entry.getKey())
+                                                .findFirst()
+                                                .get();
+         
+        System.out.println(firstNonRepeatedChar);
+    }
+}
+Output :
+
+j
+
+29) Fibonacci series
+
+ 
+import java.util.stream.Stream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        Stream.iterate(new int[] {0, 1}, f -> new int[] {f[1], f[0]+f[1]})
+                .limit(10)
+                .map(f -> f[0])
+                .forEach(i -> System.out.print(i+" "));
+    }
+}
+Output :
+
+0 1 1 2 3 5 8 13 21 34
+
+30) First 10 odd numbers
+
+ 
+import java.util.stream.Stream;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        Stream.iterate(new int[] {1, 3}, f -> new int[] {f[1], f[1]+2})
+                .limit(10)
+                .map(f -> f[0])
+                .forEach(i -> System.out.print(i+" "));
+    }
+}
+Output :
+
+1 3 5 7 9 11 13 15 17 19
+
+31) How do you get last element of an array?
+
+ 
+import java.util.Arrays;
+import java.util.List;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        List<String> listOfStrings = Arrays.asList("One", "Two", "Three", "Four", "Five", "Six");
+         
+        String lastElement = listOfStrings.stream().skip(listOfStrings.size() - 1).findFirst().get();
+         
+        System.out.println(lastElement);
+    }
+}
+Output :
+
+Six
+
+32) Find the age of a person in years if the birthday has given?
+
+ 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+ 
+public class Java8Code 
+{
+    public static void main(String[] args) 
+    {
+        LocalDate birthDay = LocalDate.of(1985, 01, 23);
+        LocalDate today = LocalDate.now();
+         
+        System.out.println(ChronoUnit.YEARS.between(birthDay, today));
+    }
+}
+
+/////////////////////////////////////////////////////////////
+linkedlist
+
+Write a Java program to append the specified element to the end of a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise1 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Append the specified element
+        linkedList.addLast("AppendedElement");
+
+        // Display the modified linked list
+        System.out.println("Linked List after appending: " + linkedList);
+    }
+}
+
+
+Write a Java program to iterate through all elements in a linked list.
+ 
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class Exercise2 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Iterate through all elements
+        Iterator<String> iterator = linkedList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+
+
+Write a Java program to iterate through all elements in a linked list starting at the specified position.
+ 
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class Exercise3 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Iterate through all elements starting at the specified position
+        Iterator<String> iterator = linkedList.listIterator(1);
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+Write a Java program to iterate a linked list in reverse order.
+ 
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class Exercise4 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Iterate through the linked list in reverse order
+        Iterator<String> iterator = linkedList.descendingIterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+Write a Java program to insert the specified element at the specified position in the linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise5 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Insert the specified element at the specified position
+        linkedList.add(1, "InsertedElement");
+
+        // Display the modified linked list
+        System.out.println("Linked List after insertion: " + linkedList);
+    }
+}
+
+
+Write a Java program to insert elements into the linked list at the first and last positions.
+  
+import java.util.LinkedList;
+
+public class Exercise6 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Insert elements at the first and last positions
+        linkedList.addFirst("FirstElement");
+        linkedList.addLast("LastElement");
+
+        // Display the modified linked list
+        System.out.println("Linked List after insertion: " + linkedList);
+    }
+}
+Write a Java program to insert the specified element at the front of a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise7 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Insert the specified element at the front
+        linkedList.offerFirst("FrontElement");
+
+        // Display the modified linked list
+        System.out.println("Linked List after insertion: " + linkedList);
+    }
+}
+Write a Java program to insert the specified element at the end of a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise8 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Insert the specified element at the end
+        linkedList.offerLast("EndElement");
+
+        // Display the modified linked list
+        System.out.println("Linked List after insertion: " + linkedList);
+    }
+}
+Write a Java program to insert some elements at the specified position into a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise9 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Insert elements at the specified position
+        linkedList.addAll(1, List.of("InsertedElement1", "InsertedElement2"));
+
+        // Display the modified linked list
+        System.out.println("Linked List after insertion: " + linkedList);
+    }
+}
+Write a Java program to get the first and last occurrence of the specified elements in a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise10 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+        linkedList.add("Element2");
+        linkedList.add("Element4");
+
+        // Get the first and last occurrence of the specified element
+        int firstIndex = linkedList.indexOf("Element2");
+        int lastIndex = linkedList.lastIndexOf("Element2");
+
+        // Display the results
+        System.out.println("First occurrence index: " + firstIndex);
+        System.out.println("Last occurrence index: " + lastIndex);
+    }
+}
+
+
+11. Write a Java program to display elements and their positions in a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise11 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Display elements and their positions
+        for (int i = 0; i < linkedList.size(); i++) {
+            System.out.println("Element at position " + i + ": " + linkedList.get(i));
+        }
+    }
+}
+12. Write a Java program to remove a specified element from a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise12 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Remove the specified element
+        linkedList.remove("Element2");
+
+        // Display the modified linked list
+        System.out.println("Linked List after removal: " + linkedList);
+    }
+}
+13. Write a Java program to remove the first and last elements from a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise13 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Remove the first and last elements
+        linkedList.removeFirst();
+        linkedList.removeLast();
+
+        // Display the modified linked list
+        System.out.println("Linked List after removal: " + linkedList);
+    }
+}
+14. Write a Java program to remove all elements from a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise14 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Remove all elements
+        linkedList.clear();
+
+        // Display the modified linked list
+        System.out.println("Linked List after removal: " + linkedList);
+    }
+}
+15. Write a Java program that swaps two elements in a linked list.
+ 
+import java.util.LinkedList;
+
+public class Exercise15 {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Element1");
+        linkedList.add("Element2");
+        linkedList.add("Element3");
+
+        // Swap two elements
+        int index1 = 0;
+        int index2 = 2;
+        String temp = linkedList.get(index1);
+        linkedList.set(index1, linkedList.get(index2));
+        linkedList.set(index2, temp);
+
+        // Display the modified linked list
+        System.out.println("Linked List after swapping: " + linkedList);
+    }
+}
