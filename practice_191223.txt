@@ -1,0 +1,808 @@
+Java Collection: HashSet Exercises  
+1. Write a Java program to append the specified element to the end of a hash set.
+
+2. Write a Java program to iterate through all elements in a hash list.
+
+3. Write a Java program to get the number of elements in a hash set.
+
+4. Write a Java program to empty an hash set.
+
+5. Write a Java program to test if a hash set is empty or not.
+
+6. Write a Java program to clone a hash set to another hash set.
+
+7. Write a Java program to convert a hash set to an array.
+
+8. Write a Java program to convert a hash set to a tree set.
+
+9. Write a Java program to find numbers less than 7 in a tree set.
+
+10. Write a Java program to compare two hash set.
+
+11. Write a Java program to compare two sets and retain elements that are the same.
+
+12. Write a Java program to remove all elements from a hash set.
+
+
+Append the specified element to the end of a hash set:
+
+ 
+import java.util.HashSet;
+
+public class Exercise1 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Red");
+        hashSet.add("Green");
+        hashSet.add("Blue");
+
+        System.out.println("Original HashSet: " + hashSet);
+
+        // Append element
+        hashSet.add("Yellow");
+
+        System.out.println("HashSet after appending: " + hashSet);
+    }
+}
+Iterate through all elements in a hash set:
+
+ 
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class Exercise2 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Red");
+        hashSet.add("Green");
+        hashSet.add("Blue");
+
+        // Using Iterator
+        Iterator<String> iterator = hashSet.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+Get the number of elements in a hash set:
+
+ 
+import java.util.HashSet;
+
+public class Exercise3 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Red");
+        hashSet.add("Green");
+        hashSet.add("Blue");
+
+        int size = hashSet.size();
+        System.out.println("Number of elements in the HashSet: " + size);
+    }
+}
+Empty a hash set:
+ 
+import java.util.HashSet;
+
+public class Exercise4 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Red");
+        hashSet.add("Green");
+        hashSet.add("Blue");
+
+        System.out.println("Original HashSet: " + hashSet);
+
+        // Empty the HashSet
+        hashSet.clear();
+
+        System.out.println("HashSet after clearing: " + hashSet);
+    }
+}
+Test if a hash set is empty or not:
+
+ 
+import java.util.HashSet;
+
+public class Exercise5 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Red");
+        hashSet.add("Green");
+        hashSet.add("Blue");
+
+        boolean isEmpty = hashSet.isEmpty();
+        System.out.println("Is HashSet empty? " + isEmpty);
+    }
+}
+Clone a hash set to another hash set:
+
+ 
+import java.util.HashSet;
+
+public class Exercise6 {
+    public static void main(String[] args) {
+        HashSet<String> originalHashSet = new HashSet<>();
+        originalHashSet.add("Red");
+        originalHashSet.add("Green");
+        originalHashSet.add("Blue");
+
+        // Clone the HashSet
+        HashSet<String> clonedHashSet = new HashSet<>(originalHashSet);
+
+        System.out.println("Original HashSet: " + originalHashSet);
+        System.out.println("Cloned HashSet: " + clonedHashSet);
+    }
+}
+Convert a hash set to an array:
+
+ 
+import java.util.HashSet;
+
+public class Exercise7 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Red");
+        hashSet.add("Green");
+        hashSet.add("Blue");
+
+        // Convert HashSet to Array
+        String[] array = new String[hashSet.size()];
+        hashSet.toArray(array);
+
+        System.out.println("Array from HashSet: " + Arrays.toString(array));
+    }
+}
+Convert a hash set to a tree set:
+
+ 
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class Exercise8 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Red");
+        hashSet.add("Green");
+        hashSet.add("Blue");
+
+        // Convert HashSet to TreeSet
+        TreeSet<String> treeSet = new TreeSet<>(hashSet);
+
+        System.out.println("TreeSet from HashSet: " + treeSet);
+    }
+}
+Find numbers less than 7 in a tree set:
+
+ 
+import java.util.TreeSet;
+
+public class Exercise9 {
+    public static void main(String[] args) {
+        TreeSet<Integer> treeSet = new TreeSet<>();
+        treeSet.add(2);
+        treeSet.add(5);
+        treeSet.add(8);
+        treeSet.add(3);
+        treeSet.add(1);
+
+        // Find numbers less than 7
+        System.out.println("Numbers less than 7: " + treeSet.headSet(7));
+    }
+}
+Compare two hash sets:
+
+ 
+import java.util.HashSet;
+
+public class Exercise10 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet1 = new HashSet<>();
+        hashSet1.add("Red");
+        hashSet1.add("Green");
+        hashSet1.add("Blue");
+
+        HashSet<String> hashSet2 = new HashSet<>();
+        hashSet2.add("Red");
+        hashSet2.add("Green");
+        hashSet2.add("Blue");
+
+        // Compare hash sets
+        boolean areEqual = hashSet1.equals(hashSet2);
+        System.out.println("Are the hash sets equal? " + areEqual);
+    }
+}
+Compare two sets and retain elements that are the same:
+
+ 
+import java.util.HashSet;
+
+public class Exercise11 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet1 = new HashSet<>();
+        hashSet1.add("Red");
+        hashSet1.add("Green");
+        hashSet1.add("Blue");
+
+        HashSet<String> hashSet2 = new HashSet<>();
+        hashSet2.add("Red");
+        hashSet2.add("Yellow");
+        hashSet2.add("Blue");
+
+        // Retain elements that are the same
+        hashSet1.retainAll(hashSet2);
+
+        System.out.println("Common elements: " + hashSet1);
+    }
+}
+Remove all elements from a hash set:
+
+ 
+import java.util.HashSet;
+
+public class Exercise12 {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Red");
+        hashSet.add("Green");
+        hashSet.add("Blue");
+
+        System.out.println("Original HashSet: " + hashSet);
+
+        // Remove all elements
+        hashSet.clear();
+
+        System.out.println("HashSet after removing all elements: " + hashSet);
+    }
+}
+
+
+
+Java Collection: TreeSet Exercises  
+1. Write a Java program to create a tree set, add some colors (strings) and print out the tree set.
+
+2. Write a Java program to iterate through all elements in a tree set.
+
+3. Write a Java program to add all the elements of a specified tree set to another tree set.
+
+4. Write a Java program to create a reverse order view of the elements contained in a given tree set.
+
+5. Write a Java program to get the first and last elements in a tree set.
+
+6. Write a Java program to clone a tree set list to another tree set.
+
+7. Write a Java program to get the number of elements in a tree set.
+
+8. Write a Java program to compare two tree sets.
+
+9. Write a Java program to find numbers less than 7 in a tree set.
+
+10. Write a Java program to get the element in a tree set which is greater than or equal to the given element.
+
+11. Write a Java program to get the element in a tree set less than or equal to the given element.
+
+12. Write a Java program to get the element in a tree set strictly greater than or equal to the given element.
+
+13. Write a Java program to get an element in a tree set that has a lower value than the given element.
+
+14. Write a Java program to retrieve and remove the first element of a tree set.
+
+15. Write a Java program to retrieve and remove the last element of a tree set.
+
+16. Write a Java program to remove a given element from a tree set.
+
+
+
+
+
+
+1. Create a tree set, add colors, and print it:
+
+import java.util.TreeSet;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        TreeSet<String> colorSet = new TreeSet<>();
+        colorSet.add("Red");
+        colorSet.add("Green");
+        colorSet.add("Blue");
+
+        System.out.println("TreeSet elements: " + colorSet);
+    }
+}
+2. Iterate through all elements in a tree set:
+
+import java.util.Iterator;
+import java.util.TreeSet;
+
+public class TreeSetIteration {
+    public static void main(String[] args) {
+        TreeSet<String> colorSet = new TreeSet<>();
+        colorSet.add("Red");
+        colorSet.add("Green");
+        colorSet.add("Blue");
+
+        Iterator<String> iterator = colorSet.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+3. Add elements of one tree set to another:
+
+import java.util.TreeSet;
+
+public class TreeSetAddAll {
+    public static void main(String[] args) {
+        TreeSet<String> set1 = new TreeSet<>();
+        set1.add("Red");
+        set1.add("Green");
+
+        TreeSet<String> set2 = new TreeSet<>();
+        set2.add("Blue");
+        set2.add("Yellow");
+
+        set1.addAll(set2);
+
+        System.out.println("Merged TreeSet: " + set1);
+    }
+}
+4. Create a reverse order view of a tree set:
+
+import java.util.TreeSet;
+
+public class ReverseOrderView {
+    public static void main(String[] args) {
+        TreeSet<String> colorSet = new TreeSet<>();
+        colorSet.add("Red");
+        colorSet.add("Green");
+        colorSet.add("Blue");
+
+        TreeSet<String> reverseSet = new TreeSet<>(colorSet.descendingSet());
+
+        System.out.println("Reverse Order TreeSet: " + reverseSet);
+    }
+}
+5. Get the first and last elements in a tree set:
+
+import java.util.TreeSet;
+
+public class FirstLastElements {
+    public static void main(String[] args) {
+        TreeSet<String> colorSet = new TreeSet<>();
+        colorSet.add("Red");
+        colorSet.add("Green");
+        colorSet.add("Blue");
+
+        System.out.println("First Element: " + colorSet.first());
+        System.out.println("Last Element: " + colorSet.last());
+    }
+}
+
+
+
+6. Clone a tree set to another tree set:
+
+import java.util.TreeSet;
+
+public class CloneTreeSet {
+    public static void main(String[] args) {
+        TreeSet<String> originalSet = new TreeSet<>();
+        originalSet.add("Red");
+        originalSet.add("Green");
+        originalSet.add("Blue");
+
+        TreeSet<String> clonedSet = new TreeSet<>(originalSet);
+
+        System.out.println("Original TreeSet: " + originalSet);
+        System.out.println("Cloned TreeSet: " + clonedSet);
+    }
+}
+7. Get the number of elements in a tree set:
+
+import java.util.TreeSet;
+
+public class TreeSetSize {
+    public static void main(String[] args) {
+        TreeSet<String> colorSet = new TreeSet<>();
+        colorSet.add("Red");
+        colorSet.add("Green");
+        colorSet.add("Blue");
+
+        int size = colorSet.size();
+
+        System.out.println("Number of elements in TreeSet: " + size);
+    }
+}
+8. Compare two tree sets:
+
+import java.util.TreeSet;
+
+public class CompareTreeSets {
+    public static void main(String[] args) {
+        TreeSet<String> set1 = new TreeSet<>();
+        set1.add("Red");
+        set1.add("Green");
+        set1.add("Blue");
+
+        TreeSet<String> set2 = new TreeSet<>();
+        set2.add("Green");
+        set2.add("Blue");
+        set2.add("Red");
+
+        boolean isEqual = set1.equals(set2);
+
+        System.out.println("Are the TreeSets equal? " + isEqual);
+    }
+}
+9. Find numbers less than 7 in a tree set:
+
+import java.util.TreeSet;
+
+public class NumbersLessThanSeven {
+    public static void main(String[] args) {
+        TreeSet<Integer> numberSet = new TreeSet<>();
+        numberSet.add(5);
+        numberSet.add(8);
+        numberSet.add(3);
+        numberSet.add(10);
+
+        TreeSet<Integer> result = new TreeSet<>();
+        for (Integer num : numberSet) {
+            if (num < 7) {
+                result.add(num);
+            }
+        }
+
+        System.out.println("Numbers less than 7: " + result);
+    }
+}
+10. Get the element in a tree set greater than or equal to a given element:
+
+import java.util.TreeSet;
+
+public class GreaterThanOrEqualToElement {
+    public static void main(String[] args) {
+        TreeSet<Integer> numberSet = new TreeSet<>();
+        numberSet.add(5);
+        numberSet.add(8);
+        numberSet.add(3);
+        numberSet.add(10);
+
+        int givenElement = 7;
+
+        TreeSet<Integer> result = new TreeSet<>(numberSet.tailSet(givenElement, true));
+
+        System.out.println("Elements greater than or equal to " + givenElement + ": " + result);
+    }
+}
+
+
+11. Get the element in a tree set less than or equal to the given element:
+ 
+import java.util.TreeSet;
+
+public class LessThanOrEqualToElement {
+    public static void main(String[] args) {
+        TreeSet<Integer> numberSet = new TreeSet<>();
+        numberSet.add(5);
+        numberSet.add(8);
+        numberSet.add(3);
+        numberSet.add(10);
+
+        int givenElement = 7;
+
+        TreeSet<Integer> result = new TreeSet<>(numberSet.headSet(givenElement, true));
+
+        System.out.println("Elements less than or equal to " + givenElement + ": " + result);
+    }
+}
+12. Get the element in a tree set strictly greater than or equal to the given element:
+ 
+import java.util.TreeSet;
+
+public class GreaterThanOrEqualToStrict {
+    public static void main(String[] args) {
+        TreeSet<Integer> numberSet = new TreeSet<>();
+        numberSet.add(5);
+        numberSet.add(8);
+        numberSet.add(3);
+        numberSet.add(10);
+
+        int givenElement = 7;
+
+        TreeSet<Integer> result = new TreeSet<>(numberSet.tailSet(givenElement));
+
+        System.out.println("Elements strictly greater than or equal to " + givenElement + ": " + result);
+    }
+}
+13. Get an element in a tree set with a lower value than the given element:
+ 
+import java.util.TreeSet;
+
+public class LowerThanElement {
+    public static void main(String[] args) {
+        TreeSet<Integer> numberSet = new TreeSet<>();
+        numberSet.add(5);
+        numberSet.add(8);
+        numberSet.add(3);
+        numberSet.add(10);
+
+        int givenElement = 7;
+
+        TreeSet<Integer> result = new TreeSet<>(numberSet.headSet(givenElement));
+
+        if (!result.isEmpty()) {
+            System.out.println("Element with a lower value than " + givenElement + ": " + result.last());
+        } else {
+            System.out.println("No such element found.");
+        }
+    }
+}
+14. Retrieve and remove the first element of a tree set:
+ 
+import java.util.TreeSet;
+
+public class RemoveFirstElement {
+    public static void main(String[] args) {
+        TreeSet<String> colorSet = new TreeSet<>();
+        colorSet.add("Red");
+        colorSet.add("Green");
+        colorSet.add("Blue");
+
+        String firstElement = colorSet.pollFirst();
+
+        System.out.println("Removed First Element: " + firstElement);
+        System.out.println("Updated TreeSet: " + colorSet);
+    }
+}
+15. Retrieve and remove the last element of a tree set:
+ 
+import java.util.TreeSet;
+
+public class RemoveLastElement {
+    public static void main(String[] args) {
+        TreeSet<String> colorSet = new TreeSet<>();
+        colorSet.add("Red");
+        colorSet.add("Green");
+        colorSet.add("Blue");
+
+        String lastElement = colorSet.pollLast();
+
+        System.out.println("Removed Last Element: " + lastElement);
+        System.out.println("Updated TreeSet: " + colorSet);
+    }
+}
+16. Remove a given element from a tree set:
+ 
+import java.util.TreeSet;
+
+public class RemoveGivenElement {
+    public static void main(String[] args) {
+        TreeSet<String> colorSet = new TreeSet<>();
+        colorSet.add("Red");
+        colorSet.add("Green");
+        colorSet.add("Blue");
+
+        String givenElement = "Green";
+
+        boolean removed = colorSet.remove(givenElement);
+
+        if (removed) {
+            System.out.println(givenElement + " removed successfully.");
+            System.out.println("Updated TreeSet: " + colorSet);
+        } else {
+            System.out.println(givenElement + " not found in the TreeSet.");
+        }
+    }
+}
+
+
+Java Collection: PriorityQueue Exercises  
+1. Write a Java program to create a priority queue, add some colors (strings) and print out the elements of the priority queue.
+ 
+
+2. Write a Java program to iterate through all elements in the priority queue.
+ 
+
+3. Write a Java program to add all the elements of a priority queue to another priority queue.
+ 
+
+4. Write a Java program to insert a given element into a priority queue.
+ 
+
+5. Write a Java program to remove all elements from a priority queue.
+ 
+
+6. Write a Java program to count the number of elements in a priority queue.
+ 
+
+7. Write a Java program to compare two priority queues.
+ 
+
+8. Write a Java program to retrieve the first element of the priority queue.
+ 
+
+9. Write a Java program to retrieve and remove the first element.
+ 
+
+10. Write a Java program to convert a priority queue to an array containing all its elements.
+ 
+ 
+
+
+1. Create a priority queue, add colors, and print elements:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample1 {
+    public static void main(String[] args) {
+        PriorityQueue<String> colorQueue = new PriorityQueue<>();
+        colorQueue.add("Red");
+        colorQueue.add("Green");
+        colorQueue.add("Blue");
+
+        System.out.println("Priority Queue Elements: " + colorQueue);
+    }
+}
+2. Iterate through all elements in the priority queue:
+ 
+import java.util.Iterator;
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample2 {
+    public static void main(String[] args) {
+        PriorityQueue<String> colorQueue = new PriorityQueue<>();
+        colorQueue.add("Red");
+        colorQueue.add("Green");
+        colorQueue.add("Blue");
+
+        Iterator<String> iterator = colorQueue.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+3. Add all elements of one priority queue to another:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample3 {
+    public static void main(String[] args) {
+        PriorityQueue<String> queue1 = new PriorityQueue<>();
+        queue1.add("Red");
+        queue1.add("Green");
+
+        PriorityQueue<String> queue2 = new PriorityQueue<>();
+        queue2.add("Blue");
+        queue2.add("Yellow");
+
+        queue1.addAll(queue2);
+
+        System.out.println("Merged Priority Queue: " + queue1);
+    }
+}
+4. Insert a given element into a priority queue:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample4 {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> numberQueue = new PriorityQueue<>();
+        numberQueue.add(5);
+        numberQueue.add(10);
+        numberQueue.add(20);
+
+        int newElement = 15;
+
+        numberQueue.offer(newElement);
+
+        System.out.println("Priority Queue after insertion: " + numberQueue);
+    }
+}
+5. Remove all elements from a priority queue:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample5 {
+    public static void main(String[] args) {
+        PriorityQueue<String> colorQueue = new PriorityQueue<>();
+        colorQueue.add("Red");
+        colorQueue.add("Green");
+        colorQueue.add("Blue");
+
+        colorQueue.clear();
+
+        System.out.println("Priority Queue after removal: " + colorQueue);
+    }
+}
+
+
+6. Count the number of elements in a priority queue:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample6 {
+    public static void main(String[] args) {
+        PriorityQueue<String> colorQueue = new PriorityQueue<>();
+        colorQueue.add("Red");
+        colorQueue.add("Green");
+        colorQueue.add("Blue");
+
+        int numberOfElements = colorQueue.size();
+
+        System.out.println("Number of elements in the Priority Queue: " + numberOfElements);
+    }
+}
+7. Compare two priority queues:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample7 {
+    public static void main(String[] args) {
+        PriorityQueue<String> queue1 = new PriorityQueue<>();
+        queue1.add("Red");
+        queue1.add("Green");
+        queue1.add("Blue");
+
+        PriorityQueue<String> queue2 = new PriorityQueue<>();
+        queue2.add("Blue");
+        queue2.add("Yellow");
+
+        boolean isEqual = queue1.equals(queue2);
+
+        System.out.println("Are the Priority Queues equal? " + isEqual);
+    }
+}
+8. Retrieve the first element of the priority queue:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample8 {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> numberQueue = new PriorityQueue<>();
+        numberQueue.add(5);
+        numberQueue.add(10);
+        numberQueue.add(20);
+
+        int firstElement = numberQueue.peek();
+
+        System.out.println("First element of the Priority Queue: " + firstElement);
+    }
+}
+9. Retrieve and remove the first element:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample9 {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> numberQueue = new PriorityQueue<>();
+        numberQueue.add(5);
+        numberQueue.add(10);
+        numberQueue.add(20);
+
+        int removedElement = numberQueue.poll();
+
+        System.out.println("Removed first element of the Priority Queue: " + removedElement);
+        System.out.println("Updated Priority Queue: " + numberQueue);
+    }
+}
+10. Convert a priority queue to an array containing all its elements:
+ 
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample10 {
+    public static void main(String[] args) {
+        PriorityQueue<String> colorQueue = new PriorityQueue<>();
+        colorQueue.add("Red");
+        colorQueue.add("Green");
+        colorQueue.add("Blue");
+
+        String[] colorArray = colorQueue.toArray(new String[0]);
+
+        System.out.println("Priority Queue converted to Array: ");
+        for (String color : colorArray) {
+            System.out.println(color);
+        }
+    }
+}
