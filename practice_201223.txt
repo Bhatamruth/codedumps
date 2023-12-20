@@ -1,0 +1,862 @@
+Java Collection: HashMap Exercises  
+1. Write a Java program to associate the specified value with the specified key in a HashMap.
+ 
+
+2. Write a Java program to count the number of key-value (size) mappings in a map.
+ 
+
+3. Write a Java program to copy all mappings from the specified map to another map.
+ 
+
+4. Write a Java program to remove all mappings from a map.
+ 
+
+5. Write a Java program to check whether a map contains key-value mappings (empty) or not.
+ 
+
+6. Write a Java program to get a shallow copy of a HashMap instance.
+ 
+
+7. Write a Java program to test if a map contains a mapping for the specified key.
+ 
+
+8. Write a Java program to test if a map contains a mapping for the specified value.
+ 
+
+9. Write a Java program to create a set view of the mappings contained in a map.
+ 
+
+10. Write a Java program to get the value of a specified key in a map.
+ 
+
+11. Write a Java program to get a set view of the keys contained in this map.
+ 
+
+12. Write a Java program to get a collection view of the values contained in this map.
+ 
+
+
+
+
+
+
+
+
+
+1. Associate the specified value with the specified key in a HashMap:
+ 
+import java.util.HashMap;
+
+public class HashMapExample1 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Associate a value with a key
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Display the HashMap
+        System.out.println("HashMap: " + map);
+    }
+}
+2. Count the number of key-value mappings in a map:
+ 
+import java.util.HashMap;
+
+public class HashMapExample2 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Add key-value mappings
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Count the number of mappings
+        int size = map.size();
+
+        System.out.println("Number of key-value mappings: " + size);
+    }
+}
+3. Copy all mappings from one map to another:
+ 
+import java.util.HashMap;
+
+public class HashMapExample3 {
+    public static void main(String[] args) {
+        // Create source HashMap
+        HashMap<String, Integer> sourceMap = new HashMap<>();
+        sourceMap.put("One", 1);
+        sourceMap.put("Two", 2);
+
+        // Create destination HashMap
+        HashMap<String, Integer> destinationMap = new HashMap<>();
+
+        // Copy all mappings
+        destinationMap.putAll(sourceMap);
+
+        System.out.println("Destination HashMap: " + destinationMap);
+    }
+}
+4. Remove all mappings from a map:
+ 
+import java.util.HashMap;
+
+public class HashMapExample4 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Add key-value mappings
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Remove all mappings
+        map.clear();
+
+        System.out.println("HashMap after removal: " + map);
+    }
+}
+5. Check whether a map contains key-value mappings or not:
+ 
+import java.util.HashMap;
+
+public class HashMapExample5 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Check if the map is empty
+        boolean isEmpty = map.isEmpty();
+
+        System.out.println("Is HashMap empty? " + isEmpty);
+    }
+}
+
+6. Get a shallow copy of a HashMap instance:
+ 
+import java.util.HashMap;
+
+public class HashMapExample6 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> originalMap = new HashMap<>();
+        originalMap.put("One", 1);
+        originalMap.put("Two", 2);
+        originalMap.put("Three", 3);
+
+        // Create a shallow copy
+        HashMap<String, Integer> shallowCopyMap = new HashMap<>(originalMap);
+
+        System.out.println("Original HashMap: " + originalMap);
+        System.out.println("Shallow Copy HashMap: " + shallowCopyMap);
+    }
+}
+7. Test if a map contains a mapping for the specified key:
+ 
+import java.util.HashMap;
+
+public class HashMapExample7 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Test if the map contains a key
+        String keyToCheck = "Two";
+        boolean containsKey = map.containsKey(keyToCheck);
+
+        System.out.println("Does the map contain key '" + keyToCheck + "'? " + containsKey);
+    }
+}
+8. Test if a map contains a mapping for the specified value:
+ 
+import java.util.HashMap;
+
+public class HashMapExample8 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Test if the map contains a value
+        int valueToCheck = 2;
+        boolean containsValue = map.containsValue(valueToCheck);
+
+        System.out.println("Does the map contain value '" + valueToCheck + "'? " + containsValue);
+    }
+}
+9. Create a set view of the mappings contained in a map:
+  
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class HashMapExample9 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Create a set view of mappings
+        Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
+
+        System.out.println("Set view of mappings: " + entrySet);
+    }
+}
+10. Get the value of a specified key in a map:
+ 
+import java.util.HashMap;
+
+public class HashMapExample10 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Get the value for a specified key
+        String keyToGet = "Two";
+        Integer value = map.get(keyToGet);
+
+        System.out.println("Value for key '" + keyToGet + "': " + value);
+    }
+}
+11. Get a set view of the keys contained in a map:
+ 
+import java.util.HashMap;
+import java.util.Set;
+
+public class HashMapExample11 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Get a set view of keys
+        Set<String> keySet = map.keySet();
+
+        System.out.println("Set view of keys: " + keySet);
+    }
+}
+12. Get a collection view of the values contained in a map:
+ 
+import java.util.HashMap;
+import java.util.Collection;
+
+public class HashMapExample12 {
+    public static void main(String[] args) {
+        // Create a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Get a collection view of values
+        Collection<Integer> values = map.values();
+
+        System.out.println("Collection view of values: " + values);
+    }
+}
+
+
+Java Collection: TreeMap Exercises  
+1. Write a Java program to associate the specified value with the specified key in a Tree Map.
+ 
+
+2. Write a Java program to copy Tree Map's content to another Tree Map.
+ 
+
+3. Write a Java program to search for a key in a Tree Map.
+ 
+
+4. Write a Java program to search for a value in a Tree Map.
+ 
+
+5. Write a Java program to get all keys from a Tree Map.
+ 
+
+6. Write a Java program to delete all elements from a Tree Map.
+ 
+
+7. Write a Java program to sort keys in a Tree Map by using a comparator.
+ 
+
+8. Write a Java program to get a key-value mapping associated with the greatest key and the least key in a map.
+ 
+
+9. Write a Java program to get the first (lowest) key and the last (highest) key currently in a map.
+ 
+
+10. Write a Java program to get a reverse order view of the keys contained in a given map.
+ 
+
+11. Write a Java program to get a key-value mapping associated with the greatest key less than or equal to the given key.
+ 
+
+12. Write a Java program to get the greatest key less than or equal to the given key.
+ 
+
+13. Write a Java program to get the portion of a map whose keys are strictly less than a given key.
+ 
+
+14. Write a Java program to get the portion of this map whose keys are less than (or equal to, if inclusive is true) a given key.
+ 
+
+15. Write a Java program to get the least key strictly greater than the given key. Return null if there is no such key.
+ 
+
+16. Write a Java program to get a key-value mapping associated with the greatest key strictly less than the given key. Return null if there is no such key.
+ 
+
+17. Write a Java program to get the greatest key strictly less than the given key. Return null if there is no such key.
+ 
+
+18. Write a Java program to get a NavigableSet view of keys in a map.
+ 
+
+19. Write a Java program to remove and get a key-value mapping associated with the least key in a map.
+ 
+
+20. Write a Java program to remove and get a key-value mapping associated with the greatest key in this map.
+ 
+
+21. Write a Java program to get the portion of a map whose keys range from a given key (inclusive) to another key (exclusive).
+ 
+
+22. Write a Java program to get the portion of a map whose keys range from a given key to another key.
+ 
+
+23. Write a Java program to get a portion of a map whose keys are greater than or equal to a given key.
+ 
+
+24. Write a Java program to get a portion of a map whose keys are greater than a given key.
+ 
+
+25. Write a Java program to get a key-value mapping associated with the least key greater than or equal to the given key. Return null if there is no such key.
+ 
+
+26. Write a Java program to get the least key greater than or equal to the given key. Returns null if there is no such key.
+ 
+
+
+
+
+
+
+
+
+
+1. Associate the specified value with the specified key in a TreeMap:
+ 
+import java.util.TreeMap;
+
+public class TreeMapExample1 {
+    public static void main(String[] args) {
+        // Create a TreeMap
+        TreeMap<String, Integer> treeMap = new TreeMap<>();
+
+        // Associate a value with a key
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        // Display the TreeMap
+        System.out.println("TreeMap: " + treeMap);
+    }
+}
+2. Copy TreeMap's content to another TreeMap:
+ 
+import java.util.TreeMap;
+
+public class TreeMapExample2 {
+    public static void main(String[] args) {
+        // Create source TreeMap
+        TreeMap<String, Integer> sourceMap = new TreeMap<>();
+        sourceMap.put("One", 1);
+        sourceMap.put("Two", 2);
+
+        // Create destination TreeMap
+        TreeMap<String, Integer> destinationMap = new TreeMap<>(sourceMap);
+
+        System.out.println("Destination TreeMap: " + destinationMap);
+    }
+}
+3. Search for a key in a TreeMap:
+ 
+import java.util.TreeMap;
+
+public class TreeMapExample3 {
+    public static void main(String[] args) {
+        // Create a TreeMap
+        TreeMap<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        // Search for a key
+        String keyToSearch = "Two";
+        boolean containsKey = treeMap.containsKey(keyToSearch);
+
+        System.out.println("Does the TreeMap contain key '" + keyToSearch + "'? " + containsKey);
+    }
+}
+4. Search for a value in a TreeMap:
+ 
+import java.util.TreeMap;
+
+public class TreeMapExample4 {
+    public static void main(String[] args) {
+        // Create a TreeMap
+        TreeMap<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        // Search for a value
+        int valueToSearch = 2;
+        boolean containsValue = treeMap.containsValue(valueToSearch);
+
+        System.out.println("Does the TreeMap contain value '" + valueToSearch + "'? " + containsValue);
+    }
+}
+5. Get all keys from a TreeMap:
+ 
+import java.util.Set;
+import java.util.TreeMap;
+
+public class TreeMapExample5 {
+    public static void main(String[] args) {
+        // Create a TreeMap
+        TreeMap<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        // Get all keys
+        Set<String> keys = treeMap.keySet();
+
+        System.out.println("All keys in the TreeMap: " + keys);
+    }
+}
+
+ 
+
+6. Delete all elements from a TreeMap:
+ 
+import java.util.TreeMap;
+
+public class TreeMapExample6 {
+    public static void main(String[] args) {
+        // Create a TreeMap
+        TreeMap<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        // Delete all elements
+        treeMap.clear();
+
+        System.out.println("TreeMap after deletion: " + treeMap);
+    }
+}
+7. Sort keys in a TreeMap by using a comparator:
+ 
+import java.util.Comparator;
+import java.util.TreeMap;
+
+public class TreeMapExample7 {
+    public static void main(String[] args) {
+        // Create a TreeMap with a custom comparator (sorting by length of keys)
+        TreeMap<String, Integer> treeMap = new TreeMap<>(Comparator.comparing(String::length));
+
+        // Add elements to the TreeMap
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        System.out.println("Sorted TreeMap by key length: " + treeMap);
+    }
+}
+8. Get a key-value mapping associated with the greatest key and the least key in a map:
+ 
+import java.util.Map;
+import java.util.TreeMap;
+
+public class TreeMapExample8 {
+    public static void main(String[] args) {
+        // Create a TreeMap
+        TreeMap<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        // Get the greatest and least key-value mappings
+        Map.Entry<String, Integer> greatestEntry = treeMap.lastEntry();
+        Map.Entry<String, Integer> leastEntry = treeMap.firstEntry();
+
+        System.out.println("Greatest Key-Value Mapping: " + greatestEntry);
+        System.out.println("Least Key-Value Mapping: " + leastEntry);
+    }
+}
+9. Get the first (lowest) key and the last (highest) key currently in a map:
+ 
+import java.util.TreeMap;
+
+public class TreeMapExample9 {
+    public static void main(String[] args) {
+        // Create a TreeMap
+        TreeMap<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        // Get the first and last keys
+        String firstKey = treeMap.firstKey();
+        String lastKey = treeMap.lastKey();
+
+        System.out.println("First Key: " + firstKey);
+        System.out.println("Last Key: " + lastKey);
+    }
+}
+10. Get a reverse order view of the keys contained in a given map:
+ 
+import java.util.NavigableSet;
+import java.util.TreeMap;
+
+public class TreeMapExample10 {
+    public static void main(String[] args) {
+        // Create a TreeMap
+        TreeMap<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("One", 1);
+        treeMap.put("Two", 2);
+        treeMap.put("Three", 3);
+
+        // Get a reverse order view of keys
+        NavigableSet<String> reverseKeys = treeMap.descendingKeySet();
+
+        System.out.println("Reverse Order View of Keys: " + reverseKeys);
+    }
+}
+
+
+Task 11: Get a key-value mapping associated with the greatest key less than or equal to the given key.
+ 
+import java.util.*;
+
+public class Task11 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        Map.Entry<Integer, String> entry = map.floorEntry(givenKey);
+
+        System.out.println("Task 11: " + entry);
+    }
+}
+Task 12: Get the greatest key less than or equal to the given key.
+ 
+import java.util.*;
+
+public class Task12 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        Integer result = map.floorKey(givenKey);
+
+        System.out.println("Task 12: " + result);
+    }
+}
+Task 13: Get the portion of a map whose keys are strictly less than a given key.
+ 
+import java.util.*;
+
+public class Task13 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        SortedMap<Integer, String> result = map.headMap(givenKey);
+
+        System.out.println("Task 13: " + result);
+    }
+}
+Task 14: Get the portion of this map whose keys are less than (or equal to) a given key.
+ 
+import java.util.*;
+
+public class Task14 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        SortedMap<Integer, String> result = map.headMap(givenKey, true);
+
+        System.out.println("Task 14: " + result);
+    }
+}
+Task 15: Get the least key strictly greater than the given key. Return null if there is no such key.
+ 
+import java.util.*;
+
+public class Task15 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        Integer result = map.higherKey(givenKey);
+
+        System.out.println("Task 15: " + result);
+    }
+}
+Task 16: Get a key-value mapping associated with the greatest key strictly less than the given key. Return null if there is no such key.
+ 
+import java.util.*;
+
+public class Task16 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        Map.Entry<Integer, String> entry = map.lowerEntry(givenKey);
+
+        System.out.println("Task 16: " + entry);
+    }
+}
+
+Task 17: Get the greatest key strictly less than the given key. Return null if there is no such key.
+ 
+import java.util.*;
+
+public class Task17 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        Integer result = map.lowerKey(givenKey);
+
+        System.out.println("Task 17: " + result);
+    }
+}
+Task 18: Get a NavigableSet view of keys in a map.
+ 
+import java.util.*;
+
+public class Task18 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        NavigableSet<Integer> keySet = map.navigableKeySet();
+
+        System.out.println("Task 18: " + keySet);
+    }
+}
+Task 19: Remove and get a key-value mapping associated with the least key in a map.
+ 
+import java.util.*;
+
+public class Task19 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        Map.Entry<Integer, String> entry = map.pollFirstEntry();
+
+        System.out.println("Task 19: " + entry);
+        System.out.println("Updated Map: " + map);
+    }
+}
+Task 20: Remove and get a key-value mapping associated with the greatest key in this map.
+ 
+import java.util.*;
+
+public class Task20 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        Map.Entry<Integer, String> entry = map.pollLastEntry();
+
+        System.out.println("Task 20: " + entry);
+        System.out.println("Updated Map: " + map);
+    }
+}
+Task 21: Get the portion of a map whose keys range from a given key (inclusive) to another key (exclusive).
+ 
+import java.util.*;
+
+public class Task21 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int fromKey = 20;
+        int toKey = 40;
+        SortedMap<Integer, String> result = map.subMap(fromKey, toKey);
+
+        System.out.println("Task 21: " + result);
+    }
+}
+
+Task 22: Get the portion of a map whose keys range from a given key to another key.
+ 
+import java.util.*;
+
+public class Task22 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int fromKey = 20;
+        int toKey = 40;
+        SortedMap<Integer, String> result = map.subMap(fromKey, true, toKey, true);
+
+        System.out.println("Task 22: " + result);
+    }
+}
+Task 23: Get a portion of a map whose keys are greater than or equal to a given key.
+ 
+import java.util.*;
+
+public class Task23 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 30;
+        SortedMap<Integer, String> result = map.tailMap(givenKey);
+
+        System.out.println("Task 23: " + result);
+    }
+}
+Task 24: Get a portion of a map whose keys are greater than a given key.
+ 
+import java.util.*;
+
+public class Task24 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 30;
+        SortedMap<Integer, String> result = map.tailMap(givenKey, false);
+
+        System.out.println("Task 24: " + result);
+    }
+}
+Task 25: Get a key-value mapping associated with the least key greater than or equal to the given key. Return null if there is no such key.
+ 
+import java.util.*;
+
+public class Task25 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        Map.Entry<Integer, String> entry = map.ceilingEntry(givenKey);
+
+        System.out.println("Task 25: " + entry);
+    }
+}
+Task 26: Get the least key greater than or equal to the given key. Returns null if there is no such key.
+ 
+import java.util.*;
+
+public class Task26 {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(10, "Value1");
+        map.put(20, "Value2");
+        map.put(30, "Value3");
+        map.put(40, "Value4");
+        map.put(50, "Value5");
+
+        int givenKey = 35;
+        Integer result = map.ceilingKey(givenKey);
+
+        System.out.println("Task 26: " + result);
+    }
+}
