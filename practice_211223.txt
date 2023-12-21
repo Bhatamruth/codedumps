@@ -1,0 +1,928 @@
+Java Recursive Exercises
+ 
+
+1. Write a Java recursive method to calculate the factorial of a given positive integer.
+
+ 
+
+2. Write a Java recursive method to calculate the sum of all numbers from 1 to n.
+
+ 
+
+3. Write a Java recursive method to calculate the nth Fibonacci number.
+
+ 
+
+4. Write a Java recursive method to check if a given string is a palindrome.
+
+ 
+
+5. Write a Java recursive method to calculate the exponentiation of a number (base) raised to a power (exponent).
+
+ 
+
+6. Write a Java recursive method to reverse a given string.
+
+ 
+
+7. Write a Java recursive method to find the greatest common divisor (GCD) of two numbers.
+
+ 
+
+8. Write a Java recursive method to count the number of occurrences of a specific element in an array.
+
+ 
+
+9. Write a Java recursive method to find the sum of all odd numbers in an array.
+
+ 
+
+10. Write a Java recursive method to find the length of a given string.
+
+ 
+
+11. Write a Java recursive method to generate all possible permutations of a given string.
+
+ 
+
+12. Write a Java recursive method to find the maximum element in an array.
+
+ 
+
+13. Write a Java recursive method to calculate the product of all numbers in an array.
+
+ 
+
+14. Write a Java recursive method to find the sum of the digits of a given integer.
+
+ 
+
+15. Write a Java recursive method to check if a given array is sorted in ascending order.
+
+ 
+
+
+
+
+
+
+
+
+Exercise 1: Factorial Calculation
+ 
+public class FactorialCalculator {
+    public static void main(String[] args) {
+        int n = 5;
+        long factorial = calculateFactorial(n);
+        System.out.println("Factorial of " + n + ": " + factorial);
+    }
+
+    public static long calculateFactorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * calculateFactorial(n - 1);
+        }
+    }
+}
+Exercise 2: Sum of Numbers from 1 to n
+ 
+public class SumCalculator {
+    public static void main(String[] args) {
+        int n = 5;
+        int sum = calculateSum(n);
+        System.out.println("Sum of numbers from 1 to " + n + ": " + sum);
+    }
+
+    public static int calculateSum(int n) {
+        if (n == 1) {
+            return 1;
+        } else {
+            return n + calculateSum(n - 1);
+        }
+    }
+}
+Exercise 3: Nth Fibonacci Number
+ 
+public class FibonacciCalculator {
+    public static void main(String[] args) {
+        int n = 6;
+        int result = calculateFibonacci(n);
+        System.out.println("The " + n + "th Fibonacci number: " + result);
+    }
+
+    public static int calculateFibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return calculateFibonacci(n - 1) + calculateFibonacci(n - 2);
+        }
+    }
+}
+Exercise 4: Palindrome Check
+ 
+public class PalindromeChecker {
+    public static void main(String[] args) {
+        String str = "radar";
+        boolean isPalindrome = checkPalindrome(str);
+        System.out.println(str + " is a palindrome: " + isPalindrome);
+    }
+
+    public static boolean checkPalindrome(String str) {
+        if (str.length() <= 1) {
+            return true;
+        } else {
+            char firstChar = str.charAt(0);
+            char lastChar = str.charAt(str.length() - 1);
+            String remaining = str.substring(1, str.length() - 1);
+            return (firstChar == lastChar) && checkPalindrome(remaining);
+        }
+    }
+}
+Exercise 5: Exponentiation Calculation
+ 
+public class ExponentiationCalculator {
+    public static void main(String[] args) {
+        int base = 2;
+        int exponent = 3;
+        long result = calculateExponentiation(base, exponent);
+        System.out.println(base + " raised to the power of " + exponent + ": " + result);
+    }
+
+    public static long calculateExponentiation(int base, int exponent) {
+        if (exponent == 0) {
+            return 1;
+        } else {
+            return base * calculateExponentiation(base, exponent - 1);
+        }
+    }
+}
+
+
+Exercise 6: Reverse a Given String
+ 
+public class StringReverser {
+    public static void main(String[] args) {
+        String input = "hello";
+        String reversed = reverseString(input);
+        System.out.println("Original: " + input);
+        System.out.println("Reversed: " + reversed);
+    }
+
+    public static String reverseString(String str) {
+        if (str.isEmpty()) {
+            return str;
+        } else {
+            char lastChar = str.charAt(str.length() - 1);
+            String remaining = str.substring(0, str.length() - 1);
+            return lastChar + reverseString(remaining);
+        }
+    }
+}
+Exercise 7: Greatest Common Divisor (GCD)
+ 
+public class GCDCalculator {
+    public static void main(String[] args) {
+        int a = 24;
+        int b = 36;
+        int gcd = findGCD(a, b);
+        System.out.println("GCD of " + a + " and " + b + ": " + gcd);
+    }
+
+    public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return findGCD(b, a % b);
+        }
+    }
+}
+Exercise 8: Count Occurrences in an Array
+ 
+public class OccurrenceCounter {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 2, 5, 2};
+        int target = 2;
+        int count = countOccurrences(array, target);
+        System.out.println("Number of occurrences of " + target + ": " + count);
+    }
+
+    public static int countOccurrences(int[] array, int target) {
+        return countOccurrences(array, target, 0);
+    }
+
+    private static int countOccurrences(int[] array, int target, int index) {
+        if (index == array.length) {
+            return 0;
+        } else {
+            int currentCount = (array[index] == target) ? 1 : 0;
+            return currentCount + countOccurrences(array, target, index + 1);
+        }
+    }
+}
+Exercise 9: Sum of Odd Numbers in an Array
+ 
+public class OddSumCalculator {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7};
+        int sum = sumOfOddNumbers(array);
+        System.out.println("Sum of odd numbers: " + sum);
+    }
+
+    public static int sumOfOddNumbers(int[] array) {
+        return sumOfOddNumbers(array, 0);
+    }
+
+    private static int sumOfOddNumbers(int[] array, int index) {
+        if (index == array.length) {
+            return 0;
+        } else {
+            int currentSum = (array[index] % 2 != 0) ? array[index] : 0;
+            return currentSum + sumOfOddNumbers(array, index + 1);
+        }
+    }
+}
+Exercise 10: Length of a String
+ 
+public class StringLengthCalculator {
+    public static void main(String[] args) {
+        String input = "hello";
+        int length = calculateStringLength(input);
+        System.out.println("Length of the string: " + length);
+    }
+
+    public static int calculateStringLength(String str) {
+        if (str.isEmpty()) {
+            return 0;
+        } else {
+            return 1 + calculateStringLength(str.substring(1));
+        }
+    }
+}
+Exercise 11: Generate All Possible Permutations of a String
+ 
+public class PermutationGenerator {
+    public static void main(String[] args) {
+        String input = "abc";
+        generatePermutations("", input);
+    }
+
+    public static void generatePermutations(String prefix, String remaining) {
+        int n = remaining.length();
+        if (n == 0) {
+            System.out.println(prefix);
+        } else {
+            for (int i = 0; i < n; i++) {
+                generatePermutations(prefix + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1));
+            }
+        }
+    }
+}
+
+
+ 
+
+Exercise 12: Find the Maximum Element in an Array
+ 
+public class MaxElementFinder {
+    public static void main(String[] args) {
+        int[] array = {3, 7, 2, 8, 5};
+        int max = findMaxElement(array);
+        System.out.println("Maximum element in the array: " + max);
+    }
+
+    public static int findMaxElement(int[] array) {
+        return findMaxElement(array, 0, Integer.MIN_VALUE);
+    }
+
+    private static int findMaxElement(int[] array, int index, int currentMax) {
+        if (index == array.length) {
+            return currentMax;
+        } else {
+            currentMax = Math.max(currentMax, array[index]);
+            return findMaxElement(array, index + 1, currentMax);
+        }
+    }
+}
+Exercise 13: Calculate the Product of All Numbers in an Array
+ 
+public class ProductCalculator {
+    public static void main(String[] args) {
+        int[] array = {2, 4, 3, 5};
+        int product = calculateProduct(array);
+        System.out.println("Product of all numbers in the array: " + product);
+    }
+
+    public static int calculateProduct(int[] array) {
+        return calculateProduct(array, 0, 1);
+    }
+
+    private static int calculateProduct(int[] array, int index, int currentProduct) {
+        if (index == array.length) {
+            return currentProduct;
+        } else {
+            currentProduct *= array[index];
+            return calculateProduct(array, index + 1, currentProduct);
+        }
+    }
+}
+Exercise 14: Sum of the Digits of a Given Integer
+ 
+public class DigitSumCalculator {
+    public static void main(String[] args) {
+        int number = 12345;
+        int sum = calculateDigitSum(number);
+        System.out.println("Sum of digits of " + number + ": " + sum);
+    }
+
+    public static int calculateDigitSum(int number) {
+        if (number == 0) {
+            return 0;
+        } else {
+            return number % 10 + calculateDigitSum(number / 10);
+        }
+    }
+}
+Exercise 15: Check if a Given Array is Sorted in Ascending Order
+ 
+public class ArraySortChecker {
+    public static void main(String[] args) {
+        int[] array = {1, 3, 5, 7, 9};
+        boolean isSorted = checkIfSorted(array);
+        System.out.println("Is the array sorted? " + isSorted);
+    }
+
+    public static boolean checkIfSorted(int[] array) {
+        return checkIfSorted(array, 0);
+    }
+
+    private static boolean checkIfSorted(int[] array, int index) {
+        if (index == array.length - 1) {
+            return true;
+        } else {
+            return (array[index] <= array[index + 1]) && checkIfSorted(array, index + 1);
+        }
+    }
+}
+
+
+Java Stack  
+ 
+
+1. Write a Java program to implement a stack with push and pop operations. Find the top element of the stack and check if it is empty or not.
+
+ 
+
+2. Write a Java program to sort the elements of a given stack in ascending order.
+
+ 
+
+3. Write a Java program to sort the elements of the stack in descending order.
+
+ 
+ 
+4. Write a Java program to reverse the elements of a stack.
+
+ 
+
+5. Write a Java program to find the maximum and minimum elements in a stack.
+
+ 
+
+6. Write a Java program to remove all elements from a stack.
+
+ 
+
+7. Write a Java program to count all stack elements.
+
+ 
+
+8. Write a Java program to implement a stack that checks if a given element is present or not in the stack.
+
+ 
+
+9. Write a Java program to remove duplicates from a given stack.
+
+ 
+
+10. Write a Java program to find the top and bottom elements of a given stack.
+
+ 
+
+11. Write a Java program to rotate the stack elements to the right direction.
+
+ 
+
+12. Write a Java program to rotate the stack elements in the left direction.
+
+ 
+
+13. Write a Java program to remove a specific element from a stack.
+
+ 
+
+14. Write a Java program to swap the top two elements of a given stack.
+
+ 
+
+15. Write a Java program to get the nth element from the top of the stack.
+
+ 
+
+16. Write a Java program to get the nth element from the bottom of the stack.
+
+ 
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Exercise 1: Implement a Stack with Push, Pop, Top, and IsEmpty Operations
+ 
+import java.util.Stack;
+
+public class StackOperations {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+
+        // Push elements onto the stack
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        // Pop an element
+        int poppedElement = stack.pop();
+        System.out.println("Popped Element: " + poppedElement);
+
+        // Find the top element
+        int topElement = stack.peek();
+        System.out.println("Top Element: " + topElement);
+
+        // Check if the stack is empty
+        boolean isEmpty = stack.isEmpty();
+        System.out.println("Is the stack empty? " + isEmpty);
+    }
+}
+Exercise 2: Sort Elements of a Stack in Ascending Order
+ 
+import java.util.Stack;
+
+public class AscendingSortStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+
+        sortStackAscending(stack);
+
+        System.out.println("Sorted Stack (Ascending): " + stack);
+    }
+
+    public static void sortStackAscending(Stack<Integer> stack) {
+        if (!stack.isEmpty()) {
+            int temp = stack.pop();
+            sortStackAscending(stack);
+            insertInAscendingOrder(stack, temp);
+        }
+    }
+
+    private static void insertInAscendingOrder(Stack<Integer> stack, int element) {
+        if (stack.isEmpty() || element > stack.peek()) {
+            stack.push(element);
+        } else {
+            int temp = stack.pop();
+            insertInAscendingOrder(stack, element);
+            stack.push(temp);
+        }
+    }
+}
+Exercise 3: Sort Elements of a Stack in Descending Order
+ 
+import java.util.Stack;
+
+public class DescendingSortStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+
+        sortStackDescending(stack);
+
+        System.out.println("Sorted Stack (Descending): " + stack);
+    }
+
+    public static void sortStackDescending(Stack<Integer> stack) {
+        if (!stack.isEmpty()) {
+            int temp = stack.pop();
+            sortStackDescending(stack);
+            insertInDescendingOrder(stack, temp);
+        }
+    }
+
+    private static void insertInDescendingOrder(Stack<Integer> stack, int element) {
+        if (stack.isEmpty() || element < stack.peek()) {
+            stack.push(element);
+        } else {
+            int temp = stack.pop();
+            insertInDescendingOrder(stack, element);
+            stack.push(temp);
+        }
+    }
+}
+Exercise 4: Reverse Elements of a Stack
+ 
+import java.util.Stack;
+
+public class ReverseStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+
+        reverseStack(stack);
+
+        System.out.println("Reversed Stack: " + stack);
+    }
+
+    public static void reverseStack(Stack<Integer> stack) {
+        if (!stack.isEmpty()) {
+            int temp = stack.pop();
+            reverseStack(stack);
+            insertAtBottom(stack, temp);
+        }
+    }
+
+    private static void insertAtBottom(Stack<Integer> stack, int element) {
+        if (stack.isEmpty()) {
+            stack.push(element);
+        } else {
+            int temp = stack.pop();
+            insertAtBottom(stack, element);
+            stack.push(temp);
+        }
+    }
+}
+Exercise 5: Find Maximum and Minimum Elements in a Stack
+ 
+import java.util.Stack;
+
+public class MaxMinStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+
+        int max = findMax(stack);
+        int min = findMin(stack);
+
+        System.out.println("Maximum Element: " + max);
+        System.out.println("Minimum Element: " + min);
+    }
+
+    public static int findMax(Stack<Integer> stack) {
+        int max = Integer.MIN_VALUE;
+        for (int element : stack) {
+            if (element > max) {
+                max = element;
+            }
+        }
+        return max;
+    }
+
+    public static int findMin(Stack<Integer> stack) {
+        int min = Integer.MAX_VALUE;
+        for (int element : stack) {
+            if (element < min) {
+                min = element;
+            }
+        }
+        return min;
+    }
+}
+
+
+Exercise 6: Remove All Elements from a Stack
+ 
+import java.util.Stack;
+
+public class ClearStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+
+        System.out.println("Original Stack: " + stack);
+        
+        clearStack(stack);
+
+        System.out.println("Stack after clearing: " + stack);
+    }
+
+    public static void clearStack(Stack<Integer> stack) {
+        stack.clear();
+    }
+}
+Exercise 7: Count All Stack Elements
+ 
+import java.util.Stack;
+
+public class CountStackElements {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+
+        int count = countStackElements(stack);
+
+        System.out.println("Number of elements in the stack: " + count);
+    }
+
+    public static int countStackElements(Stack<Integer> stack) {
+        return stack.size();
+    }
+}
+Exercise 8: Implement a Stack that Checks if an Element is Present
+ 
+import java.util.Stack;
+
+public class ElementPresentInStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+
+        int elementToCheck = 10;
+        boolean isPresent = isElementPresent(stack, elementToCheck);
+
+        System.out.println("Is " + elementToCheck + " present in the stack? " + isPresent);
+    }
+
+    public static boolean isElementPresent(Stack<Integer> stack, int element) {
+        return stack.contains(element);
+    }
+}
+Exercise 9: Remove Duplicates from a Stack
+ 
+import java.util.Stack;
+
+public class RemoveDuplicatesInStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+        stack.push(10);
+        stack.push(30);
+
+        System.out.println("Original Stack: " + stack);
+
+        removeDuplicates(stack);
+
+        System.out.println("Stack after removing duplicates: " + stack);
+    }
+
+    public static void removeDuplicates(Stack<Integer> stack) {
+        Stack<Integer> tempStack = new Stack<>();
+
+        while (!stack.isEmpty()) {
+            int currentElement = stack.pop();
+
+            // Remove duplicates
+            while (!tempStack.isEmpty() && tempStack.peek() == currentElement) {
+                tempStack.pop();
+            }
+
+            tempStack.push(currentElement);
+        }
+
+        // Revert elements back to the original stack
+        while (!tempStack.isEmpty()) {
+            stack.push(tempStack.pop());
+        }
+    }
+}
+Exercise 10: Find Top and Bottom Elements of a Stack
+ 
+import java.util.Stack;
+
+public class TopBottomElementsInStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+
+        int topElement = findTopElement(stack);
+        int bottomElement = findBottomElement(stack);
+
+        System.out.println("Top Element: " + topElement);
+        System.out.println("Bottom Element: " + bottomElement);
+    }
+
+    public static int findTopElement(Stack<Integer> stack) {
+        return stack.peek();
+    }
+
+    public static int findBottomElement(Stack<Integer> stack) {
+        Stack<Integer> tempStack = new Stack<>();
+
+        while (!stack.isEmpty()) {
+            tempStack.push(stack.pop());
+        }
+
+        int bottomElement = tempStack.peek();
+
+        // Revert elements back to the original stack
+        while (!tempStack.isEmpty()) {
+            stack.push(tempStack.pop());
+        }
+
+        return bottomElement;
+    }
+}
+Exercise 11: Rotate Stack Elements to the Right Direction
+ 
+import java.util.Stack;
+
+public class RotateStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+        stack.push(40);
+
+        int rotations = 2;
+
+        System.out.println("Original Stack: " + stack);
+
+        rotateStackRight(stack, rotations);
+
+        System.out.println("Stack after rotating " + rotations + " times to the right: " + stack);
+    }
+
+    public static void rotateStackRight(Stack<Integer> stack, int rotations) {
+        if (!stack.isEmpty()) {
+            int element = stack.pop();
+            rotateStackRight(stack, rotations - 1);
+            stack.push(element);
+        }
+    }
+}
+
+
+
+Exercise 12: Rotate Stack Elements to the Left Direction
+ 
+import java.util.Stack;
+
+public class RotateStackLeft {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+        stack.push(40);
+
+        int rotations = 2;
+
+        System.out.println("Original Stack: " + stack);
+
+        rotateStackLeft(stack, rotations);
+
+        System.out.println("Stack after rotating " + rotations + " times to the left: " + stack);
+    }
+
+    public static void rotateStackLeft(Stack<Integer> stack, int rotations) {
+        if (!stack.isEmpty() && rotations > 0) {
+            int element = stack.remove(0);
+            rotateStackLeft(stack, rotations - 1);
+            stack.push(element);
+        }
+    }
+}
+Exercise 13: Remove a Specific Element from a Stack
+ 
+import java.util.Stack;
+
+public class RemoveElementFromStack {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+        stack.push(40);
+
+        int elementToRemove = 10;
+
+        System.out.println("Original Stack: " + stack);
+
+        removeElement(stack, elementToRemove);
+
+        System.out.println("Stack after removing " + elementToRemove + ": " + stack);
+    }
+
+    public static void removeElement(Stack<Integer> stack, int elementToRemove) {
+        stack.removeElement(elementToRemove);
+    }
+}
+Exercise 14: Swap the Top Two Elements of a Stack
+ 
+import java.util.Stack;
+
+public class SwapTopTwoElements {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+        stack.push(40);
+
+        System.out.println("Original Stack: " + stack);
+
+        swapTopTwoElements(stack);
+
+        System.out.println("Stack after swapping top two elements: " + stack);
+    }
+
+    public static void swapTopTwoElements(Stack<Integer> stack) {
+        if (stack.size() >= 2) {
+            int firstElement = stack.pop();
+            int secondElement = stack.pop();
+            stack.push(firstElement);
+            stack.push(secondElement);
+        }
+    }
+}
+Exercise 15: Get the nth Element from the Top of the Stack
+ 
+import java.util.Stack;
+
+public class NthElementFromTop {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+        stack.push(40);
+
+        int n = 2;
+
+        int nthElement = getNthElementFromTop(stack, n);
+
+        System.out.println("The " + n + "th element from the top: " + nthElement);
+    }
+
+    public static int getNthElementFromTop(Stack<Integer> stack, int n) {
+        if (stack.size() >= n) {
+            return stack.get(stack.size() - n);
+        } else {
+            return -1; // Invalid index
+        }
+    }
+}
+Exercise 16: Get the nth Element from the Bottom of the Stack
+ 
+import java.util.Stack;
+
+public class NthElementFromBottom {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(30);
+        stack.push(10);
+        stack.push(20);
+        stack.push(40);
+
+        int n = 2;
+
+        int nthElement = getNthElementFromBottom(stack, n);
+
+        System.out.println("The " + n + "th element from the bottom: " + nthElement);
+    }
+
+    public static int getNthElementFromBottom(Stack<Integer> stack, int n) {
+        if (stack.size() >= n) {
+            return stack.get(n - 1);
+        } else {
+            return -1; // Invalid index
+        }
+    }
+} 
