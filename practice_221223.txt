@@ -1,0 +1,918 @@
+Java String Exercises 
+
+1. Write a Java program to get the character at the given index within the string.
+
+Sample Output:
+
+Original String = Java Exercises!                                                                             
+The character at position 0 is J                                                                              
+The character at position 10 is i 
+ 
+
+2. Write a Java program to get the character (Unicode code point) at the given index within the string.
+
+Sample Output:
+
+Original String : w3resource.com                                                                              
+Character(unicode point) = 51                                                                                 
+Character(unicode point) = 101 
+ 
+
+3. Write a Java program to get the character (Unicode code point) before the specified index within the string.
+
+Sample Output:
+
+Original String : w3resource.com                                                                              
+Character(unicode point) = 119                                                                                
+Character(unicode point) = 99
+ 
+
+4. Write a Java program to count Unicode code points in the specified text range of a string.
+
+Sample Output:
+
+Original String : w3rsource.com                                                                               
+Codepoint count = 9
+ 
+
+5. Write a Java program to compare two strings lexicographically.
+Two strings are lexicographically equal if they are the same length and contain the same characters in the same positions.
+
+Sample Output:
+
+String 1: This is Exercise 1                                                                                  
+String 2: This is Exercise 2                                                                                  
+"This is Exercise 1" is less than "This is Exercise 2" 
+ 
+
+6. Write a Java program to compare two strings lexicographically, ignoring case differences.
+
+Sample Output:
+
+String 1: This is exercise 1                                                                                  
+String 2: This is Exercise 1                                                                                  
+"This is exercise 1" is equal to "This is Exercise 1"
+ 
+
+7. Write a Java program to concatenate a given string to the end of another string.
+
+Sample Output:
+
+String 1: PHP Exercises and                                                                                   
+String 2: Python Exercises                                                                                    
+The concatenated string: PHP Exercises and Python Exercises
+ 
+
+8. Write a Java program to test if a given string contains the specified sequence of char values.
+
+Sample Output:
+
+Original String: PHP Exercises and Python Exercises                                                           
+Specified sequence of char values: and                                                                        
+true 
+ 
+
+9. Write a Java program to compare a given string to the specified character sequence.
+
+Sample Output:
+
+Comparing example.com and example.com: true                                                                   
+Comparing Example.com and example.com: false
+ 
+
+10. Write a Java program to compare a given string to a specified string buffer.
+
+Sample Output:
+
+Comparing example.com and example.com: true                                                                   
+Comparing Example.com and example.com: false 
+ 
+
+
+1. Get the character at a given index within the string:
+ 
+public class CharacterAtIndex {
+    public static void main(String[] args) {
+        String originalString = "Java Exercises!";
+        int index1 = 0;
+        int index2 = 10;
+
+        System.out.println("Original String = " + originalString);
+        System.out.println("The character at position " + index1 + " is " + originalString.charAt(index1));
+        System.out.println("The character at position " + index2 + " is " + originalString.charAt(index2));
+    }
+}
+2. Get the character (Unicode code point) at a given index within the string:
+ 
+public class UnicodeCharacterAtIndex {
+    public static void main(String[] args) {
+        String originalString = "w3resource.com";
+        int index1 = 0;
+        int index2 = 4;
+
+        System.out.println("Original String : " + originalString);
+        System.out.println("Character(unicode point) = " + originalString.codePointAt(index1));
+        System.out.println("Character(unicode point) = " + originalString.codePointAt(index2));
+    }
+}
+3. Get the character (Unicode code point) before the specified index within the string:
+ 
+public class UnicodeCharacterBeforeIndex {
+    public static void main(String[] args) {
+        String originalString = "w3resource.com";
+        int index1 = 5;
+        int index2 = 10;
+
+        System.out.println("Original String : " + originalString);
+        System.out.println("Character(unicode point) = " + originalString.codePointBefore(index1));
+        System.out.println("Character(unicode point) = " + originalString.codePointBefore(index2));
+    }
+}
+4. Count Unicode code points in the specified text range of a string:
+ 
+public class CodePointCount {
+    public static void main(String[] args) {
+        String originalString = "w3rsource.com";
+        int start = 0;
+        int end = originalString.length();
+
+        System.out.println("Original String : " + originalString);
+        System.out.println("Codepoint count = " + originalString.codePointCount(start, end));
+    }
+}
+5. Compare two strings lexicographically:
+ 
+public class LexicographicalComparison {
+    public static void main(String[] args) {
+        String string1 = "This is Exercise 1";
+        String string2 = "This is Exercise 2";
+
+        System.out.println("String 1: " + string1);
+        System.out.println("String 2: " + string2);
+
+        int result = string1.compareTo(string2);
+
+        if (result < 0) {
+            System.out.println("\"" + string1 + "\" is less than \"" + string2 + "\"");
+        } else if (result > 0) {
+            System.out.println("\"" + string1 + "\" is greater than \"" + string2 + "\"");
+        } else {
+            System.out.println("\"" + string1 + "\" is equal to \"" + string2 + "\"");
+        }
+    }
+}
+
+
+6. Compare two strings lexicographically, ignoring case differences:
+ 
+public class CaseInsensitiveComparison {
+    public static void main(String[] args) {
+        String string1 = "This is exercise 1";
+        String string2 = "This is Exercise 1";
+
+        System.out.println("String 1: " + string1);
+        System.out.println("String 2: " + string2);
+
+        boolean result = string1.equalsIgnoreCase(string2);
+
+        if (result) {
+            System.out.println("\"" + string1 + "\" is equal to \"" + string2 + "\"");
+        } else {
+            System.out.println("\"" + string1 + "\" is not equal to \"" + string2 + "\"");
+        }
+    }
+}
+7. Concatenate a given string to the end of another string:
+ 
+public class ConcatenateStrings {
+    public static void main(String[] args) {
+        String string1 = "PHP Exercises and ";
+        String string2 = "Python Exercises";
+
+        System.out.println("String 1: " + string1);
+        System.out.println("String 2: " + string2);
+
+        String concatenatedString = string1.concat(string2);
+
+        System.out.println("The concatenated string: " + concatenatedString);
+    }
+}
+8. Test if a given string contains the specified sequence of char values:
+ 
+public class ContainsSequence {
+    public static void main(String[] args) {
+        String originalString = "PHP Exercises and Python Exercises";
+        String sequence = "and";
+
+        System.out.println("Original String: " + originalString);
+        System.out.println("Specified sequence of char values: " + sequence);
+        System.out.println(originalString.contains(sequence));
+    }
+}
+9. Compare a given string to the specified character sequence:
+ 
+public class CompareToCharSequence {
+    public static void main(String[] args) {
+        String string1 = "example.com";
+        CharSequence charSequence = "example.com";
+
+        System.out.println("Comparing " + string1 + " and " + charSequence + ": " + string1.contentEquals(charSequence));
+
+        String string2 = "Example.com";
+        System.out.println("Comparing " + string2 + " and " + charSequence + ": " + string2.contentEquals(charSequence));
+    }
+}
+10. Compare a given string to a specified string buffer:
+ 
+public class CompareToStringBuffer {
+    public static void main(String[] args) {
+        String string1 = "example.com";
+        StringBuffer stringBuffer = new StringBuffer("example.com");
+
+        System.out.println("Comparing " + string1 + " and " + stringBuffer + ": " + string1.contentEquals(stringBuffer));
+
+        String string2 = "Example.com";
+        System.out.println("Comparing " + string2 + " and " + stringBuffer + ": " + string2.contentEquals(stringBuffer));
+    }
+}
+
+
+11. Write a Java program to create a String object with a character array.
+
+Sample Output:
+
+The book contains 234 pages.
+ 
+
+12. Write a Java program to check whether a given string ends with another string.
+
+Sample Output:
+
+"Python Exercises" ends with "se"? false                                                                      
+"Python Exercise" ends with "se"? true
+ 
+
+13. Write a Java program to check whether two String objects contain the same data.
+
+Sample Output:
+
+"Stephen Edwin King" equals "Walter Winchell"? false                                                          
+"Stephen Edwin King" equals "Mike Royko"? false
+ 
+
+14. Write a Java program to compare a given string to another string, ignoring case considerations.
+
+Sample Output:
+
+"Stephen Edwin King" equals "Walter Winchell"? false                                                          
+"Stephen Edwin King" equals "stephen edwin king"? true 
+ 
+
+15. Write a Java program to print the current date and time in the specified format.
+
+Sample Output:
+
+Current Date and Time :                                                                                       
+June 19, 2017                                                                                                 
+3:13 pm 
+N.B. : The current date and time will change according to your system date and time.
+ 
+
+16. Write a Java program to get the contents of a given string as a byte array.
+
+Sample Output:
+
+The new String equals This is a sample String.
+ 
+
+17. Write a Java program to get the contents of a given string as a character array.
+
+Sample Output:
+
+The char array equals "[C@2a139a55"
+ 
+
+18. Write a Java program to create a distinct identifier for a given string.
+
+Sample Output:
+
+The hash for Python Exercises. is 863132599 
+ 
+
+19. Write a Java program to get the index of all the characters of the alphabet.
+
+Sample Output:
+
+a  b c  d e  f  g h i  j                                                                                     
+=========================                                                                                     
+36 10 7 40 2 16 42 1 6 20                                                                                     
+                                                                                                   
+k  l  m  n  o  p q  r  s  t                                                                                   
+===========================                                                                                   
+8 35 22 14 12 23 4 11 24 31                                                                                   
+
+u  v  w  x  y  z                                                                                              
+================                                                                                              
+5 27 13 18 38 37
+Sample string of all alphabet: "The quick brown fox jumps over the lazy dog."
+ 
+
+20. Write a Java program to get the Canonical representation of the string object.
+
+Sample Output:
+
+str1 == str2? false                                                                                           
+str1 == str3? true
+ 
+
+
+
+
+11. Create a String object with a character array:
+ 
+public class CreateStringFromArray {
+    public static void main(String[] args) {
+        char[] charArray = {'T', 'h', 'e', ' ', 'b', 'o', 'o', 'k', ' ', 'c', 'o', 'n', 't', 'a', 'i', 'n', 's', ' ', '2', '3', '4', ' ', 'p', 'a', 'g', 'e', 's', '.'};
+        String resultString = new String(charArray);
+
+        System.out.println(resultString);
+    }
+}
+12. Check whether a given string ends with another string:
+ 
+public class CheckEndsWith {
+    public static void main(String[] args) {
+        String string1 = "Python Exercises";
+        String string2 = "se";
+
+        System.out.println("\"" + string1 + "\" ends with \"" + string2 + "\"? " + string1.endsWith(string2));
+
+        String string3 = "Python Exercise";
+        System.out.println("\"" + string3 + "\" ends with \"" + string2 + "\"? " + string3.endsWith(string2));
+    }
+}
+13. Check whether two String objects contain the same data:
+ 
+public class CheckSameData {
+    public static void main(String[] args) {
+        String string1 = "Stephen Edwin King";
+        String string2 = "Walter Winchell";
+
+        System.out.println("\"" + string1 + "\" equals \"" + string2 + "\"? " + string1.equals(string2));
+
+        String string3 = "Stephen Edwin King";
+        String string4 = "Mike Royko";
+        System.out.println("\"" + string3 + "\" equals \"" + string4 + "\"? " + string3.equals(string4));
+    }
+}
+14. Compare a given string to another string, ignoring case considerations:
+ 
+public class CompareIgnoreCase {
+    public static void main(String[] args) {
+        String string1 = "Stephen Edwin King";
+        String string2 = "Walter Winchell";
+
+        System.out.println("\"" + string1 + "\" equals \"" + string2 + "\"? " + string1.equalsIgnoreCase(string2));
+
+        String string3 = "Stephen Edwin King";
+        String string4 = "stephen edwin king";
+        System.out.println("\"" + string3 + "\" equals \"" + string4 + "\"? " + string3.equalsIgnoreCase(string4));
+    }
+}
+15. Print the current date and time in the specified format:
+ 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class CurrentDateAndTime {
+    public static void main(String[] args) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM d, yyyy");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
+
+        Date currentDate = new Date();
+
+        System.out.println("Current Date and Time : ");
+        System.out.println(dateFormat.format(currentDate));
+        System.out.println(timeFormat.format(currentDate));
+    }
+}
+
+16. Get the contents of a given string as a byte array:
+ 
+public class StringToByteArray {
+    public static void main(String[] args) {
+        String originalString = "This is a sample String.";
+
+        byte[] byteArray = originalString.getBytes();
+
+        String newString = new String(byteArray);
+
+        System.out.println("The new String equals " + newString);
+    }
+}
+17. Get the contents of a given string as a character array:
+ 
+public class StringToCharArray {
+    public static void main(String[] args) {
+        String originalString = "This is a sample String.";
+
+        char[] charArray = originalString.toCharArray();
+
+        System.out.println("The char array equals " + charArray);
+    }
+}
+18. Create a distinct identifier for a given string:
+ 
+public class DistinctIdentifier {
+    public static void main(String[] args) {
+        String originalString = "Python Exercises.";
+
+        int hashCode = originalString.hashCode();
+
+        System.out.println("The hash for " + originalString + " is " + hashCode);
+    }
+}
+19. Get the index of all the characters of the alphabet:
+ 
+public class IndexOfAlphabet {
+    public static void main(String[] args) {
+        String alphabetString = "The quick brown fox jumps over the lazy dog.";
+
+        System.out.println("Sample string of all alphabet: \"" + alphabetString + "\"\n");
+
+        for (char c = 'a'; c <= 'z'; c++) {
+            System.out.print(c + "  ");
+        }
+        System.out.println();
+
+        for (char c = 'a'; c <= 'z'; c++) {
+            System.out.print("================");
+        }
+        System.out.println();
+
+        for (char c = 'a'; c <= 'z'; c++) {
+            System.out.print(alphabetString.indexOf(c) + " ");
+        }
+    }
+}
+20. Get the Canonical representation of the string object:
+ 
+public class CanonicalRepresentation {
+    public static void main(String[] args) {
+        String str1 = new String("Hello");
+        String str2 = new String("Hello");
+        String str3 = str1.intern();
+
+        System.out.println("str1 == str2? " + (str1 == str2));
+        System.out.println("str1 == str3? " + (str1 == str3));
+    }
+}
+
+21. Write a Java program to get the last index of a string within a string.
+
+Sample Output:
+
+ a  b c  d  e  f  g  h i  j                                                                                   
+===========================                                                                                   
+36 10 7 40 33 16 42 32 6 20                                                                                   
+                                                                                                              
+k  l  m  n  o  p q  r  s  t                                                                                   
+===========================                                                                                   
+8 35 22 14 41 23 4 29 24 31                                                                                   
+                                                                                                              
+ u  v  w  x  y  z                                                                                             
+=================                                                                                             
+21 27 13 18 38 37
+Sample string of all alphabet: "The quick brown fox jumps over the lazy dog."
+
+ 
+
+22. Write a Java program to get the length of a given string.
+
+Sample Output:
+
+The string length of 'example.com' is: 11
+ 
+
+23. Write a Java program to find out whether a region in the current string matches a region in another string.
+
+Sample Output:
+
+str1[0 - 7] == str2[28 - 35]? true                                                                            
+str1[9 - 15] == str2[9 - 15]? false 
+ 
+
+24. Write a Java program to replace a specified character with another character.
+
+Sample Output:
+
+Original string: The quick brown fox jumps over the lazy dog.                                                 
+New String: The quick brown fox jumps over the lazy fog.
+ 
+
+25. Write a Java program to replace each substring of a given string that matches the given regular expression with the given replacement.
+
+Sample string : "The quick brown fox jumps over the lazy dog."
+
+In the above string replace all the fox with cat.
+
+Sample Output:
+
+Original string: The quick brown fox jumps over the lazy dog.                                                 
+New String: The quick brown cat jumps over the lazy dog.         
+ 
+
+26. Write a Java program to check whether a given string starts with another string.
+
+Sample Output:
+
+Red is favorite color. starts with Red? true                                                                  
+Orange is also my favorite color. starts with Red? false
+ 
+
+27. Write a Java program to get a substring of a given string at two specified positions.
+
+Sample Output:
+
+old = The quick brown fox jumps over the lazy dog.                                                            
+new = brown fox jumps
+ 
+
+28. Write a Java program to create a character array containing a string.
+
+Sample Output:
+
+Java Exercises.
+ 
+
+29. Write a Java program to convert all characters in a string to lowercase.
+
+Sample Output:
+
+Original String: The Quick BroWn FoX!                                                                         
+String in lowercase: the quick brown fox!
+ 
+
+30. Write a Java program to convert all characters in a string to uppercase.
+
+Sample Output:
+
+Original String: The Quick BroWn FoX!                                                                         
+String in uppercase: THE QUICK BROWN FOX!  
+ 
+
+
+
+21. Get the last index of a string within a string:
+ 
+public class LastIndexOfString {
+    public static void main(String[] args) {
+        String alphabetString = "The quick brown fox jumps over the lazy dog.";
+
+        System.out.println("Sample string of all alphabet: \"" + alphabetString + "\"\n");
+
+        for (char c = 'a'; c <= 'z'; c++) {
+            System.out.print(c + "  ");
+        }
+        System.out.println();
+
+        for (char c = 'a'; c <= 'z'; c++) {
+            System.out.print("================");
+        }
+        System.out.println();
+
+        for (char c = 'a'; c <= 'z'; c++) {
+            System.out.print(alphabetString.lastIndexOf(c) + " ");
+        }
+    }
+}
+22. Get the length of a given string:
+ 
+public class StringLength {
+    public static void main(String[] args) {
+        String exampleString = "example.com";
+
+        int length = exampleString.length();
+
+        System.out.println("The string length of '" + exampleString + "' is: " + length);
+    }
+}
+23. Find out whether a region in the current string matches a region in another string:
+ 
+public class RegionMatches {
+    public static void main(String[] args) {
+        String str1 = "The quick brown fox jumps over the lazy dog.";
+        String str2 = "The quick brown cat jumps over the lazy dog.";
+
+        System.out.println("str1[0 - 7] == str2[28 - 35]? " + str1.regionMatches(0, str2, 28, 8));
+        System.out.println("str1[9 - 15] == str2[9 - 15]? " + str1.regionMatches(9, str2, 9, 7));
+    }
+}
+24. Replace a specified character with another character:
+ 
+public class ReplaceCharacter {
+    public static void main(String[] args) {
+        String originalString = "The quick brown fox jumps over the lazy dog.";
+
+        char oldChar = 'x';
+        char newChar = 'f';
+
+        String newString = originalString.replace(oldChar, newChar);
+
+        System.out.println("Original string: " + originalString);
+        System.out.println("New String: " + newString);
+    }
+}
+25. Replace each substring that matches a given regular expression with the given replacement:
+ 
+public class ReplaceSubstring {
+    public static void main(String[] args) {
+        String originalString = "The quick brown fox jumps over the lazy dog.";
+
+        String regex = "fox";
+        String replacement = "cat";
+
+        String newString = originalString.replaceAll(regex, replacement);
+
+        System.out.println("Original string: " + originalString);
+        System.out.println("New String: " + newString);
+    }
+}
+
+
+26. Check whether a given string starts with another string:
+ 
+public class StartsWith {
+    public static void main(String[] args) {
+        String string1 = "Red is favorite color.";
+        String string2 = "Red";
+
+        System.out.println(string1 + " starts with " + string2 + "? " + string1.startsWith(string2));
+
+        String string3 = "Orange is also my favorite color.";
+        System.out.println(string3 + " starts with " + string2 + "? " + string3.startsWith(string2));
+    }
+}
+27. Get a substring of a given string at two specified positions:
+ 
+public class SubstringAtPositions {
+    public static void main(String[] args) {
+        String originalString = "The quick brown fox jumps over the lazy dog.";
+        int start = 10;
+        int end = 25;
+
+        String substring = originalString.substring(start, end);
+
+        System.out.println("old = " + originalString);
+        System.out.println("new = " + substring);
+    }
+}
+28. Create a character array containing a string:
+ 
+public class StringToCharArray {
+    public static void main(String[] args) {
+        String originalString = "Java Exercises.";
+
+        char[] charArray = originalString.toCharArray();
+
+        for (char c : charArray) {
+            System.out.print(c);
+        }
+        System.out.println();
+    }
+}
+29. Convert all characters in a string to lowercase:
+ 
+public class ToLowerCase {
+    public static void main(String[] args) {
+        String originalString = "The Quick BroWn FoX!";
+
+        String lowercaseString = originalString.toLowerCase();
+
+        System.out.println("Original String: " + originalString);
+        System.out.println("String in lowercase: " + lowercaseString);
+    }
+}
+30. Convert all characters in a string to uppercase:
+ 
+public class ToUpperCase {
+    public static void main(String[] args) {
+        String originalString = "The Quick BroWn FoX!";
+
+        String uppercaseString = originalString.toUpperCase();
+
+        System.out.println("Original String: " + originalString);
+        System.out.println("String in uppercase: " + uppercaseString);
+    }
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Java Regular Expression  
+ 
+
+1. Write a Java program to check whether a string contains only a certain set of characters (in this case a-z, A-Z and 0-9).
+ 
+
+2. Write a Java program that matches a string that has a p followed by zero or more q's.
+ 
+
+3. Write a Java program to find sequences of lowercase letters joined by an underscore.
+ 
+
+4. Write a Java program to find the sequence of one upper case letter followed by lower case letters.
+ 
+
+5. Write a Java program that matches a string with a 'p' followed by anything ending in 'q'.
+ 
+
+6. Write a Java program to check if a word contains the character 'g' in a given string.
+ 
+
+7. Write a Java program that matches a word containing 'g', not at the start or end of the word.
+ 
+
+8. Write a Java program to match a string containing only upper and lowercase letters, numbers, and underscores.
+ 
+
+9. Write a Java program where a string starts with a specific number.
+ 
+
+10. Write a Java program to remove leading zeros from a given IP address.
+ 
+
+
+
+
+1. Check whether a string contains only a certain set of characters (a-z, A-Z, and 0-9):
+ 
+public class CheckCharacterSet {
+    public static void main(String[] args) {
+        String inputString = "aAbB123";
+
+        boolean containsOnlyAllowedChars = inputString.matches("[a-zA-Z0-9]+");
+
+        if (containsOnlyAllowedChars) {
+            System.out.println("The string contains only a-z, A-Z, and 0-9.");
+        } else {
+            System.out.println("The string contains characters other than a-z, A-Z, and 0-9.");
+        }
+    }
+}
+2. Match a string that has a 'p' followed by zero or more 'q's:
+ 
+public class MatchPFollowedByQ {
+    public static void main(String[] args) {
+        String inputString = "pqqqq";
+
+        boolean matchesPattern = inputString.matches("p[q]*");
+
+        if (matchesPattern) {
+            System.out.println("The string has a 'p' followed by zero or more 'q's.");
+        } else {
+            System.out.println("The string does not match the specified pattern.");
+        }
+    }
+}
+3. Find sequences of lowercase letters joined by an underscore:
+ 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class FindLowercaseSequences {
+    public static void main(String[] args) {
+        String inputString = "abc_def_ghi";
+
+        Pattern pattern = Pattern.compile("[a-z]+(_[a-z]+)*");
+        Matcher matcher = pattern.matcher(inputString);
+
+        if (matcher.matches()) {
+            System.out.println("Found sequences of lowercase letters joined by an underscore.");
+        } else {
+            System.out.println("No match found for the specified pattern.");
+        }
+    }
+}
+4. Find the sequence of one uppercase letter followed by lowercase letters:
+ 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class UppercaseFollowedByLowercase {
+    public static void main(String[] args) {
+        String inputString = "Abcd";
+
+        Pattern pattern = Pattern.compile("[A-Z][a-z]+");
+        Matcher matcher = pattern.matcher(inputString);
+
+        if (matcher.matches()) {
+            System.out.println("Found the sequence of one uppercase letter followed by lowercase letters.");
+        } else {
+            System.out.println("No match found for the specified pattern.");
+        }
+    }
+}
+5. Match a string with a 'p' followed by anything ending in 'q':
+ 
+public class MatchPFollowedByAnythingEndingInQ {
+    public static void main(String[] args) {
+        String inputString = "panythingendinginq";
+
+        boolean matchesPattern = inputString.matches("p.*q");
+
+        if (matchesPattern) {
+            System.out.println("The string has a 'p' followed by anything ending in 'q'.");
+        } else {
+            System.out.println("The string does not match the specified pattern.");
+        }
+    }
+}
+
+
+
+6. Check if a word contains the character 'g' in a given string:
+ 
+public class ContainsCharacterG {
+    public static void main(String[] args) {
+        String inputString = "This is a sample string";
+
+        boolean containsG = inputString.contains("g");
+
+        if (containsG) {
+            System.out.println("The word contains the character 'g'.");
+        } else {
+            System.out.println("The word does not contain the character 'g'.");
+        }
+    }
+}
+7. Match a word containing 'g', not at the start or end of the word:
+ 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class WordContainingG {
+    public static void main(String[] args) {
+        String inputString = "This is a sample string with a word containing g";
+
+        Pattern pattern = Pattern.compile("\\b\\w*g\\w*\\b");
+        Matcher matcher = pattern.matcher(inputString);
+
+        if (matcher.find()) {
+            System.out.println("Found a word containing 'g' not at the start or end.");
+        } else {
+            System.out.println("No match found for the specified pattern.");
+        }
+    }
+}
+8. Match a string containing only upper and lowercase letters, numbers, and underscores:
+ 
+public class MatchAlphanumericUnderscore {
+    public static void main(String[] args) {
+        String inputString = "Abc_123";
+
+        boolean matchesPattern = inputString.matches("[a-zA-Z0-9_]+");
+
+        if (matchesPattern) {
+            System.out.println("The string contains only upper and lowercase letters, numbers, and underscores.");
+        } else {
+            System.out.println("The string does not match the specified pattern.");
+        }
+    }
+}
+9. String starts with a specific number:
+ 
+public class StartsWithNumber {
+    public static void main(String[] args) {
+        String inputString = "123abc";
+
+        boolean startsWithNumber = Character.isDigit(inputString.charAt(0));
+
+        if (startsWithNumber) {
+            System.out.println("The string starts with a specific number.");
+        } else {
+            System.out.println("The string does not start with a number.");
+        }
+    }
+}
+10. Remove leading zeros from a given IP address:
+ 
+public class RemoveLeadingZerosFromIPAddress {
+    public static void main(String[] args) {
+        String ipAddress = "192.001.003.004";
+
+        String[] octets = ipAddress.split("\\.");
+        StringBuilder result = new StringBuilder();
+
+        for (String octet : octets) {
+            int value = Integer.parseInt(octet);
+            result.append(value).append(".");
+        }
+
+        result.setLength(result.length() - 1); // Remove the trailing dot
+
+        System.out.println("Original IP address: " + ipAddress);
+        System.out.println("IP address without leading zeros: " + result.toString());
+    }
+}
