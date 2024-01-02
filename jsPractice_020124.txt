@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Variables</h1>
+
+<p>In this example, x, y, and z are undeclared.</p>
+<p>They are automatically declared when first used.</p>
+
+<p id="demo"></p>
+
+<script>
+x = 5;
+y = 6;
+z = x + y;
+document.getElementById("demo").innerHTML =
+"The value of z is: " + z;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Variables</h1>
+
+<p>In this example, x, y, and z are variables.</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 5;
+let y = 6;
+let z = x + y;
+document.getElementById("demo").innerHTML =
+"The value of z is: " + z;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Variables</h1>
+
+<p>In this example, x, y, and z are variables.</p>
+
+<p id="demo"></p>
+
+<script>
+const x = 5;
+const y = 6;
+const z = x + y;
+document.getElementById("demo").innerHTML =
+"The value of z is: " + z;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>In this example, price1, price2, and total are variables.</p>
+
+<p id="demo"></p>
+
+<script>
+const price1 = 5;
+const price2 = 6;
+let total = price1 + price2;
+document.getElementById("demo").innerHTML =
+"The total is: " + total;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Variables</h1>
+
+<p>You can declare many variables in one statement.</p>
+
+<p id="demo"></p>
+
+<script>
+let person = "John Doe", carName = "Volvo", price = 200;
+document.getElementById("demo").innerHTML = carName;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>You can declare many variables in one statement.</p>
+
+<p id="demo"></p>
+
+<script>
+let person = "John Doe",
+carName = "Volvo",
+price = 200;
+document.getElementById("demo").innerHTML = carName;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>The result of adding 2 + 3 + "5" is:</p>
+<p id="demo"></p>
+
+<script>
+let x = 2 + 3 + "5";
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>The result of adding 2 + 3 + "5" is:</p>
+<p id="demo"></p>
+
+<script>
+let x = 2 + 3 + "5";
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>The result of adding "John" + " " + "Doe" is:</p>
+<p id="demo"></p>
+
+<script>
+let x = "John" + " " + "Doe";
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>The result of adding "5" + 2 + 3 is:</p>
+<p id="demo"></p>
+
+<script>
+let x = "5" + 2 + 3;
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>The dollar sign is treated as a letter in JavaScript names.</p>
+
+<p id="demo"></p>
+
+<script>
+let $$$ = 2;
+let $myMoney = 5;
+document.getElementById("demo").innerHTML = $$$ + $myMoney;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Redeclaring a Variable Using let</h2>
+
+<p id="demo"></p>
+
+<script>
+let  x = 10;
+// Here x is 10
+
+{  
+  let x = 2;
+  // Here x is 2
+}
+
+// Here x is 10
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Redeclaring a Variable Using var</h2>
+
+<p id="demo"></p>
+
+<script>
+var  x = 10;
+// Here x is 10
+
+{  
+var x = 2;
+// Here x is 2
+}
+
+// Here x is 2
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript let</h2>
+
+<p>Redeclaring a variable with <b>let</b>, in another scope, or in another block, is allowed:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 2;   // Allowed
+
+{
+  let x = 3;   // Allowed
+}
+
+{
+  let x = 4;   // Allowed
+}
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript let</h2>
+
+<p>Redeclaring a JavaScript variable with <b>var</b> is allowed anywhere in a program:</p>
+
+<p id="demo"></p>
+
+<script>
+var x = 2;
+// Now x is 2
+
+var x = 3;
+// Now x is 3
+
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript const</h2>
+
+<p id="demo"></p>
+
+<script>
+try {
+  const PI = 3.141592653589793;
+  PI = 3.14;
+}
+catch (err) {
+  document.getElementById("demo").innerHTML = err;
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Hoisting</h2>
+<p>With <b>let</b>, you cannot use a variable before it is declared.</p>
+<p id="demo"></p>
+
+<script>
+try {
+  carName = "Saab";
+  let carName = "Volvo";
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err;
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Hoisting</h2>
+<p>With <b>let</b>, you cannot use a variable before it is declared.</p>
+<p id="demo"></p>
+
+<script>
+try {
+  carName = "Saab";
+  let carName = "Volvo";
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err;
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Hoisting</h2>
+
+<p>With <b>var</b>, you can use a variable before it is declared:</p>
+
+<p id="demo"></p>
+
+<script>
+carName = "Volvo";
+document.getElementById("demo").innerHTML = carName;
+var carName;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Template Literals</h2>
+
+<p>With back-ticks, you can use both single and double quotes inside a string:</p>
+
+<p id="demo"></p>
+
+<p>Template literals are not supported in Internet Explorer.</p>
+
+<script>
+let text = `He's often called "Johnny"`;
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>If you add a numeric string and a number, the result will be a concatenated string:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = "10";
+let y = 20;
+document.getElementById("demo").innerHTML = "The result is: " + x + y;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>If you add a number and a numeric string, the result will be a concatenated string:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+let y = "20";
+let z = x + y;
+document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>If you add two numeric strings, the result will be a concatenated string:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = "10";
+let y = "20";
+let z = x + y;
+document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>If you use NaN in a mathematical operation, the result will also be NaN:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = NaN;
+let y = 5;
+document.getElementById("demo").innerHTML = x + y;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>You can use the global JavaScript function isNaN() to find out if a value is not a number:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 100 / "Apple";
+document.getElementById("demo").innerHTML = isNaN(x);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>A number divided by a non-numeric string becomes NaN (Not a Number):</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 100 / "Apple";
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>JavaScript will NOT convert strings to numbers when adding:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = "100";
+let y = "10";
+let z = x + y;   
+document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>JavaScript will NOT convert strings to numbers when adding:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = "100";
+let y = "10";
+let z = x + y;   
+document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>JavaScript will try to convert strings to numbers when multiplying:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = "100";
+let y = "10";
+let z = x * y;   
+document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>JavaScript will try to convert strings to numbers when dividing:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = "100";
+let y = "10";
+let z = x / y;   
+document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>A common mistake is to expect this result to be 102030:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+let y = 20;
+let z = "30";
+let result = x + y + z;
+document.getElementById("demo").innerHTML = result;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>A common mistake is to expect this result to be 30:</p>
+
+<p id="demo"></p>
+
+<script>
+var x = 10;
+var y = 20;
+document.getElementById("demo").innerHTML =
+"The result is: " + x + y;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>If you add a number and a numeric string, the result will be a concatenated string:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+let y = "20";
+let z = x + y;
+document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p id="demo"></p>
+
+<script>
+// x is a number
+let x = 123;
+
+// y is a Number object
+let y = new Number(123);
+
+document.getElementById("demo").innerHTML = typeof x + "<br>" + typeof y;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>Numeric constants, preceded by 0x, are interpreted as hexadecimal:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 0xFF;
+document.getElementById("demo").innerHTML = "0xFF = " + x;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>Division by zero generates Infinity;</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 2/0;
+let y = -2/0;
+document.getElementById("demo").innerHTML = x + "<br>" + y;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>Infinity is returned if you calculate a number outside the largest possible number:</p>
+
+<p id="demo"></p>
+
+<script>
+let myNumber = 2; 
+let txt = "";
+while (myNumber != Infinity) {
+   myNumber = myNumber * myNumber;
+   txt = txt + myNumber + "<br>";
+}
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>If you use NaN in a mathematical operation, the result will also be NaN:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = NaN;
+let y = 5;
+document.getElementById("demo").innerHTML = x + y;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>JavaScript objects cannot be compared:</p>
+
+<p id="demo"></p>
+
+<script>
+// x is an object
+let x = new Number(500);
+
+// y is an object
+let y = new Number(500);
+
+document.getElementById("demo").innerHTML = (x===y);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p id="demo"></p>
+
+<script>
+// x is a number
+let x = 123;
+
+// y is a Number object
+let y = new Number(123);
+
+document.getElementById("demo").innerHTML = typeof x + "<br>" + typeof y;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+
+<p id="demo"></p>
+
+<script>
+const cars = [];
+cars[0]= "Saab";
+cars[1]= "Volvo";
+cars[2]= "BMW";
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>Bracket Indexing</h2>
+
+<p>JavaScript array elements are accessed using numeric indexes (starting from 0).</p>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["Saab", "Volvo", "BMW"];
+cars[0] = "Opel";
+document.getElementById("demo").innerHTML = cars;
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>The forEach() Method</h2>
+
+<p>Call a function once for each array element:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+document.getElementById("demo").innerHTML = txt;
+
+function myFunction(value, index, array) {
+  txt += value + "<br>"; 
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Math Constants</h2>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+"<p><b>Math.E:</b> " + Math.E + "</p>" +
+"<p><b>Math.PI:</b> " + Math.PI + "</p>" +
+"<p><b>Math.SQRT2:</b> " + Math.SQRT2 + "</p>" +
+"<p><b>Math.SQRT1_2:</b> " + Math.SQRT1_2 + "</p>" +
+"<p><b>Math.LN2:</b> " + Math.LN2 + "</p>" +
+"<p><b>Math.LN10:</b> " + Math.LN10 + "</p>" +
+"<p><b>Math.LOG2E:</b> " + Math.LOG2E + "</p>" +
+"<p><b>Math.Log10E:</b> " + Math.LOG10E + "</p>";
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For Loop</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+
+let i = 0;
+let len = cars.length;
+let text = "";
+
+for (; i < len; ) {
+  text += cars[i] + "<br>";
+  i++;
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For Loop</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i = 2;
+let len = cars.length;
+let text = "";
+
+for (; i < len; i++) {
+  text += cars[i] + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Operators</h1>
+<h2>The typeof Operator</h2>
+<p>Variables can be emptied if you set the value to <b>undefined</b>.</p>
+
+<p id="demo"></p>
+
+<script>
+let car = "Volvo";
+car = undefined;
+
+document.getElementById("demo").innerHTML = car + "<br>" + typeof car;
+</script>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Functions</h1>
+
+<p>Call a function which performs a calculation and returns the result:</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction(p1, p2) {
+  return p1 * p2;
+}
+
+let result = myFunction(4, 3);
+document.getElementById("demo").innerHTML = result;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+
+<p>Invoke (call) a function that converts from Fahrenheit to Celsius:</p>
+<p id="demo"></p>
+
+<script>
+function toCelsius(f) {
+  return (5/9) * (f-32);
+}
+
+let value = toCelsius(77);
+document.getElementById("demo").innerHTML = value;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Functions</h1>
+
+<p>Outside myFunction() carName is undefined.</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+let text = "Outside: " + typeof carName;
+document.getElementById("demo1").innerHTML = text;
+
+function myFunction() {
+  let carName = "Volvo";
+  let text = "Inside: " + typeof carName + " " + carName; 
+  document.getElementById("demo2").innerHTML = text;
+}
+
+myFunction();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML = "The car type is " + car.color;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML = "The car type is " + car.color;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript HTML Events</h1>
+<h2>The onclick Attribute</h2>
+
+<button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
+
+<p id="demo"></p>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript HTML Events</h1>
+<h2>The onclick Attribute</h2>
+
+<button onclick="this.innerHTML=Date()">The time is?</button>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The length Property</h2>
+
+<p>The length of the string is:</p>
+<p id="demo"></p>
+
+<script>
+let a="aaaa";
+let b=a.length;
+document.getElementById("demo").innerHTML=b;
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+
+<p>The escape sequence \" inserts a double quote in a string.</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "We are the so-called \"Vikings\" from the north.";
+document.getElementById("demo").innerHTML = text; 
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+
+<p id="demo"></p>
+
+<script>
+// x is a string
+let x = "John";
+
+// y is an object
+let y = new String("John");
+
+document.getElementById("demo").innerHTML =
+typeof x + "<br>" + typeof y;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Statements</h2>
+
+<p>
+The best place to break a code line is after an operator or a comma.
+</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML =
+"Hello Dolly!";
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The length Property</h2>
+
+<p>The length of the string is:</p>
+<p id="demo"></p>
+
+<script>
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.getElementById("demo").innerHTML = text.length;
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The slice() Method</h2>
+
+<p>The sliced (extracted) part of the string is:</p>
+<p id="demo"></p>
+
+<script>
+let text = "Apple, Banana, Kiwi";
+let part = text.slice(7,13);
+document.getElementById("demo").innerHTML = part; 
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>Display the first array element, after a string split:</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "a,b,c,d,e,f";
+const myArray = text.split(",");
+document.getElementById("demo").innerHTML = myArray[0];
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String</h1>
+<h2>The charCodeAt() Method</h2>
+
+<p>The charCodeAt() method returns the unicode of the character at a given position in a string:</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "HELLO WORLD";
+document.getElementById("demo").innerHTML = text.charCodeAt(0);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<p>Property access on strings:</p>
+
+<p>The first character in the string is:</p>
+<p id="demo"></p>
+
+<script>
+let text = "HELLO WORLD";
+document.getElementById("demo").innerHTML = text[0];
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The padEnd() Method</h2>
+
+<p>The padEnd() method pads a string at the end.</p>
+<p>It pads the string with another string (multiple times) until it reaches a given length.</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "5";
+text = text.padEnd(4,"0");
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The trimStart() Method</h2>
+
+<p id="demo"></p>
+
+<script>
+let text1 = "     Hello World!     ";
+let text2 = text1.trimStart();
+
+document.getElementById("demo").innerHTML =
+"Length text1 = " + text1.length + "<br>Length text2 = " + text2.length;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Strings</h1>
+<h2>The replaceAll() Method</h2>
+
+<p>ES2021 intoduced the string method replaceAll().</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "I love cats. Cats are very easy to love. Cats are very popular."
+text = text.replaceAll("Cats","Dogs");
+text = text.replaceAll("cats","dogs");
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>Replace all occurrences of "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Please visit Microsoft and Microsoft!</p>
+
+<script>
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML; 
+  document.getElementById("demo").innerHTML =
+  text.replace(/Microsoft/g,"W3Schools");
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Please visit Microsoft!</p>
+
+<script>
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.replace("Microsoft","W3Schools");
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>The substr() method extract a part of a string and returns the extracted parts in a new string:</p>
+
+<p id="demo"></p>
+
+<script>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.substr(-4);
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>The substr() method extract a part of a string
+and returns the extracted parts in a new string:</p>
+
+<p id="demo"></p>
+
+<script>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.substr(7,6);
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>The substring() method extract a part of a string and returns the extracted parts in a new string:</p>
+
+<p id="demo"></p>
+
+<script>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.substring(7,13);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The indexOf() Method</h2>
+
+<p>The indexOf() method returns the position of the first occurrence of a string in a string.</p>
+<p>The position of the first occurrence of "locate" is:</p>
+<p id="demo"></p>
+
+<script>
+let text = "Please locate where 'locate' occurs!";
+let index = text.indexOf("locate");
+document.getElementById("demo").innerHTML = index; 
+</script>
+
+</body>
+</html>
