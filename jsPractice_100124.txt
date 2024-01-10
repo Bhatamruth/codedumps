@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Strings</h2>
+
+<p>Strings are written with quotes. You can use single or double quotes:</p>
+
+<p id="demo"></p>
+
+<script>
+let carName1 = "Volvo XC60";
+let carName2 = 'Volvo XC60';
+
+document.getElementById("demo").innerHTML =
+carName1 + "<br>" + 
+carName2; 
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Strings</h2>
+
+<p>You can use quotes inside a string, as long as they don't match the quotes surrounding the string:</p>
+
+<p id="demo"></p>
+
+<script>
+let answer1 = "It's alright";
+let answer2 = "He is called 'Johnny'";
+let answer3 = 'He is called "Johnny"';
+
+document.getElementById("demo").innerHTML =
+answer1 + "<br>" + 
+answer2 + "<br>" + 
+answer3;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Numbers</h2>
+
+<p>Extra large or extra small numbers can be written with scientific (exponential) notation:</p>
+
+<p id="demo"></p>
+
+<script>
+let y = 123e5;
+let z = 123e-5;
+
+document.getElementById("demo").innerHTML =
+y + "<br>" + z;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  firstName : "John",
+  lastName  : "Doe",
+  age     : 50,
+  eyeColor  : "blue"
+};
+
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Operators</h1>
+<h2>The typeof Operator</h2>
+<p>The typeof operator returns the type of a variable or an expression.</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+typeof "" + "<br>" +
+typeof "John" + "<br>" + 
+typeof "John Doe";
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Operators</h1>
+<h2>The typeof Operator</h2>
+<p>The typeof operator returns the type of a variable or an expression.</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+typeof 0 + "<br>" + 
+typeof 314 + "<br>" +
+typeof 3.14 + "<br>" +
+typeof (3) + "<br>" +
+typeof (3 + 4);
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arithmetic</h2>
+<p>A typical arithmetic operation takes two numbers and produces a new number.</p>
+
+<p id="demo">
+<script>
+let a = 16+"aa";
+document.getElementById("demo").innerHTML=a;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Data Types</h2>
+
+<p>JavaScript has dynamic types. This means that the same variable can be used to hold different data types:</p>
+
+<p id="demo"></p>
+
+<script>
+let x;         // Now x is undefined
+x = 5;         // Now x is a Number
+x = "John";    // Now x is a String
+
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>JavaScript evaluates expressions from left to right. Different sequences can produce different results:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = "Volvo" + 16 + 4;
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>JavaScript evaluates expressions from left to right. Different sequences can produce different results:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 16 + 4 + "Volvo";
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>When adding a string and a number, JavaScript will treat the number as a string.</p>
+
+<p id="demo"></p>
+
+<script>
+let x = "Volvo" + 16;
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>When adding a number and a string, JavaScript will treat the number as a string.</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 16 + "Volvo";
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>The ??= Operator</h2>
+<p>The ??= operator is used between two values. If the first value is undefined or null, the second value is assigned.</p>
+
+<p id="demo"></p>
+
+<script>
+let x;
+document.getElementById("demo").innerHTML = x ??= 5; 
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Logical OR Assignment</h2>
+<h3>The ||= Operator</h3>
+
+<p>If the first value is false, the second value is assigned:</p>
+<p id="demo"></p>
+
+<script>
+let x = undefined;
+x ||= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Logical AND Assignment</h2>
+<h3>The &&= Operator</h3>
+<p>If the first value is true, the second value is assigned.</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 100;
+x &&= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Bitwise XOR Assignment</h2>
+<h3>The ^= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 100;
+x ^= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Bitwise OR Assignment</h2>
+<h3>The |= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 100;
+x |= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Bitwise AND Assignment</h2>
+<h3>The &= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 100;
+x &= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Right Shift Assignment</h2>
+<h3>The >>>= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = -100;
+x >>>= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Right Shift Assignment</h2>
+<h3>The >>= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = -100;
+x >>= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Left Shift Assignment</h2>
+<h3>The <<= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = -100;
+x <<= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Remainder Assignment</h2>
+<h3>The %= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+x %= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Division Assignment</h2>
+<h3>The /= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+x /= 5;
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Exponentiation Assignment</h2>
+<h3>The **= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+x **= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Multiplication Assignment</h2>
+<h3>The *= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+x *= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Subtraction Assignment</h2>
+<h3>The -= Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+x -= 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Addition Assignment</h2>
+<h3>The += Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let text = "Hello";
+text += " World";
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Addition Assignment</h2>
+<h3>The += Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+x += 5;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Simple Assignment</h2>
+<h3>The = Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let y = 50
+let x = 10 + y;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Assignments</h1>
+<h2>Simple Assignment</h2>
+<h3>The = Operator</h3>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+document.getElementById("demo").innerHTML = "Value of x is: " + x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Operators</h1>
+<h2>The typeof Operator</h2>
+<p>Variables can be emptied if you set the value to <b>undefined</b>.</p>
+
+<p id="demo"></p>
+
+<script>
+let car = "Volvo";
+car = undefined;
+
+document.getElementById("demo").innerHTML = car + "<br>" + typeof car;
+</script>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Functions</h1>
+
+<p>Call a function which performs a calculation and returns the result:</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction(p1, p2) {
+  return p1 * p2;
+}
+
+let result = myFunction(4, 3);
+document.getElementById("demo").innerHTML = result;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+
+<p>Invoke (call) a function that converts from Fahrenheit to Celsius:</p>
+<p id="demo"></p>
+
+<script>
+function toCelsius(f) {
+  return (5/9) * (f-32);
+}
+
+let value = toCelsius(77);
+document.getElementById("demo").innerHTML = value;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Functions</h1>
+
+<p>Outside myFunction() carName is undefined.</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+let text = "Outside: " + typeof carName;
+document.getElementById("demo1").innerHTML = text;
+
+function myFunction() {
+  let carName = "Volvo";
+  let text = "Inside: " + typeof carName + " " + carName; 
+  document.getElementById("demo2").innerHTML = text;
+}
+
+myFunction();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML = "The car type is " + car.color;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML = "The car type is " + car.color;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript HTML Events</h1>
+<h2>The onclick Attribute</h2>
+
+<button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
+
+<p id="demo"></p>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript HTML Events</h1>
+<h2>The onclick Attribute</h2>
+
+<button onclick="this.innerHTML=Date()">The time is?</button>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The length Property</h2>
+
+<p>The length of the string is:</p>
+<p id="demo"></p>
+
+<script>
+let a="aaaa";
+let b=a.length;
+document.getElementById("demo").innerHTML=b;
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+
+<p>The escape sequence \" inserts a double quote in a string.</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "We are the so-called \"Vikings\" from the north.";
+document.getElementById("demo").innerHTML = text; 
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+
+<p id="demo"></p>
+
+<script>
+// x is a string
+let x = "John";
+
+// y is an object
+let y = new String("John");
+
+document.getElementById("demo").innerHTML =
+typeof x + "<br>" + typeof y;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Statements</h2>
+
+<p>
+The best place to break a code line is after an operator or a comma.
+</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML =
+"Hello Dolly!";
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The length Property</h2>
+
+<p>The length of the string is:</p>
+<p id="demo"></p>
+
+<script>
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.getElementById("demo").innerHTML = text.length;
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The slice() Method</h2>
+
+<p>The sliced (extracted) part of the string is:</p>
+<p id="demo"></p>
+
+<script>
+let text = "Apple, Banana, Kiwi";
+let part = text.slice(7,13);
+document.getElementById("demo").innerHTML = part; 
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>Display the first array element, after a string split:</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "a,b,c,d,e,f";
+const myArray = text.split(",");
+document.getElementById("demo").innerHTML = myArray[0];
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String</h1>
+<h2>The charCodeAt() Method</h2>
+
+<p>The charCodeAt() method returns the unicode of the character at a given position in a string:</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "HELLO WORLD";
+document.getElementById("demo").innerHTML = text.charCodeAt(0);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<p>Property access on strings:</p>
+
+<p>The first character in the string is:</p>
+<p id="demo"></p>
+
+<script>
+let text = "HELLO WORLD";
+document.getElementById("demo").innerHTML = text[0];
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The padEnd() Method</h2>
+
+<p>The padEnd() method pads a string at the end.</p>
+<p>It pads the string with another string (multiple times) until it reaches a given length.</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "5";
+text = text.padEnd(4,"0");
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The trimStart() Method</h2>
+
+<p id="demo"></p>
+
+<script>
+let text1 = "     Hello World!     ";
+let text2 = text1.trimStart();
+
+document.getElementById("demo").innerHTML =
+"Length text1 = " + text1.length + "<br>Length text2 = " + text2.length;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Strings</h1>
+<h2>The replaceAll() Method</h2>
+
+<p>ES2021 intoduced the string method replaceAll().</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "I love cats. Cats are very easy to love. Cats are very popular."
+text = text.replaceAll("Cats","Dogs");
+text = text.replaceAll("cats","dogs");
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>Replace all occurrences of "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Please visit Microsoft and Microsoft!</p>
+
+<script>
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML; 
+  document.getElementById("demo").innerHTML =
+  text.replace(/Microsoft/g,"W3Schools");
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Please visit Microsoft!</p>
+
+<script>
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.replace("Microsoft","W3Schools");
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>The substr() method extract a part of a string and returns the extracted parts in a new string:</p>
+
+<p id="demo"></p>
+
+<script>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.substr(-4);
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>The substr() method extract a part of a string
+and returns the extracted parts in a new string:</p>
+
+<p id="demo"></p>
+
+<script>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.substr(7,6);
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>The substring() method extract a part of a string and returns the extracted parts in a new string:</p>
+
+<p id="demo"></p>
+
+<script>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.substring(7,13);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The indexOf() Method</h2>
+
+<p>The indexOf() method returns the position of the first occurrence of a string in a string.</p>
+<p>The position of the first occurrence of "locate" is:</p>
+<p id="demo"></p>
+
+<script>
+let text = "Please locate where 'locate' occurs!";
+let index = text.indexOf("locate");
+document.getElementById("demo").innerHTML = index; 
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For Loop</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i = 2;
+let len = cars.length;
+let text = "";
+
+for (; i < len; i++) {
+  text += cars[i] + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For Loop</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i, len, text;
+for (i = 0, len = cars.length, text = ""; i < len; i++) {
+  text += cars[i] + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For Loop</h2>
+
+<p id="demo"></p>
+
+<script>
+let text = "";
+
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For Loop</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+
+let text = "";
+for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript let</h2>
+
+<p id="demo"></p>
+
+<script>
+let i = 5;
+for (let i = 0; i < 10; i++) {
+  // some statements
+}
+document.getElementById("demo").innerHTML = i;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript let</h2>
+
+<p id="demo"></p>
+
+<script>
+var i = 5;
+for (var i = 0; i < 10; i++) {
+  // some statements
+}
+document.getElementById("demo").innerHTML = i;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+<h2>The Arrow Function</h2>
+
+<p>This example shows an Arrow Function without the brackets or the return keyword.</p>
+
+<p id="demo"></p>
+
+<script>
+let hello = "";
+
+hello = () => "Hello World!";
+
+document.getElementById("demo").innerHTML = hello();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+
+<p>This example shows the syntax of a function, without the use of arrow function syntax.</p>
+
+<p id="demo"></p>
+
+<script>
+let hello = "";
+
+hello = function() {
+  return "Hello World!";
+}
+
+document.getElementById("demo").innerHTML = hello();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+<h2>The Arrow Function</h2>
+
+<p>This example shows the syntax of an Arrow Function, and how to use it.</p>
+
+<p id="demo"></p>
+
+<script>
+let myFunction = (a, b) => a * b;
+document.getElementById("demo").innerHTML = myFunction(4, 5);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+<h2>The Arrow Function</h2>
+
+<p>This example shows the syntax of an Arrow Function, and how to use it.</p>
+
+<p id="demo"></p>
+
+<script>
+let myFunction = (a, b) => a * b;
+document.getElementById("demo").innerHTML = myFunction(4, 5);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The JavaScript <i>this</i> Keyword</h1>
+<p>In this example, <b>this</b> refers to the <b>person</b> object.</p>
+<p>Because <b>fullName</b> is a method of the person object.</p>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+// Display data from the object:
+document.getElementById("demo").innerHTML = person.fullName();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 5; // Initialize x
+var y;   // Declare y
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x + " " + y;       // Display x and y
+
+y = 7;   // Assign 7 to y
+
+</script>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 5;  // Initialize x
+
+elem = document.getElementById("demo");      // Find an element 
+elem.innerHTML = "x is " + x + " and y is " + y;  // Display x and y
+
+var y = 7;  // Initialize y
+</script>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 5; // Initialize x
+var y = 7; // Initialize y
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x + " " + y;       // Display x and y
+
+</script>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Hoisting</h2>
+
+<p>With <b>const</b>, you cannot use a variable before it is declared.</p>
+<p>Try to remove the //.</p>
+
+<p id="demo"></p>
+
+<script>
+carName = "Volvo";
+//const carName;
+document.getElementById("demo").innerHTML = carName;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x; // Declare x
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x;           // Display x in the element
+</script>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x; // Declare x
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x;           // Display x in the element
+</script>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x;           // Display x in the element
+
+var x; // Declare x
+</script>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For Of Loop</h2>
+
+<p>The for of statement loops through the values of an iterable object.</p>
+
+<p id="demo"></p>
+
+<script>
+let language = "JavaScript";
+
+let text = "";
+for (let x of language) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For Of Loop</h2>
+<p>The for of statement loops through the values of any iterable object:</p>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["BMW", "Volvo", "Mini"];
+
+let text = "";
+for (let x of cars) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>The forEach() Method</h2>
+
+<p>Call a function once for each array element:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+document.getElementById("demo").innerHTML = txt;
+
+function myFunction(value) {
+  txt += value + "<br>"; 
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>For In Loops</h2>
+<p>The for in statement can loops over array values:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+for (let x in numbers) {
+  txt += numbers[x] + "<br>"; 
+}
+
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Modules</h1>
+
+<p id="demo"></p>
+
+<script type="module">
+import message from "./message.js";
+
+document.getElementById("demo").innerHTML = message();
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Modules</h1>
+
+<p id="demo"></p>
+
+<script type="module">
+import message from "./message.js";
+
+document.getElementById("demo").innerHTML = message();
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Class Setters</h1>
+<p>When using a setter to set a property value, you do not use parantheses.</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+  get carname() {
+    return this._carname;
+  }
+}
+
+const myCar = new Car("Ford");
+myCar.carname = "Volvo";
+document.getElementById("demo").innerHTML = myCar.carname;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Class Getter/Setter</h1>
+<p>Using an underscore character is common practice when using getters/setters in JavaScript, but not mandatory, you can name them anything you like, but not the same as the property name.</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  get carname() {
+    return this._carname;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+}
+
+const myCar = new Car("Ford");
+
+document.getElementById("demo").innerHTML = myCar.carname;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Class Getter/Setter</h1>
+<p>A demonstration of how to add getters and setters in a class, and how to use the getter to get the property value.</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  get cnam() {
+    return this.carname;
+  }
+  set cnam(x) {
+    this.carname = x;
+  }
+}
+
+const myCar = new Car("Ford");
+
+document.getElementById("demo").innerHTML = myCar.cnam;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Class Inheritance</h1>
+
+<p>Use the "extends" keyword to inherit all methods from another class.</p>
+<p>Use the "super" method to call the parent's constructor function.</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+
+class Model extends Car {
+  constructor(brand, mod) {
+    super(brand);
+    this.model = mod;
+  }
+  show() {
+    return this.present() + ', it is a ' + this.model;
+  }
+}
+
+const myCar = new Model("Ford", "Mustang");
+document.getElementById("demo").innerHTML = myCar.show();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Class Method</h1>
+<p>Pass a parameter into the "age()" method.</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(x) {
+    return x - this.year;
+  }
+}
+
+const date = new Date();
+let year = date.getFullYear();
+
+const myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML=
+"My car is " + myCar.age(year) + " years old.";
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Class Methods</h1>
+<p>How to define and use a Class method.</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+
+  }
+  age() {
+    const date = new Date();
+    return date.getFullYear() - this.year;
+  }
+}
+
+const myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML =
+"My car is " + myCar.age() + " years old.";
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Classes</h1>
+<p>Creating two car objects from a car class:</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+
+const myCar1 = new Car("Ford", 2014);
+const myCar2 = new Car("Audi", 2019);
+
+document.getElementById("demo").innerHTML =
+myCar1.name + " " + myCar2.name;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Display properties in JSON format:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+document.getElementById("demo").innerHTML = JSON.stringify(person);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Object.values() converts an object to an array.</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+document.getElementById("demo").innerHTML = Object.values(person);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Display object properties:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+};
+
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Display object properties:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+document.getElementById("demo").innerHTML = person.name + ", " + person.age + ", " + person.city;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Displaying a JavaScript object will output [object Object]:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+document.getElementById("demo").innerHTML = person;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p id="demo"></p>
+
+<script>
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+};
+person.name = function() {
+  return this.firstName + " " + this.lastName;
+};
+
+document.getElementById("demo").innerHTML =
+"My father is " + person.name(); 
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>Nested JavaScript Objects and Arrays.</h2>
+
+<p id="demo"></p>
+
+<script>
+let x = "";
+const myObj = {
+  name: "John",
+  age: 30,
+  cars: [
+    {name:"Ford", models:["Fiesta", "Focus", "Mustang"]},
+    {name:"BMW", models:["320", "X3", "X5"]},
+    {name:"Fiat", models:["500", "Panda"]}
+  ]
+}
+
+for (let i in myObj.cars) {
+  x += "<h2>" + myObj.cars[i].name + "</h2>";
+  for (let j in myObj.cars[i].models) {
+    x += myObj.cars[i].models[j] + "<br>";
+  }
+}
+
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>Nested JavaScript Objects and Arrays.</h2>
+
+<p id="demo"></p>
+
+<script>
+let x = "";
+const myObj = {
+  name: "John",
+  age: 30,
+  cars: [
+    {name:"Ford", models:["Fiesta", "Focus", "Mustang"]},
+    {name:"BMW", models:["320", "X3", "X5"]},
+    {name:"Fiat", models:["500", "Panda"]}
+  ]
+}
+
+for (let i in myObj.cars) {
+  x += "<h2>" + myObj.cars[i].name + "</h2>";
+  for (let j in myObj.cars[i].models) {
+    x += myObj.cars[i].models[j] + "<br>";
+  }
+}
+
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Access nested objects:</p>
+
+<p id="demo"></p>
+
+<script>
+const myObj = {
+  name: "John",
+  age: 30,
+  cars: {
+  car1: "Ford",
+  car2: "BMW",
+  car3: "Fiat"
+  }
+}
+
+let p1 = "cars";
+let p2 = "car2";
+document.getElementById("demo").innerHTML = myObj[p1][p2];
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Access nested objects:</p>
+
+<p id="demo"></p>
+
+<script>
+const myObj = {
+  name: "John",
+  age: 30,
+  cars: {
+  car1: "Ford",
+  car2: "BMW",
+  car3: "Fiat"
+  }
+}
+document.getElementById("demo").innerHTML = myObj["cars"]["car2"];
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Access nested objects:</p>
+
+<p id="demo"></p>
+
+<script>
+const myObj = {
+  name: "John",
+  age: 30,
+  cars: {
+  car1: "Ford",
+  car2: "BMW",
+  car3: "Fiat"
+  }
+}
+document.getElementById("demo").innerHTML = myObj.cars["car2"];
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Access nested objects:</p>
+
+<p id="demo"></p>
+
+<script>
+const myObj = {
+  name: "John",
+  age: 30,
+  cars: {
+  car1: "Ford",
+  car2: "BMW",
+  car3: "Fiat"
+  }
+}
+document.getElementById("demo").innerHTML = myObj.cars["car2"];
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Object Properties</h2>
+<p>Looping object property values:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  fname:"John",
+  lname:"Doe",
+  age:25
+}; 
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+}
+
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Creating a JavaScript Object:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {};
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 50;
+person.eyeColor = "blue"; 
+
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Creating a JavaScript Object:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>Creating an object:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {
+  firstName : "John",
+  lastName  : "Doe",
+  age     : 50,
+  eyeColor  : "blue"
+};
+
+document.getElementById("demo").innerHTML = person.firstName + " " + person.lastName;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Variables</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create and display a variable:
+let person = "John Doe";
+document.getElementById("demo").innerHTML = person;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Variables</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create and display a variable:
+let person = "John Doe";
+document.getElementById("demo").innerHTML = person;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Modules</h1>
+
+<p id="demo"></p>
+
+<script type="module">
+import message from "./message.js";
+
+document.getElementById("demo").innerHTML = message();
+
+</script>
+
+</body>
+</html>
